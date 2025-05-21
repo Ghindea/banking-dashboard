@@ -6,6 +6,10 @@ import requests
 import logging
 from datetime import timedelta
 
+# Import the client data service and routes
+from database.client_data_service import ClientDataService
+from routes.client_routes import init_client_routes
+
 # 🔄 Încarcă .env
 load_dotenv()
 print("DEBUG: .env loaded =", load_dotenv())
@@ -40,6 +44,13 @@ logging.basicConfig(
 USERS = {
     "admin": "1234"
 }
+
+# Initialize client data service
+# Update the path to match your actual file location
+client_data_service = ClientDataService("/Users/tiberiuuuf/Desktop/banking-dashboard/backend/database/data/sample_clients.csv")
+
+# Initialize client routes
+init_client_routes(app, client_data_service)
 
 # 🔐 Login → JWT
 @app.route("/login", methods=["POST"])
@@ -125,4 +136,3 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
-

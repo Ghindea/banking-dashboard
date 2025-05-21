@@ -119,3 +119,25 @@ werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on 
 2025-05-21 03:29:44,284 [WARNING]  * Debugger is active!
 2025-05-21 03:29:44,285 [INFO]  * Debugger PIN: 686-268-354
 2025-05-21 03:29:46,815 [INFO] 127.0.0.1 - - [21/May/2025 03:29:46] "GET / HTTP/1.1" 200 -
+2025-05-21 20:35:02,539 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-21 20:35:02,546 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-21 20:35:02,546 [INFO]  * Restarting with stat
+2025-05-21 20:35:03,143 [WARNING]  * Debugger is active!
+2025-05-21 20:35:03,152 [INFO]  * Debugger PIN: 115-082-001
+2025-05-21 20:35:34,826 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/app.py', reloading
+2025-05-21 20:35:34,891 [INFO]  * Restarting with stat
+2025-05-21 20:35:35,563 [WARNING]  * Debugger is active!
+2025-05-21 20:35:35,570 [INFO]  * Debugger PIN: 115-082-001
+2025-05-21 20:35:38,963 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/app.py', reloading
+2025-05-21 20:35:39,008 [INFO]  * Restarting with stat
+2025-05-21 20:35:39,371 [INFO] Loading client data from database/data/sample_clients.csv
+2025-05-21 20:35:39,545 [INFO] Loaded 20314 client IDs from CSV
+2025-05-21 20:35:39,553 [WARNING]  * Debugger is active!
+2025-05-21 20:35:39,558 [INFO]  * Debugger PIN: 115-082-001
+2025-05-21 20:36:35,187 [INFO] Loading client data from database/data/sample_clients.csv
+2025-05-21 20:36:35,359 [INFO] Loaded 20314 client IDs from CSV
+2025-05-21 20:37:36,290 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/app.py', reloading
+2025-05-21 20:37:36,422 [INFO]  * Restarting with stat
+2025-05-21 20:37:36,623 [WARNING]  * Debugger is active!
+2025-05-21 20:37:36,632 [INFO]  * Debugger PIN: 115-082-001
