@@ -82,3 +82,40 @@ werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on 
 2025-05-21 01:44:47,192 [INFO] 127.0.0.1 - - [21/May/2025 01:44:47] "POST /login HTTP/1.1" 200 -
 2025-05-21 01:44:47,200 [INFO] admin accessed /calculate-mortgage
 2025-05-21 01:44:47,780 [INFO] 127.0.0.1 - - [21/May/2025 01:44:47] "POST /calculate-mortgage HTTP/1.1" 200 -
+2025-05-21 03:24:11,266 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-21 03:24:11,267 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-21 03:24:11,268 [INFO]  * Restarting with stat
+2025-05-21 03:24:11,485 [WARNING]  * Debugger is active!
+2025-05-21 03:24:11,497 [INFO]  * Debugger PIN: 686-268-354
+2025-05-21 03:24:14,722 [INFO] 127.0.0.1 - - [21/May/2025 03:24:14] "GET / HTTP/1.1" 200 -
+2025-05-21 03:25:36,011 [INFO]  * Detected change in '/home/ghindea/bcr-hackathon/backend/app.py', reloading
+2025-05-21 03:25:36,081 [INFO]  * Restarting with stat
+2025-05-21 03:25:36,451 [WARNING]  * Debugger is active!
+2025-05-21 03:25:36,461 [INFO]  * Debugger PIN: 686-268-354
+2025-05-21 03:25:40,442 [INFO] 127.0.0.1 - - [21/May/2025 03:25:40] "GET / HTTP/1.1" 200 -
+2025-05-21 03:26:33,141 [INFO]  * Detected change in '/home/ghindea/bcr-hackathon/backend/app.py', reloading
+2025-05-21 03:26:33,212 [INFO]  * Restarting with stat
+2025-05-21 03:26:33,565 [WARNING]  * Debugger is active!
+2025-05-21 03:26:33,573 [INFO]  * Debugger PIN: 686-268-354
+2025-05-21 03:26:36,082 [INFO] 127.0.0.1 - - [21/May/2025 03:26:36] "GET / HTTP/1.1" 200 -
+2025-05-21 03:28:36,695 [INFO]  * Detected change in '/home/ghindea/bcr-hackathon/backend/app.py', reloading
+2025-05-21 03:28:36,746 [INFO]  * Restarting with stat
+2025-05-21 03:28:37,168 [WARNING]  * Debugger is active!
+2025-05-21 03:28:37,177 [INFO]  * Debugger PIN: 686-268-354
+2025-05-21 03:28:46,031 [INFO] 127.0.0.1 - - [21/May/2025 03:28:46] "GET / HTTP/1.1" 200 -
+2025-05-21 03:29:28,293 [INFO]  * Detected change in '/home/ghindea/bcr-hackathon/backend/app.py', reloading
+2025-05-21 03:29:28,356 [INFO]  * Restarting with stat
+2025-05-21 03:29:28,604 [WARNING]  * Debugger is active!
+2025-05-21 03:29:28,607 [INFO]  * Debugger PIN: 686-268-354
+2025-05-21 03:29:33,621 [INFO]  * Detected change in '/home/ghindea/bcr-hackathon/backend/app.py', reloading
+2025-05-21 03:29:33,689 [INFO]  * Restarting with stat
+2025-05-21 03:29:33,894 [WARNING]  * Debugger is active!
+2025-05-21 03:29:33,896 [INFO]  * Debugger PIN: 686-268-354
+2025-05-21 03:29:36,537 [INFO] 127.0.0.1 - - [21/May/2025 03:29:36] "GET / HTTP/1.1" 200 -
+2025-05-21 03:29:40,478 [INFO] 127.0.0.1 - - [21/May/2025 03:29:40] "GET / HTTP/1.1" 200 -
+2025-05-21 03:29:43,925 [INFO]  * Detected change in '/home/ghindea/bcr-hackathon/backend/app.py', reloading
+2025-05-21 03:29:44,012 [INFO]  * Restarting with stat
+2025-05-21 03:29:44,284 [WARNING]  * Debugger is active!
+2025-05-21 03:29:44,285 [INFO]  * Debugger PIN: 686-268-354
+2025-05-21 03:29:46,815 [INFO] 127.0.0.1 - - [21/May/2025 03:29:46] "GET / HTTP/1.1" 200 -

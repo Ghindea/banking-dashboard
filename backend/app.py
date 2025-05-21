@@ -107,7 +107,21 @@ def handle_exception(e):
 
 @app.route("/")
 def home():
-    return "API Flask este activ. Ce cauti totusi aci?"
+    try:
+        tail = request.args.get("tail", default=50, type=int)  # default: ultimele 50
+        with open("app.log", "r") as f:
+            lines = f.readlines()
+
+        # selectează ultimele N linii și inversează ordinea
+        if tail is not None:
+            lines = lines[-tail:][::-1]
+
+        return f"<pre>{''.join(lines)}</pre>"
+
+    except Exception as e:
+        logging.error("Could not read log file.")
+        return "Eroare la citirea fișierului log.", 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
