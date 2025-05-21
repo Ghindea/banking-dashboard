@@ -1,8 +1,54 @@
+"use client"
+
+import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
+import axios from "axios"
 
 export default function LoginPage() {
+  const [userId, setUserId] = useState("")
+  const [error, setError] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+    setError("")
+
+    try {
+      // For admin login, we still send a hardcoded password
+      const payload = {
+        userId: userId,
+        // Include an empty password field - backend will check if admin needs password
+        password: userId === "admin" ? "1234" : ""
+      }
+
+      // Use axios to call your backend API
+      const response = await axios.post('http://localhost:5000/login', payload)
+
+      // Store the token and user info
+      localStorage.setItem("accessToken", response.data.access_token)
+      localStorage.setItem("userType", response.data.user_type)
+
+      if (response.data.user_id) {
+        localStorage.setItem("userId", response.data.user_id)
+      }
+
+      localStorage.setItem("isAuthenticated", "true")
+
+      // Redirect to dashboard
+      router.push("/dashboard")
+    } catch (error) {
+      console.error("Login error:", error)
+      setError("Invalid user ID. Please try again.")
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
     <div className="flex min-h-screen w-full">
       {/* Left side - Login form */}
@@ -19,29 +65,39 @@ export default function LoginPage() {
             <p className="text-gray-600">Welcome back! Please enter your details.</p>
           </div>
 
-          <form className="space-y-6">
+          {error && (
+            <div className="bg-red-50 text-red-800 p-3 rounded-md border border-red-200">
+              {error}
+            </div>
+          )}
+
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="space-y-1">
               <label htmlFor="userId" className="text-sm font-medium">
-                User id
+                User ID
               </label>
-              <Input id="userId" type="text" placeholder="Enter your id" className="h-12" />
-            </div>
-
-            <div className="space-y-1">
-              <div className="flex items-center justify-between">
-                <label htmlFor="password" className="text-sm font-medium">
-                  Password
-                </label>
-                <Link href="#" className="text-sm font-medium text-georgel-blue hover:underline">
-                  Forgot password?
-                </Link>
+              <Input
+                id="userId"
+                type="text"
+                placeholder="Enter your ID"
+                className="h-12"
+                value={userId}
+                onChange={(e) => setUserId(e.target.value)}
+                required
+              />
+              <div className="text-xs text-gray-500 mt-1">
+                <p>Enter "admin" for admin access or a valid client ID.</p>
+                <p>Try <span className="font-mono">10001</span> for a sample client ID.</p>
               </div>
-              <Input id="password" type="password" placeholder="Enter your password" className="h-12" />
             </div>
 
-            <Link href="/dashboard">
-              <Button className="w-full h-12 bg-georgel-purple hover:bg-georgel-purple/90">Log in</Button>
-            </Link>
+            <Button
+              type="submit"
+              className="w-full h-12 bg-georgel-purple hover:bg-georgel-purple/90"
+              disabled={isLoading}
+            >
+              {isLoading ? "Logging in..." : "Log in"}
+            </Button>
           </form>
         </div>
       </div>

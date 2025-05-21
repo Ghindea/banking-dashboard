@@ -1,10 +1,7 @@
-// components/sidebar.tsx
-
 "use client"
 
 import type React from "react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
 import { usePathname } from "next/navigation"
 import {
   LayoutDashboard,
@@ -19,6 +16,9 @@ import {
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useSidebar } from "@/components/ui/sidebar"
+import { useAuth } from "@/context/auth-context"
+import { useState, useEffect } from "react"
+import axios from "axios"
 
 interface SidebarItem {
   title: string
@@ -66,17 +66,39 @@ const sidebarItems: SidebarItem[] = [
 
 export default function Sidebar() {
   const pathname = usePathname()
-  const router = useRouter()
   const { toggleSidebar, state } = useSidebar()
+  const { user, logout } = useAuth()
   const isCollapsed = state === "collapsed"
+  const [userName, setUserName] = useState("User")
+  const [userInitial, setUserInitial] = useState("U")
 
-  // Handle logout functionality
-  const handleLogout = () => {
-    // Clear authentication data
-    localStorage.removeItem("isAuthenticated")
-    // Redirect to login page
-    router.push("/login")
-  }
+  // Fetch user data when sidebar loads
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      if (user?.type === "client") {
+        try {
+          const response = await axios.get("http://localhost:5000/user/profile")
+          // Extract name or set default
+          if (response.data) {
+            // Assuming the response has client data
+            // Adjust these fields based on your actual data structure
+            const firstName = response.data.GPI_CLS_CODE_PT_OCCUP || "User"
+            setUserName(firstName)
+            setUserInitial(firstName.charAt(0))
+          }
+        } catch (error) {
+          console.error("Error fetching user profile:", error)
+        }
+      } else if (user?.type === "admin") {
+        setUserName("Admin")
+        setUserInitial("A")
+      }
+    }
+
+    if (user) {
+      fetchUserProfile()
+    }
+  }, [user])
 
   return (
     <div className={cn("relative", isCollapsed ? "w-16" : "w-60")}>
@@ -116,19 +138,19 @@ export default function Sidebar() {
 
         <div className={cn("p-4 mt-auto flex items-center", isCollapsed && "justify-center", "relative")}>
           <div className="h-10 w-10 bg-yellow-400 rounded-full flex items-center justify-center">
-            <span className="text-white font-bold">J</span>
+            <span className="text-white font-bold">{userInitial}</span>
           </div>
 
           {!isCollapsed && (
             <>
               <div className="ml-2 flex-1">
                 <div className="text-xs text-gray-500">Welcome back</div>
-                <div className="font-medium">Jonathan</div>
+                <div className="font-medium">{userName}</div>
               </div>
 
               {/* Logout button - visible when sidebar is expanded */}
               <button
-                onClick={handleLogout}
+                onClick={logout}
                 className="text-gray-500 hover:text-gray-700 p-1.5 rounded-full hover:bg-gray-100"
                 aria-label="Log out"
                 title="Log out"
@@ -141,7 +163,7 @@ export default function Sidebar() {
           {/* Logout button - visible when sidebar is collapsed */}
           {isCollapsed && (
             <button
-              onClick={handleLogout}
+              onClick={logout}
               className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 text-gray-500 hover:text-gray-700 p-1.5 rounded-full hover:bg-gray-100"
               aria-label="Log out"
               title="Log out"

@@ -10,6 +10,7 @@ class ClientDataService:
     def __init__(self, data_path: str):
         self.data_path = data_path
         self.df = None
+        self.client_ids = []  # Add this property
         self.load_data()
         
     def load_data(self) -> None:
@@ -26,11 +27,38 @@ class ClientDataService:
             # Convert ID to string to ensure consistent handling
             if 'ID' in self.df.columns:
                 self.df['ID'] = self.df['ID'].astype(str)
+                # Create list of client IDs for quick lookup
+                self.client_ids = self.df['ID'].tolist()
+                logging.info(f"Loaded {len(self.client_ids)} client IDs from CSV")
+            else:
+                logging.error("'ID' column not found in CSV file")
+                raise ValueError("'ID' column not found in CSV file")
             
             logging.info(f"Successfully loaded client data. Records: {len(self.df)}")
         except Exception as e:
             logging.error(f"Error loading client data: {str(e)}")
             raise
+    
+    def client_exists(self, client_id: str) -> bool:
+        """Check if a client ID exists in the database."""
+        client_id = str(client_id)  # Ensure it's a string
+        return client_id in self.client_ids
+
+    def get_client_data(self, client_id: str) -> Optional[Dict]:
+        """Get comprehensive data for a specific client."""
+        client_id = str(client_id)  # Ensure it's a string
+        
+        if not self.client_exists(client_id):
+            return None
+            
+        # Filter the dataframe for the given client
+        client_data = self.df[self.df['ID'] == client_id]
+        
+        if client_data.empty:
+            return None
+            
+        # Convert to dictionary and return first match
+        return client_data.iloc[0].to_dict()
     
     def refresh_data(self) -> None:
         """Reload client data from CSV file."""
@@ -169,3 +197,9 @@ class ClientDataService:
             result['AVG_IB_LOGINS'] = round(self.df['CHNL_IB_LOGINS_CNT'].mean(), 2)
         
         return result
+
+    def get_sample_client_ids(self, count: int = 10) -> List[str]:
+        """Get a sample of client IDs for testing."""
+        if not self.client_ids:
+            return []
+        return self.client_ids[:count]

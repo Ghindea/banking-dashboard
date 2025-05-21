@@ -141,3 +141,172 @@ werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on 
 2025-05-21 20:37:36,422 [INFO]  * Restarting with stat
 2025-05-21 20:37:36,623 [WARNING]  * Debugger is active!
 2025-05-21 20:37:36,632 [INFO]  * Debugger PIN: 115-082-001
+2025-05-22 01:42:12,228 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 01:42:12,230 [INFO] Client routes initialized
+2025-05-22 01:42:12,279 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-22 01:42:12,279 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-22 01:42:12,280 [INFO]  * Restarting with stat
+2025-05-22 01:42:12,893 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 01:42:12,897 [INFO] Client routes initialized
+2025-05-22 01:42:12,916 [WARNING]  * Debugger is active!
+2025-05-22 01:42:12,925 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 01:51:36,792 [ERROR] Authentication error: 'ClientDataService' object has no attribute 'client_exists'
+2025-05-22 01:51:36,793 [WARNING] Login failed for user ID: 91M0Oe0e6ST58d0LY0A0I8af
+2025-05-22 01:51:36,800 [INFO] 127.0.0.1 - - [22/May/2025 01:51:36] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-22 01:52:36,990 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/database/client_data_service.py', reloading
+2025-05-22 01:52:37,230 [INFO]  * Restarting with stat
+2025-05-22 01:52:38,384 [INFO] Loading client data from database/data/sample_clients.csv
+2025-05-22 01:52:38,539 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 01:52:38,540 [INFO] Client routes initialized
+2025-05-22 01:52:38,560 [WARNING]  * Debugger is active!
+2025-05-22 01:52:38,567 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 01:54:28,384 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/database/client_data_service.py', reloading
+2025-05-22 01:54:28,496 [INFO]  * Restarting with stat
+2025-05-22 01:54:29,792 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 01:54:29,792 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 01:54:29,794 [INFO] Client routes initialized
+2025-05-22 01:54:29,815 [WARNING]  * Debugger is active!
+2025-05-22 01:54:29,823 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 01:55:23,078 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 01:55:23,078 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 01:55:23,080 [INFO] Client routes initialized
+2025-05-22 01:55:23,103 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-22 01:55:23,103 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-22 01:55:23,104 [INFO]  * Restarting with stat
+2025-05-22 01:55:23,619 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 01:55:23,619 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 01:55:23,620 [INFO] Client routes initialized
+2025-05-22 01:55:23,635 [WARNING]  * Debugger is active!
+2025-05-22 01:55:23,642 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 01:55:51,263 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-22 01:55:51,264 [INFO] 127.0.0.1 - - [22/May/2025 01:55:51] "POST /login HTTP/1.1" 200 -
+2025-05-22 01:57:51,639 [INFO] User Ma7O232S0f49TL2Yab7A411I logged in.
+2025-05-22 01:57:51,642 [INFO] 127.0.0.1 - - [22/May/2025 01:57:51] "POST /login HTTP/1.1" 200 -
+2025-05-22 02:02:32,050 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/app.py', reloading
+2025-05-22 02:02:32,225 [INFO]  * Restarting with stat
+2025-05-22 02:02:33,064 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 02:02:33,064 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 02:02:33,066 [INFO] Client routes initialized
+2025-05-22 02:02:33,086 [WARNING]  * Debugger is active!
+2025-05-22 02:02:33,097 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 02:02:55,642 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/database/user_service.py', reloading
+2025-05-22 02:02:55,714 [INFO]  * Restarting with stat
+2025-05-22 02:02:56,267 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 02:02:56,267 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 02:02:56,269 [INFO] Client routes initialized
+2025-05-22 02:02:56,286 [WARNING]  * Debugger is active!
+2025-05-22 02:02:56,291 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 02:03:02,731 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/database/user_service.py', reloading
+2025-05-22 02:03:02,814 [INFO]  * Restarting with stat
+2025-05-22 02:03:03,394 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 02:03:03,394 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 02:03:03,396 [INFO] Client routes initialized
+2025-05-22 02:03:03,412 [WARNING]  * Debugger is active!
+2025-05-22 02:03:03,416 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 02:03:05,603 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/database/user_service.py', reloading
+2025-05-22 02:03:05,703 [INFO]  * Restarting with stat
+2025-05-22 02:03:06,220 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 02:03:06,220 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 02:03:06,221 [INFO] Client routes initialized
+2025-05-22 02:03:06,236 [WARNING]  * Debugger is active!
+2025-05-22 02:03:06,241 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 02:03:11,651 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/database/user_service.py', reloading
+2025-05-22 02:03:11,727 [INFO]  * Restarting with stat
+2025-05-22 02:03:12,223 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 02:03:12,223 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 02:03:12,225 [INFO] Client routes initialized
+2025-05-22 02:03:12,246 [WARNING]  * Debugger is active!
+2025-05-22 02:03:12,252 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 02:03:13,375 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/database/user_service.py', reloading
+2025-05-22 02:03:13,437 [INFO]  * Restarting with stat
+2025-05-22 02:04:11,135 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 02:04:11,136 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 02:04:11,138 [INFO] Client routes initialized
+2025-05-22 02:04:11,166 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-22 02:04:11,166 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-22 02:04:11,167 [INFO]  * Restarting with stat
+2025-05-22 02:04:11,666 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 02:04:11,667 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 02:04:11,668 [INFO] Client routes initialized
+2025-05-22 02:04:11,684 [WARNING]  * Debugger is active!
+2025-05-22 02:04:11,689 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 02:04:25,994 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/Users/tiberiuuuf/Desktop/banking-dashboard/backend/venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/tiberiuuuf/Desktop/banking-dashboard/backend/venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/tiberiuuuf/Desktop/banking-dashboard/backend/app.py", line 78, in login
+    user_data = user_service.get_user_data(user_id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'UserService' object has no attribute 'get_user_data'
+2025-05-22 02:04:26,001 [INFO] 127.0.0.1 - - [22/May/2025 02:04:26] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-05-22 02:04:27,222 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/Users/tiberiuuuf/Desktop/banking-dashboard/backend/venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/tiberiuuuf/Desktop/banking-dashboard/backend/venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/tiberiuuuf/Desktop/banking-dashboard/backend/app.py", line 78, in login
+    user_data = user_service.get_user_data(user_id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'UserService' object has no attribute 'get_user_data'
+2025-05-22 02:04:27,223 [INFO] 127.0.0.1 - - [22/May/2025 02:04:27] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-05-22 02:05:57,261 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/app.py', reloading
+2025-05-22 02:05:57,345 [INFO]  * Restarting with stat
+2025-05-22 02:05:57,932 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 02:05:57,932 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 02:05:57,934 [INFO] Client routes initialized
+2025-05-22 02:05:57,953 [WARNING]  * Debugger is active!
+2025-05-22 02:05:57,958 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 02:06:01,159 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/app.py', reloading
+2025-05-22 02:06:01,253 [INFO]  * Restarting with stat
+2025-05-22 02:07:40,267 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 02:07:40,268 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 02:07:40,269 [INFO] Client routes initialized
+2025-05-22 02:07:40,296 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-22 02:07:40,297 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-22 02:07:40,297 [INFO]  * Restarting with stat
+2025-05-22 02:07:40,846 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 02:07:40,846 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 02:07:40,848 [INFO] Client routes initialized
+2025-05-22 02:07:40,861 [WARNING]  * Debugger is active!
+2025-05-22 02:07:40,866 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 02:07:57,039 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/Users/tiberiuuuf/Desktop/banking-dashboard/backend/venv/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/tiberiuuuf/Desktop/banking-dashboard/backend/venv/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/tiberiuuuf/Desktop/banking-dashboard/backend/app.py", line 80, in login
+    user_data = user_service.get_user_data(user_id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'UserService' object has no attribute 'get_user_data'
+2025-05-22 02:07:57,045 [INFO] 127.0.0.1 - - [22/May/2025 02:07:57] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-05-22 02:09:07,851 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/database/user_service.py', reloading
+2025-05-22 02:09:07,940 [INFO]  * Restarting with stat
+2025-05-22 02:09:44,062 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 02:09:44,062 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 02:09:44,063 [INFO] Client routes initialized
+2025-05-22 02:09:44,087 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-22 02:09:44,087 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-22 02:09:44,088 [INFO]  * Restarting with stat
+2025-05-22 02:09:44,571 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 02:09:44,571 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 02:09:44,572 [INFO] Client routes initialized
+2025-05-22 02:09:44,588 [WARNING]  * Debugger is active!
+2025-05-22 02:09:44,593 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 02:10:10,860 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-22 02:10:10,863 [INFO] 127.0.0.1 - - [22/May/2025 02:10:10] "POST /login HTTP/1.1" 200 -
+2025-05-22 02:10:12,723 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-22 02:10:12,724 [INFO] 127.0.0.1 - - [22/May/2025 02:10:12] "POST /login HTTP/1.1" 200 -
+2025-05-22 02:11:10,060 [INFO] User Ma7O232S0f49TL2Yab7A411I logged in.
+2025-05-22 02:11:10,061 [INFO] 127.0.0.1 - - [22/May/2025 02:11:10] "POST /login HTTP/1.1" 200 -
