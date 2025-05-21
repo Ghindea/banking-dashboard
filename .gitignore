@@ -35,3 +35,6 @@ EOL
 
 # Python
 venv/
+
+# Logs
+app.log
