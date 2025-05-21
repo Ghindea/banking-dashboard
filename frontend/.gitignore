@@ -6,4 +6,4 @@
 /temp
 /cache
 # don't commit the next folder
-.next
+.next/
