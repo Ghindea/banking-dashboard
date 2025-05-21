@@ -1,1 +1,13 @@
+<<<<<<< HEAD
 .next/
+=======
+/node_modules
+/dist
+/build
+/coverage
+/logs
+/temp
+/cache
+# don't commit the next folder
+.next/
+>>>>>>> backup-my-changes

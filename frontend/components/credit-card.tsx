@@ -1,4 +1,4 @@
-export default function DebitCard() {
+export default function CreditCard() {
   return (
     <div className="w-full">
       {/* Card container with proper aspect ratio and corner radius */}
@@ -9,11 +9,11 @@ export default function DebitCard() {
           borderRadius: "20px",   // Exact corner radius from SVG
           width: "100%",         
           maxWidth: "360px",     
-          background: "linear-gradient(135deg, #7763EA 20.6%, #6393EA 92.8%)", // Exact gradient from SVG
+          background: "linear-gradient(135deg, #c6166e 0%, #8c1bab 100%)", // Original magenta gradient
           position: "relative"
         }}
       >
-        {/* Instead of using clip-path which can be tricky with scaling, create a custom SVG path element */}
+        {/* SVG path element for the wave effect */}
         <svg 
           className="absolute bottom-0 left-0 w-full h-full"
           preserveAspectRatio="none"
@@ -35,7 +35,7 @@ export default function DebitCard() {
         <div className="p-6 h-full flex flex-col justify-between relative z-10">
           {/* Card header with logo/type */}
           <div className="flex justify-between items-start">
-            <span className="text-sm font-medium">Debit</span>
+            <span className="text-sm font-medium">Credit</span>
             <div className="text-right">
               <svg width="48" height="16" viewBox="0 0 48 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -58,7 +58,7 @@ export default function DebitCard() {
           {/* Card number */}
           <div className="my-6">
             <span className="text-sm opacity-75 block mb-1">Card Number</span>
-            <span className="font-mono text-lg">**** **** **** 4289</span>
+            <span className="font-mono text-lg">**** **** **** 7635</span>
           </div>
 
           {/* Card footer with name and expiry */}
@@ -69,7 +69,7 @@ export default function DebitCard() {
             </div>
             <div className="text-right">
               <span className="text-sm opacity-75 block mb-1">Expires</span>
-              <span>12/27</span>
+              <span>09/28</span>
             </div>
           </div>
         </div>

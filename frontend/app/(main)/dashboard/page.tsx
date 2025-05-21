@@ -3,12 +3,15 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowRight, CreditCard, Banknote, PiggyBank, FileText, Send } from "lucide-react"
+import { ArrowRight, CreditCard as CreditCardIcon, Banknote, PiggyBank, FileText, Send } from "lucide-react"
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts"
 import OfferBanner from "@/components/offer-banner"
 import SummaryCard from "@/components/summary-card"
 import TransactionItem from "@/components/transaction-item"
 import DebitCard from "@/components/debit-card"
+import CreditCard from "@/components/credit-card"
+import Link from "next/link"
+import { FeaturedOffers } from "@/components/featured-offers"
 
 const spendingData = [
   { name: "Food", value: 500, color: "#0088FE" },
@@ -86,7 +89,7 @@ export default function DashboardPage() {
         <SummaryCard
           title="Available Credit"
           value="€2,500.00"
-          icon={<CreditCard className="h-4 w-4" />}
+          icon={<CreditCardIcon className="h-4 w-4" />}
           trend="neutral"
           trendValue="0%"
         />
@@ -136,18 +139,20 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="p-4 flex items-center space-x-4">
-            <div className="bg-green-100 p-2 rounded-full">
-              <CreditCard className="h-5 w-5 text-green-600" />
-            </div>
-            <div className="flex-1">
-              <h3 className="font-medium">Apply for Loan</h3>
-              <p className="text-sm text-gray-500">Pre-approved: €15,000</p>
-            </div>
-            <Button variant="ghost" size="icon">
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-          </CardContent>
+          <Link href="/loan">
+            <CardContent className="p-4 flex items-center space-x-4 cursor-pointer hover:bg-gray-50 transition-colors">
+              <div className="bg-green-100 p-2 rounded-full">
+                <CreditCardIcon className="h-5 w-5 text-green-600" />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-medium">Apply for Loan</h3>
+                <p className="text-sm text-gray-500">Pre-approved: €15,000</p>
+              </div>
+              <Button variant="ghost" size="icon">
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </CardContent>
+          </Link>
         </Card>
       </div>
 
@@ -193,21 +198,24 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-        {/* Debit Card and Transactions */}
+        {/* Cards and Transactions */}
         <Card className="col-span-2">
           <div className="p-4">
-            <Tabs defaultValue="card">
+            <Tabs defaultValue="cards">
               <div className="flex items-center justify-between mb-4">
                 <TabsList>
-                  <TabsTrigger value="card">Credit Card</TabsTrigger>
+                  <TabsTrigger value="cards">Cards</TabsTrigger>
                   <TabsTrigger value="transactions">Transactions</TabsTrigger>
                 </TabsList>
                 <Button variant="outline" size="sm">
                   View All
                 </Button>
               </div>
-              <TabsContent value="card" className="m-0">
-                <DebitCard />
+              <TabsContent value="cards" className="m-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                  <DebitCard />
+                  <CreditCard />
+                </div>
               </TabsContent>
               <TabsContent value="transactions" className="m-0 space-y-4">
                 <TransactionItem name="Starbucks New York LLP" date="12.01.2023 09:34" amount="-$5.30" type="expense" />
@@ -218,7 +226,19 @@ export default function DashboardPage() {
             </Tabs>
           </div>
         </Card>
-      </div>
+		{/* Featured Offers */}
+      {/* <div className="mb-6">
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-lg font-semibold">Featured Offers</h2>
+          <Link href="/offers">
+            <Button variant="ghost" size="sm" className="text-georgel-purple">
+              View all <ArrowRight className="ml-1 h-3 w-3" />
+            </Button>
+          </Link>
+        </div>
+        <FeaturedOffers /> */}
+      {/* </div> */}
     </div>
-  )
+  </div>
+)
 }
