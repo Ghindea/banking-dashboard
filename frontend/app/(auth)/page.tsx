@@ -74,9 +74,15 @@ export default function LoginPage() {
           <div className="w-full h-full bg-black">
             {/* This would be your dashboard preview image */}
             <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-PhJJFdrcTEAAinpmF8fbX0a5zxIDjZ.png"
+              src="/dashboard-preview.png"
               alt="Banking dashboard preview"
               className="w-full h-full object-cover"
+              style={{
+                objectFit: "cover",
+                objectPosition: "0% center",
+                transform: "scale(1.05)", // Slightly enlarge the image
+                transformOrigin: "left center" // Scale from the left side
+              }}
             />
           </div>
         </div>
