@@ -1,22 +1,38 @@
-// components/debit-card.tsx
-
 export default function DebitCard() {
-  // Standard bank card proportions
-  // Width: 86mm, Height: 54mm (aspect ratio of 1.59:1)
-  // Corner radius: 3.18mm (approximately 3.7% of width)
   return (
     <div className="w-full">
       {/* Card container with proper aspect ratio and corner radius */}
       <div
-        className="bg-georgel-purple text-white rounded-lg shadow-lg overflow-hidden"
+        className="text-white rounded-lg shadow-lg overflow-hidden relative"
         style={{
-          aspectRatio: "86/54", // Standard card aspect ratio (86mm × 54mm)
-          borderRadius: "3.7%",  // Proportional corner radius (3.18mm for standard card)
-          width: "100%",         // Full width of container
-          maxWidth: "360px",     // Max width to keep it reasonably sized
+          aspectRatio: "311/185", // Aspect ratio from SVG
+          borderRadius: "20px",   // Exact corner radius from SVG
+          width: "100%",         
+          maxWidth: "360px",     
+          background: "linear-gradient(135deg, #7763EA 20.6%, #6393EA 92.8%)", // Exact gradient from SVG
+          position: "relative"
         }}
       >
-        <div className="p-6 h-full flex flex-col justify-between">
+        {/* Instead of using clip-path which can be tricky with scaling, create a custom SVG path element */}
+        <svg 
+          className="absolute bottom-0 left-0 w-full h-full"
+          preserveAspectRatio="none"
+          viewBox="0 0 311 185"
+          style={{ zIndex: "1" }}
+        >
+          <path 
+            d="M0 23.9265C2.87056 49.8774 49.5236 63.0827 129.931 75.7097C276.414 98.7132 313.25 144.921 301.465 185H20C8.95431 185 0 176.045 0 165V23.9265ZM0.610352 15.0798C0.434706 15.8381 0.291527 16.5868 0.177734 17.3259C0.279712 16.5627 0.424815 15.8132 0.610352 15.0798Z"
+            fill="rgba(255, 255, 255, 0.08)" 
+          />
+        </svg>
+        
+        {/* Subtle gaussian blur overlay from SVG */}
+        <div 
+          className="absolute inset-0 bg-white opacity-5 rounded-lg"
+          style={{ zIndex: "2" }}
+        />
+
+        <div className="p-6 h-full flex flex-col justify-between relative z-10">
           {/* Card header with logo/type */}
           <div className="flex justify-between items-start">
             <span className="text-sm font-medium">Debit</span>

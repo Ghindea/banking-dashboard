@@ -15,7 +15,7 @@ import {
   Settings,
   LifeBuoy,
   ChevronLeft,
-  LogOut
+  LogOut,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useSidebar } from "@/components/ui/sidebar"
@@ -43,8 +43,8 @@ const sidebarItems: SidebarItem[] = [
     icon: Calendar,
   },
   {
-    title: "Suppliers",
-    path: "/suppliers",
+    title: "Products",
+    path: "/products",
     icon: ShoppingBag,
   },
   {
