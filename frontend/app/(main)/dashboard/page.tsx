@@ -379,7 +379,18 @@ export default function DashboardPage() {
       }
     }
 
+    const fetchRecommendations = async () => {
+      const response = await axios.get("http://127.0.0.1:5000/user/recommendations", {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        }
+      })
+      console.log("Recommendations fetched:", response.data)
+      console.log(response)
+    }
+
     fetchUserData()
+    fetchRecommendations()
   }, [])
 
   // Loading skeleton
