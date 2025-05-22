@@ -140,20 +140,28 @@ class ClientDataService:
         OR (SEG_ID = 5 AND CLUS_ID = (SELECT REL_SEG FROM clients WHERE ID = ?))
         """
         age_query = "SELECT GPI_AGE FROM clients WHERE ID = ? LIMIT 1;"
+        
+        mapper = {
+            0: "DEM_SEG",
+            1: "FIN_SEG",
+            2: "TRANS_SEG",
+            3: "PROD_SEG",
+            4: "DIG_SEG",
+            5: "REL_SEG",
+        }
 
         with self._connect() as conn:
-            # Get client's age
             cursor = conn.cursor()
             cursor.execute(age_query, (client_id,))
             result = cursor.fetchone()
             age = result[0] if result else None
 
-            # Get all matching offers
             df = pd.read_sql_query(query, conn, params=(client_id,) * 6)
 
-            # Filter by age eligibility if client is under 18
             if age is not None and age < 18:
                 df = df[df['ELIG'].astype(str) == '0']
+                
+            df['SEG_ID'] = df['SEG_ID'].map(mapper)
 
             df = df.drop(columns=["ID", "CLUS_ID"], errors="ignore")
             return {
@@ -172,6 +180,15 @@ class ClientDataService:
         OR (SEG_ID = 5 AND CLUS_ID = (SELECT REL_SEG FROM clients WHERE ID = ?))
         """
         age_query = "SELECT GPI_AGE FROM clients WHERE ID = ? LIMIT 1;"
+        
+        mapper = {
+            0: "DEM_SEG",
+            1: "FIN_SEG",
+            2: "TRANS_SEG",
+            3: "PROD_SEG",
+            4: "DIG_SEG",
+            5: "REL_SEG",
+        }
 
         with self._connect() as conn:
             cursor = conn.cursor()
@@ -184,14 +201,11 @@ class ClientDataService:
             if age is not None and age < 18:
                 df = df[df['ELIG'].astype(str) == '0']
 
+            df['SEG_ID'] = df['SEG_ID'].map(mapper)
+
             df = df.drop(columns=["ID", "CLUS_ID"], errors="ignore")
             return {
                 "client_id": client_id,
                 "products": df.to_dict(orient="records")
             }
-            
-client_id = "M7e81OSe8bb8T19LY40A857I"
-cl = ClientDataService("database.db")
 
-# print(cl.get_transaction_statistics())
-print(cl.get_offers_for_client(client_id))
