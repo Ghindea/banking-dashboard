@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { ArrowRight, CreditCard as CreditCardIcon, Banknote, PiggyBank, FileText, Send, Settings, X, TrendingUp, Calendar, Target } from "lucide-react"
-import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip } from "recharts"
+import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts"
 import OfferBanner from "@/components/offer-banner"
 import SummaryCard from "@/components/summary-card"
 import TransactionItem from "@/components/transaction-item"
@@ -61,6 +61,8 @@ interface DashboardMetrics {
     debitBalance: number
     creditBalance: number
     creditLimit: number
+    debitCardCount: number
+    creditCardCount: number
   }
 }
 
@@ -216,7 +218,7 @@ function calculateDashboardMetrics(userData: any): DashboardMetrics {
   // Card Information
   const hasDebitCard = parseInt(userData?.CEC_ALL_ACTIVE_CNT || 0) > 0
   const hasCreditCard = parseInt(userData?.CRT_ALL_ACTIVE_CNT || 0) > 0
-  const creditLimit = parseFloat(userData?.ICC_APPROVED_LIMIT || 0)
+  const creditLimit = parseFloat(userData?.ICC_APPROVED_LIMIT || userData?.CRT_MAX_BALANCE_AMT || 0)
   
   return {
     totalNetPosition: {
@@ -255,7 +257,9 @@ function calculateDashboardMetrics(userData: any): DashboardMetrics {
       hasCreditCard,
       debitBalance: cecBalance,
       creditBalance: Math.abs(crtBalance),
-      creditLimit
+      creditLimit,
+      debitCardCount: parseInt(userData?.CEC_ALL_ACTIVE_CNT || 0),
+      creditCardCount: parseInt(userData?.CRT_ALL_ACTIVE_CNT || 0)
     }
   }
 }
@@ -304,7 +308,9 @@ const getMockMetrics = (): DashboardMetrics => ({
     hasCreditCard: true,
     debitBalance: 2698,
     creditBalance: 450,
-    creditLimit: 2500
+    creditLimit: 2500,
+    debitCardCount: 1,
+    creditCardCount: 2
   }
 })
 
@@ -562,8 +568,8 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Enhanced Spending Snapshot */}
         <Card className="col-span-1">
-          <CardContent className="p-3">
-            <div className="flex items-center justify-between mb-3">
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between mb-6">
               <h3 className="font-semibold text-lg">Spending Snapshot</h3>
               <Button 
                 variant="link" 
@@ -575,24 +581,24 @@ export default function DashboardPage() {
               </Button>
             </div>
             
-            {/* Total spending summary - make more compact */}
-            <div className="text-center mb-2">
-              <p className="text-2xl font-bold text-gray-800 mb-0">
+            {/* Total spending summary */}
+            <div className="text-center mb-6">
+              <p className="text-3xl font-bold text-gray-800 mb-1">
                 {formatCurrency(dashboardMetrics.totalSpending)}
               </p>
-              <p className="text-xs text-gray-500">Total Monthly Spending</p>
+              <p className="text-sm text-gray-500">Total Monthly Spending</p>
             </div>
             
             <div className="flex flex-col items-center">
-              <div className="h-44 w-full relative">
+              <div className="h-56 w-full relative">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
                       data={dashboardMetrics.spendingData}
                       cx="50%"
                       cy="50%"
-                      innerRadius={55}
-                      outerRadius={75}
+                      innerRadius={70}
+                      outerRadius={90}
                       paddingAngle={3}
                       dataKey="value"
                     >
@@ -604,18 +610,18 @@ export default function DashboardPage() {
                         />
                       ))}
                     </Pie>
-                    <RechartsTooltip
-                      content={({ active, payload }: { active?: boolean; payload?: Array<any> }) => {
+                    <Tooltip
+                      content={({ active, payload }) => {
                         if (active && payload && payload.length) {
                           const data = payload[0].payload
                           return (
-                            <div className="bg-white p-2 rounded-lg shadow-lg border border-gray-200 text-sm">
+                            <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-200">
                               <p className="font-semibold text-gray-800">{data.name}</p>
-                              <p className="font-bold text-georgel-purple">
+                              <p className="text-lg font-bold text-georgel-purple">
                                 {formatCurrency(data.value)}
                               </p>
-                              <p className="text-xs text-gray-600">
-                                {data.percentage?.toFixed(1)}% of total
+                              <p className="text-sm text-gray-600">
+                                {data.percentage?.toFixed(1)}% of total spending
                               </p>
                             </div>
                           )
@@ -627,36 +633,23 @@ export default function DashboardPage() {
                 </ResponsiveContainer>
               </div>
               
-              {/* Legend in two properly aligned columns */}
-              <div className="w-full mt-2 grid grid-cols-2 gap-x-1 px-4">
-                <div className="space-y-1">
-                  {dashboardMetrics.spendingData.slice(0, 3).map((item, index) => (
-                    <div key={`left-${index}`} className="flex items-center">
-                      <div 
-                        className="h-3 w-3 rounded-full mr-2 flex-shrink-0" 
-                        style={{ backgroundColor: item.color }}
-                      ></div>
-                      <span className="text-xs font-medium text-gray-700 truncate">{item.name}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="space-y-1">
-                  {dashboardMetrics.spendingData.slice(3, 6).map((item, index) => (
-                    <div key={`right-${index}`} className="flex items-center">
-                      <div 
-                        className="h-3 w-3 rounded-full mr-2 flex-shrink-0" 
-                        style={{ backgroundColor: item.color }}
-                      ></div>
-                      <span className="text-xs font-medium text-gray-700 truncate">{item.name}</span>
-                    </div>
-                  ))}
-                </div>
+              {/* Simple legend - only colors and names in 2 columns */}
+              <div className="w-full mt-6 grid grid-cols-2 gap-3">
+                {dashboardMetrics.spendingData.slice(0, 6).map((item, index) => (
+                  <div key={index} className="flex items-center">
+                    <div 
+                      className="h-3 w-3 rounded-full mr-3 flex-shrink-0" 
+                      style={{ backgroundColor: item.color }}
+                    ></div>
+                    <span className="text-sm font-medium text-gray-700 truncate">{item.name}</span>
+                  </div>
+                ))}
                 
                 {/* Show "and X more" if there are more than 6 categories */}
                 {dashboardMetrics.spendingData.length > 6 && (
-                  <div className="col-span-2 text-center pt-1">
+                  <div className="col-span-2 text-center pt-2">
                     <span className="text-xs text-gray-500">
-                      +{dashboardMetrics.spendingData.length - 6} more
+                      and {dashboardMetrics.spendingData.length - 6} more categories
                     </span>
                   </div>
                 )}
@@ -680,17 +673,71 @@ export default function DashboardPage() {
               </div>
               <TabsContent value="cards" className="m-0">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                  {/* Show Debit Card if user has current accounts */}
                   {dashboardMetrics.cardInfo.hasDebitCard && (
-                <DebitCard />
+                    <div className="flex flex-col">
+                      <div className="mb-2 text-center">
+                        <span className="text-sm font-medium text-gray-600">
+                          Debit Card ({dashboardMetrics.cardInfo.debitCardCount} active)
+                        </span>
+                        <div className="text-lg font-bold text-green-600">
+                          Balance: {formatCurrency(dashboardMetrics.cardInfo.debitBalance)}
+                        </div>
+                      </div>
+                      <DebitCard />
+                    </div>
                   )}
+                  
+                  {/* Show Credit Card if user has credit cards */}
                   {dashboardMetrics.cardInfo.hasCreditCard && (
-                    <CreditCard />
+                    <div className="flex flex-col">
+                      <div className="mb-2 text-center">
+                        <span className="text-sm font-medium text-gray-600">
+                          Credit Card ({dashboardMetrics.cardInfo.creditCardCount} active)
+                        </span>
+                        <div className="text-lg font-bold text-red-600">
+                          Balance: -{formatCurrency(dashboardMetrics.cardInfo.creditBalance)}
+                        </div>
+                        <div className="text-sm text-gray-500">
+                          Limit: {formatCurrency(dashboardMetrics.cardInfo.creditLimit)}
+                        </div>
+                      </div>
+                      <CreditCard />
+                    </div>
                   )}
+                  
+                  {/* Show message if no cards */}
                   {!dashboardMetrics.cardInfo.hasDebitCard && !dashboardMetrics.cardInfo.hasCreditCard && (
-                    <div className="col-span-2 text-center py-8 text-gray-500">
-                      <CreditCardIcon className="h-12 w-12 mx-auto mb-2 opacity-30" />
-                      <p>No active cards found</p>
-                      <p className="text-sm">Contact us to apply for a card</p>
+                    <div className="col-span-2 text-center py-12 text-gray-500">
+                      <CreditCardIcon className="h-16 w-16 mx-auto mb-4 opacity-30" />
+                      <h3 className="text-lg font-medium text-gray-900 mb-2">No Active Cards Found</h3>
+                      <p className="text-gray-500 mb-4">You don't have any active debit or credit cards</p>
+                      <Button variant="outline" className="mx-auto">
+                        Apply for a Card
+                      </Button>
+                    </div>
+                  )}
+                  
+                  {/* Show only one card message if user has space for another */}
+                  {(dashboardMetrics.cardInfo.hasDebitCard && !dashboardMetrics.cardInfo.hasCreditCard) && (
+                    <div className="flex flex-col items-center justify-center py-8 text-gray-500 border-2 border-dashed border-gray-200 rounded-lg">
+                      <CreditCardIcon className="h-12 w-12 mb-3 opacity-40" />
+                      <h4 className="font-medium text-gray-700 mb-1">Get a Credit Card</h4>
+                      <p className="text-sm text-gray-500 mb-3">Build credit and earn rewards</p>
+                      <Button variant="outline" size="sm">
+                        Apply Now
+                      </Button>
+                    </div>
+                  )}
+                  
+                  {(!dashboardMetrics.cardInfo.hasDebitCard && dashboardMetrics.cardInfo.hasCreditCard) && (
+                    <div className="flex flex-col items-center justify-center py-8 text-gray-500 border-2 border-dashed border-gray-200 rounded-lg">
+                      <CreditCardIcon className="h-12 w-12 mb-3 opacity-40" />
+                      <h4 className="font-medium text-gray-700 mb-1">Get a Debit Card</h4>
+                      <p className="text-sm text-gray-500 mb-3">Easy access to your account</p>
+                      <Button variant="outline" size="sm">
+                        Order Card
+                      </Button>
                     </div>
                   )}
                 </div>
@@ -777,8 +824,8 @@ export default function DashboardPage() {
                             />
                           ))}
                         </Pie>
-                        <RechartsTooltip
-                          content={({ active, payload }: { active?: boolean; payload?: Array<any> }) => {
+                        <Tooltip
+                          content={({ active, payload }) => {
                             if (active && payload && payload.length) {
                               const data = payload[0].payload
                               return (
@@ -821,7 +868,7 @@ export default function DashboardPage() {
                           tickFormatter={(value) => formatCurrency(value)}
                           fontSize={12}
                         />
-                        <RechartsTooltip
+                        <Tooltip
                           formatter={(value: any, name: string) => [formatCurrency(value), 'Amount']}
                           labelFormatter={(label) => `Category: ${label}`}
                           contentStyle={{
@@ -898,11 +945,11 @@ export default function DashboardPage() {
               </Button>
               <Button className="bg-georgel-purple hover:bg-georgel-purple/90">
                 Export Report
-            </Button>
+              </Button>
             </div>
-        </div>
+          </div>
         </DialogContent>
       </Dialog>
-  </div>
-)
+    </div>
+  )
 }
