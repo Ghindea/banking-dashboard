@@ -14,10 +14,10 @@ from database.client_data_service import ClientDataService
 from database.user_service import UserService
 from routes.client_routes import init_client_routes
 
-# 🔄 Load .env file
+# Load .env file
 load_dotenv()
 
-# 🔐 Configure Flask & JWT
+# Configure Flask & JWT
 app = Flask(__name__)
 # Enable CORS for all routes
 CORS(app)
@@ -31,10 +31,10 @@ app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
 
 jwt = JWTManager(app)
 
-# 🔐 API key for Mortgage Calculator
+# API key for Mortgage Calculator
 API_NINJAS_KEY = os.environ.get("API_NINJAS")
 
-# 📝 Logging
+# Logging
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
@@ -44,14 +44,14 @@ logging.basicConfig(
     ]
 )
 
-# 🧪 Hardcoded admin user for development
+# Hardcoded admin user for development
 USERS = {
     "admin": "1234"
 }
 
 # Initialize client data service
 # Update the path to match your actual file location
-client_data_service = ClientDataService("database/data/clustered_sample_clients.csv")
+client_data_service = ClientDataService("database/database.db")
 
 # Initialize user service for managing user authentication and data caching
 user_service = UserService(client_data_service)
@@ -62,7 +62,7 @@ init_client_routes(app, client_data_service)
 with open("recommender/mapper.json", "r") as f:
     mapper = json.load(f)
 
-# 🔐 Login endpoint
+# Login endpoint
 # In backend/app.py, modify the login endpoint:
 
 @app.route("/login", methods=["POST"])
@@ -109,7 +109,7 @@ def login():
     logging.warning(f"Login failed for user ID: {user_id}")
     return jsonify({"msg": "Invalid user ID"}), 401
 
-# 🔐 Get user profile endpoint
+# Get user profile endpoint
 # In backend/app.py, modify the get_user_profile endpoint:
 
 @app.route('/user/profile', methods=['GET'])
@@ -180,7 +180,7 @@ def get_user_recommendations():
     
     
 
-# 🔐 Calculate mortgage endpoint
+# Calculate mortgage endpoint
 @app.route('/calculate-mortgage', methods=['POST'])
 @jwt_required()
 def calculate_mortgage():
@@ -228,7 +228,7 @@ def calculate_mortgage():
         return jsonify({'error': 'Failed to calculate mortgage', 'message': str(e)}), 500
 
 
-# 🔐 Get all client IDs (for development only)
+# Get all client IDs (for development only)
 @app.route('/clients/list', methods=['GET'])
 @jwt_required()
 def list_clients():
@@ -246,7 +246,7 @@ def list_clients():
         "sample_clients": client_ids
     })
 
-# 🛑 Catch-all error logger
+# Catch-all error logger
 @app.errorhandler(Exception)
 def handle_exception(e):
     logging.exception("Unhandled exception occurred")
