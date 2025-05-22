@@ -310,3 +310,19 @@ AttributeError: 'UserService' object has no attribute 'get_user_data'
 2025-05-22 02:10:12,724 [INFO] 127.0.0.1 - - [22/May/2025 02:10:12] "POST /login HTTP/1.1" 200 -
 2025-05-22 02:11:10,060 [INFO] User Ma7O232S0f49TL2Yab7A411I logged in.
 2025-05-22 02:11:10,061 [INFO] 127.0.0.1 - - [22/May/2025 02:11:10] "POST /login HTTP/1.1" 200 -
+2025-05-22 03:07:46,093 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 03:07:46,093 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 03:07:46,095 [INFO] Client routes initialized
+2025-05-22 03:07:46,142 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-22 03:07:46,142 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-22 03:07:46,143 [INFO]  * Restarting with stat
+2025-05-22 03:07:46,631 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 03:07:46,631 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 03:07:46,632 [INFO] Client routes initialized
+2025-05-22 03:07:46,646 [WARNING]  * Debugger is active!
+2025-05-22 03:07:46,654 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 03:08:06,291 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-22 03:08:06,293 [INFO] 127.0.0.1 - - [22/May/2025 03:08:06] "POST /login HTTP/1.1" 200 -
+2025-05-22 03:08:08,596 [INFO] 127.0.0.1 - - [22/May/2025 03:08:08] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 03:08:08,600 [INFO] 127.0.0.1 - - [22/May/2025 03:08:08] "GET /user/profile HTTP/1.1" 200 -
