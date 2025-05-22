@@ -558,3 +558,205 @@ AttributeError: 'UserService' object has no attribute 'get_user_data'
 2025-05-22 11:57:13,971 [INFO] 127.0.0.1 - - [22/May/2025 11:57:13] "GET /user/profile HTTP/1.1" 200 -
 2025-05-22 11:57:18,271 [INFO] 127.0.0.1 - - [22/May/2025 11:57:18] "GET /user/profile HTTP/1.1" 200 -
 2025-05-22 11:57:18,580 [INFO] 127.0.0.1 - - [22/May/2025 11:57:18] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 16:42:39,742 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 16:42:39,743 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 16:42:39,747 [INFO] Client routes initialized
+2025-05-22 16:42:39,776 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-22 16:42:39,777 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-22 16:42:39,778 [INFO]  * Restarting with stat
+2025-05-22 16:42:41,433 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 16:42:41,433 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 16:42:41,440 [INFO] Client routes initialized
+2025-05-22 16:42:41,460 [WARNING]  * Debugger is active!
+2025-05-22 16:42:41,475 [INFO]  * Debugger PIN: 761-271-907
+2025-05-22 16:42:43,024 [INFO] 127.0.0.1 - - [22/May/2025 16:42:43] "GET / HTTP/1.1" 200 -
+2025-05-22 16:42:43,272 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-22 16:42:43,280 [INFO] 127.0.0.1 - - [22/May/2025 16:42:43] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-05-22 16:48:17,186 [WARNING] Login failed for user ID: None
+2025-05-22 16:48:17,187 [INFO] 127.0.0.1 - - [22/May/2025 16:48:17] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-22 16:48:43,498 [INFO] 127.0.0.1 - - [22/May/2025 16:48:43] "GET / HTTP/1.1" 200 -
+2025-05-22 16:48:43,588 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-22 16:48:43,590 [INFO] 127.0.0.1 - - [22/May/2025 16:48:43] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-05-22 16:49:54,566 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/backend/app.py", line 66, in login
+    data = request.get_json()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+2025-05-22 16:49:54,568 [INFO] 127.0.0.1 - - [22/May/2025 16:49:54] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-05-22 16:50:48,535 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/backend/app.py", line 66, in login
+    data = request.get_json()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+2025-05-22 16:50:48,536 [INFO] 127.0.0.1 - - [22/May/2025 16:50:48] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-05-22 16:50:56,386 [INFO] 127.0.0.1 - - [22/May/2025 16:50:56] "GET / HTTP/1.1" 200 -
+2025-05-22 16:50:56,412 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-22 16:50:56,413 [INFO] 127.0.0.1 - - [22/May/2025 16:50:56] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-05-22 16:51:17,527 [WARNING] Login failed for user ID: None
+2025-05-22 16:51:17,527 [INFO] 127.0.0.1 - - [22/May/2025 16:51:17] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-22 16:51:21,267 [INFO] 127.0.0.1 - - [22/May/2025 16:51:21] "GET / HTTP/1.1" 200 -
+2025-05-22 16:51:21,290 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-22 16:51:21,291 [INFO] 127.0.0.1 - - [22/May/2025 16:51:21] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-05-22 16:52:43,913 [WARNING] Login failed for user ID: None
+2025-05-22 16:52:43,914 [INFO] 127.0.0.1 - - [22/May/2025 16:52:43] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-22 16:52:52,479 [INFO] 127.0.0.1 - - [22/May/2025 16:52:52] "GET / HTTP/1.1" 200 -
+2025-05-22 16:52:52,500 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-22 16:52:52,502 [INFO] 127.0.0.1 - - [22/May/2025 16:52:52] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-05-22 16:56:39,379 [INFO] 127.0.0.1 - - [22/May/2025 16:56:39] "GET / HTTP/1.1" 200 -
+2025-05-22 16:56:39,397 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-22 16:56:39,398 [INFO] 127.0.0.1 - - [22/May/2025 16:56:39] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-05-22 16:59:05,233 [INFO] User b066b2abdMOS01TL7YAd13I2 logged in.
+2025-05-22 16:59:05,233 [INFO] 127.0.0.1 - - [22/May/2025 16:59:05] "POST /login HTTP/1.1" 200 -
+2025-05-22 17:01:07,627 [INFO] b066b2abdMOS01TL7YAd13I2 accessed /recommendations
+2025-05-22 17:01:07,629 [INFO] 127.0.0.1 - - [22/May/2025 17:01:07] "[35m[1mPOST /recommendations HTTP/1.1[0m" 500 -
+2025-05-22 17:01:36,520 [INFO]  * Detected change in '/home/ghindea/bcr-hackathon/backend/app.py', reloading
+2025-05-22 17:01:36,643 [INFO]  * Restarting with stat
+2025-05-22 17:01:37,510 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 17:01:37,510 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 17:01:37,514 [INFO] Client routes initialized
+2025-05-22 17:01:37,528 [WARNING]  * Debugger is active!
+2025-05-22 17:01:37,531 [INFO]  * Debugger PIN: 761-271-907
+2025-05-22 17:01:52,173 [INFO] b066b2abdMOS01TL7YAd13I2 accessed /recommendations
+2025-05-22 17:01:52,178 [INFO] 127.0.0.1 - - [22/May/2025 17:01:52] "POST /recommendations HTTP/1.1" 200 -
+2025-05-22 17:03:00,089 [INFO]  * Detected change in '/home/ghindea/bcr-hackathon/backend/app.py', reloading
+2025-05-22 17:03:00,222 [INFO]  * Restarting with stat
+2025-05-22 17:03:01,453 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 17:03:01,453 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 17:03:01,457 [INFO] Client routes initialized
+2025-05-22 17:03:01,469 [WARNING]  * Debugger is active!
+2025-05-22 17:03:01,479 [INFO]  * Debugger PIN: 761-271-907
+2025-05-22 17:03:10,258 [INFO] b066b2abdMOS01TL7YAd13I2 accessed /recommendations
+2025-05-22 17:03:10,265 [INFO] 127.0.0.1 - - [22/May/2025 17:03:10] "POST /recommendations HTTP/1.1" 200 -
+2025-05-22 18:14:22,892 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 18:14:22,893 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 18:14:22,896 [INFO] Client routes initialized
+2025-05-22 18:14:22,916 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-22 18:14:22,916 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-22 18:14:22,917 [INFO]  * Restarting with stat
+2025-05-22 18:14:23,757 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 18:14:23,758 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 18:14:23,760 [INFO] Client routes initialized
+2025-05-22 18:14:23,768 [WARNING]  * Debugger is active!
+2025-05-22 18:14:23,778 [INFO]  * Debugger PIN: 761-271-907

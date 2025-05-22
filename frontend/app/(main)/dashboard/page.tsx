@@ -344,7 +344,7 @@ export default function DashboardPage() {
       // Try to fetch real user data
       setIsLoading(true)
       try {
-        const response = await axios.get("http://localhost:5000/user/profile", {
+        const response = await axios.get("http://localhost:3000/user/profile", {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
           },

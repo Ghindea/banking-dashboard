@@ -139,6 +139,25 @@ def get_user_profile():
     
     return jsonify(user_data)
 
+@app.route('/recommendations', methods=['POST'])
+@jwt_required()
+def get_user_recommendations():
+    current_user = get_jwt_identity()
+    logging.info(f"{current_user} accessed /recommendations")
+
+    # Get user data
+    user_data = user_service.get_user_data(current_user)
+    
+    if not user_data:
+        return jsonify({"error": "User not found"}), 404
+    
+    # Get recommendations
+    # print(user_data)
+
+    return jsonify({"recommendations": "Recommendations generated successfully"})
+    
+    
+
 # 🔐 Calculate mortgage endpoint
 @app.route('/calculate-mortgage', methods=['POST'])
 @jwt_required()
@@ -185,6 +204,7 @@ def calculate_mortgage():
     except Exception as e:
         logging.error(f"Mortgage calculation error: {str(e)}")
         return jsonify({'error': 'Failed to calculate mortgage', 'message': str(e)}), 500
+
 
 # 🔐 Get all client IDs (for development only)
 @app.route('/clients/list', methods=['GET'])
