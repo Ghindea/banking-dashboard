@@ -1,4 +1,22 @@
-export default function CreditCard() {
+import { formatCurrency } from "@/utilis/dashboard-data"
+
+interface CreditCardProps {
+  balance?: number
+  limit?: number
+  cardNumber?: string
+  holderName?: string
+  expiryDate?: string
+}
+
+export default function CreditCard({ 
+  balance = 0, 
+  limit = 0,
+  cardNumber = "7635",
+  holderName = "Jasmine Asare",
+  expiryDate = "09/28"
+}: CreditCardProps) {
+  const utilizationPercent = limit > 0 ? (balance / limit) * 100 : 0;
+  
   return (
     <div className="w-full">
       {/* Card container with proper aspect ratio and corner radius */}
@@ -58,18 +76,29 @@ export default function CreditCard() {
           {/* Card number */}
           <div className="my-6">
             <span className="text-sm opacity-75 block mb-1">Card Number</span>
-            <span className="font-mono text-lg">**** **** **** 7635</span>
+            <span className="font-mono text-lg">**** **** **** {cardNumber}</span>
           </div>
 
-          {/* Card footer with name and expiry */}
+          {/* Card footer with name, balance/limit, and expiry */}
           <div className="flex justify-between items-end">
             <div>
               <span className="text-sm opacity-75 block mb-1">Card Holder</span>
-              <span>Jasmine Asare</span>
+              <span>{holderName}</span>
+            </div>
+            <div className="text-center">
+              <span className="text-sm opacity-75 block mb-1">Used / Limit</span>
+              <span className="font-semibold text-xs">
+                {formatCurrency(balance)} / {formatCurrency(limit)}
+              </span>
+              {limit > 0 && (
+                <div className="text-xs opacity-75 mt-1">
+                  {utilizationPercent.toFixed(1)}% used
+                </div>
+              )}
             </div>
             <div className="text-right">
               <span className="text-sm opacity-75 block mb-1">Expires</span>
-              <span>09/28</span>
+              <span>{expiryDate}</span>
             </div>
           </div>
         </div>

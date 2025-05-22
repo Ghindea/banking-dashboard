@@ -31,7 +31,7 @@ export default function SummaryCard({
         </div>
         <div className="flex items-center space-x-2">
           <div className="text-2xl font-bold">{value}</div>
-          {trend && (
+          {trend && trendValue && (
             <div
               className={`flex items-center text-xs font-medium ${
                 trend === "up" ? "text-green-600" : trend === "down" ? "text-red-600" : "text-gray-500"

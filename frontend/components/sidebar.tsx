@@ -43,13 +43,18 @@ const sidebarItems: SidebarItem[] = [
     icon: Calendar,
   },
   {
-    title: "Products",
-    path: "/products",
+    title: "Accounts",
+    path: "/accounts",
     icon: ShoppingBag,
   },
   {
-    title: "Reports",
-    path: "/reports",
+    title: "Transactions",
+    path: "/transactions",
+    icon: BarChart3,
+  },
+  {
+    title: "Insights",
+    path: "/insights",
     icon: BarChart3,
   },
   {
@@ -71,6 +76,7 @@ export default function Sidebar() {
   const isCollapsed = state === "collapsed"
   const [userName, setUserName] = useState("User")
   const [userInitial, setUserInitial] = useState("U")
+  const [customerType, setCustomerType] = useState("")
 
   // Fetch user data when sidebar loads
   useEffect(() => {
@@ -78,23 +84,34 @@ export default function Sidebar() {
       if (user?.type === "client") {
         try {
           const response = await axios.get("http://localhost:5000/user/profile")
-          // Extract name or set default
           if (response.data) {
-            // Assuming the response has client data
-            // Adjust these fields based on your actual data structure
-            const firstName = response.data.GPI_CLS_CODE_PT_OCCUP || "User"
-            setUserName(firstName)
-            setUserInitial(firstName.charAt(0))
+            // Get user info from data
+            const occupation = response.data.GPI_CLS_CODE_PT_OCCUP || "User"
+            const customerTypeDesc = response.data.GPI_CUSTOMER_TYPE_DESC || ""
+            const age = response.data.GPI_AGE || ""
+            
+            // Create a display name
+            let displayName = occupation;
+            if (age) {
+              displayName = `${occupation}, ${age}y`;
+            }
+            
+            setUserName(displayName)
+            setUserInitial(occupation.charAt(0))
+            setCustomerType(customerTypeDesc)
           }
         } catch (error) {
           console.error("Error fetching user profile:", error)
+          setUserName("Client")
+          setUserInitial("C")
         }
       } else if (user?.type === "admin") {
         setUserName("Admin")
         setUserInitial("A")
+        setCustomerType("Administrator")
       }
     }
-
+    
     if (user) {
       fetchUserProfile()
     }
@@ -121,7 +138,7 @@ export default function Sidebar() {
                   <Link
                     href={item.path}
                     className={cn(
-                      "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium",
+                      "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
                       isCollapsed && "justify-center",
                       isActive ? "bg-georgel-purple text-white" : "text-gray-700 hover:bg-georgel-lightPurple/70",
                     )}
@@ -143,15 +160,20 @@ export default function Sidebar() {
 
           {!isCollapsed && (
             <>
-              <div className="ml-2 flex-1">
+              <div className="ml-2 flex-1 min-w-0">
                 <div className="text-xs text-gray-500">Welcome back</div>
-                <div className="font-medium">{userName}</div>
+                <div className="font-medium truncate" title={userName}>{userName}</div>
+                {customerType && (
+                  <div className="text-xs text-gray-400 truncate" title={customerType}>
+                    {customerType}
+                  </div>
+                )}
               </div>
 
               {/* Logout button - visible when sidebar is expanded */}
               <button
                 onClick={logout}
-                className="text-gray-500 hover:text-gray-700 p-1.5 rounded-full hover:bg-gray-100"
+                className="text-gray-500 hover:text-gray-700 p-1.5 rounded-full hover:bg-gray-100 transition-colors"
                 aria-label="Log out"
                 title="Log out"
               >
@@ -164,7 +186,7 @@ export default function Sidebar() {
           {isCollapsed && (
             <button
               onClick={logout}
-              className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 text-gray-500 hover:text-gray-700 p-1.5 rounded-full hover:bg-gray-100"
+              className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 text-gray-500 hover:text-gray-700 p-1.5 rounded-full hover:bg-gray-100 transition-colors"
               aria-label="Log out"
               title="Log out"
             >
@@ -177,7 +199,7 @@ export default function Sidebar() {
       {/* Toggle button */}
       <button
         onClick={toggleSidebar}
-        className="absolute top-1/2 -right-3 h-6 w-6 transform -translate-y-1/2 flex items-center justify-center bg-white rounded-full shadow-md border border-gray-200 hover:bg-gray-100 z-10"
+        className="absolute top-1/2 -right-3 h-6 w-6 transform -translate-y-1/2 flex items-center justify-center bg-white rounded-full shadow-md border border-gray-200 hover:bg-gray-100 z-10 transition-colors"
         aria-label="Toggle sidebar"
       >
         <ChevronLeft className={cn("h-3 w-3 text-gray-600 transition-transform", isCollapsed && "rotate-180")} />

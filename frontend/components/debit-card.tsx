@@ -1,4 +1,18 @@
-export default function DebitCard() {
+import { formatCurrency } from "@/utilis/dashboard-data"
+
+interface DebitCardProps {
+  balance?: number
+  cardNumber?: string
+  holderName?: string
+  expiryDate?: string
+}
+
+export default function DebitCard({ 
+  balance = 0, 
+  cardNumber = "4289",
+  holderName = "Jasmine Asare",
+  expiryDate = "12/27"
+}: DebitCardProps) {
   return (
     <div className="w-full">
       {/* Card container with proper aspect ratio and corner radius */}
@@ -58,18 +72,22 @@ export default function DebitCard() {
           {/* Card number */}
           <div className="my-6">
             <span className="text-sm opacity-75 block mb-1">Card Number</span>
-            <span className="font-mono text-lg">**** **** **** 4289</span>
+            <span className="font-mono text-lg">**** **** **** {cardNumber}</span>
           </div>
 
-          {/* Card footer with name and expiry */}
+          {/* Card footer with name, expiry, and balance */}
           <div className="flex justify-between items-end">
             <div>
               <span className="text-sm opacity-75 block mb-1">Card Holder</span>
-              <span>Jasmine Asare</span>
+              <span>{holderName}</span>
+            </div>
+            <div className="text-right">
+              <span className="text-sm opacity-75 block mb-1">Balance</span>
+              <span className="font-semibold">{formatCurrency(balance)}</span>
             </div>
             <div className="text-right">
               <span className="text-sm opacity-75 block mb-1">Expires</span>
-              <span>12/27</span>
+              <span>{expiryDate}</span>
             </div>
           </div>
         </div>

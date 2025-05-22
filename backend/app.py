@@ -233,5 +233,35 @@ def home():
 def health_check():
     return jsonify({"status": "ok", "message": "Server is running"}), 200
 
+# Add this endpoint to backend/app.py for testing different client IDs
+@app.route('/debug/sample-clients', methods=['GET'])
+def debug_sample_clients():
+    """Get sample client IDs with some basic info for testing"""
+    try:
+        # Get first 10 clients with some basic info
+        sample_size = min(10, len(client_data_service.client_ids))
+        sample_clients = []
+        
+        for i in range(sample_size):
+            client_id = client_data_service.client_ids[i]
+            client_data = client_data_service.get_client_data(client_id)
+            
+            if client_data:
+                sample_clients.append({
+                    "id": client_id,
+                    "age": client_data.get("GPI_AGE", "N/A"),
+                    "occupation": client_data.get("GPI_CLS_CODE_PT_OCCUP", "N/A"),
+                    "customer_type": client_data.get("GPI_CUSTOMER_TYPE_DESC", "N/A"),
+                    "total_balance": client_data.get("CEC_TOTAL_BALANCE_AMT", 0),
+                    "has_digital_services": client_data.get("PTS_IB_FLAG") == "Y"
+                })
+        
+        return jsonify({
+            "total_clients": len(client_data_service.client_ids),
+            "sample_clients": sample_clients
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 if __name__ == '__main__':
     app.run(debug=True)

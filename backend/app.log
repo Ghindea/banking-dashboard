@@ -326,3 +326,88 @@ AttributeError: 'UserService' object has no attribute 'get_user_data'
 2025-05-22 03:08:06,293 [INFO] 127.0.0.1 - - [22/May/2025 03:08:06] "POST /login HTTP/1.1" 200 -
 2025-05-22 03:08:08,596 [INFO] 127.0.0.1 - - [22/May/2025 03:08:08] "GET /user/profile HTTP/1.1" 200 -
 2025-05-22 03:08:08,600 [INFO] 127.0.0.1 - - [22/May/2025 03:08:08] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:10:17,086 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 04:10:17,087 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 04:10:17,090 [INFO] Client routes initialized
+2025-05-22 04:10:17,144 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-22 04:10:17,145 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-22 04:10:17,149 [INFO]  * Restarting with stat
+2025-05-22 04:10:20,439 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 04:10:20,440 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 04:10:20,443 [INFO] Client routes initialized
+2025-05-22 04:10:20,531 [WARNING]  * Debugger is active!
+2025-05-22 04:10:20,538 [INFO]  * Debugger PIN: 475-842-412
+2025-05-22 04:11:11,536 [INFO] 127.0.0.1 - - [22/May/2025 04:11:11] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-22 04:11:11,825 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-22 04:11:11,826 [INFO] 127.0.0.1 - - [22/May/2025 04:11:11] "POST /login HTTP/1.1" 200 -
+2025-05-22 04:14:01,525 [INFO] 127.0.0.1 - - [22/May/2025 04:14:01] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-22 04:14:01,782 [INFO] 127.0.0.1 - - [22/May/2025 04:14:01] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-22 04:14:40,578 [INFO] 127.0.0.1 - - [22/May/2025 04:14:40] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 04:14:40,885 [INFO] 127.0.0.1 - - [22/May/2025 04:14:40] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:14:41,138 [INFO] 127.0.0.1 - - [22/May/2025 04:14:41] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:17:48,797 [INFO] 127.0.0.1 - - [22/May/2025 04:17:48] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 04:17:48,799 [INFO] 127.0.0.1 - - [22/May/2025 04:17:48] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 04:17:49,034 [INFO] 127.0.0.1 - - [22/May/2025 04:17:49] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:17:49,106 [INFO] 127.0.0.1 - - [22/May/2025 04:17:49] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:20:40,386 [INFO] 127.0.0.1 - - [22/May/2025 04:20:40] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 04:20:40,646 [INFO] 127.0.0.1 - - [22/May/2025 04:20:40] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:20:50,822 [INFO] 127.0.0.1 - - [22/May/2025 04:20:50] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-22 04:20:51,084 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-22 04:20:51,085 [INFO] 127.0.0.1 - - [22/May/2025 04:20:51] "POST /login HTTP/1.1" 200 -
+2025-05-22 04:20:51,189 [INFO] 127.0.0.1 - - [22/May/2025 04:20:51] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 04:20:51,503 [INFO] 127.0.0.1 - - [22/May/2025 04:20:51] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:20:51,741 [INFO] 127.0.0.1 - - [22/May/2025 04:20:51] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:21:32,804 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 04:21:32,805 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 04:21:32,807 [INFO] Client routes initialized
+2025-05-22 04:21:33,452 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-22 04:21:33,453 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-22 04:21:33,501 [INFO]  * Restarting with stat
+2025-05-22 04:21:39,363 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 04:21:39,363 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 04:21:39,366 [INFO] Client routes initialized
+2025-05-22 04:21:39,415 [WARNING]  * Debugger is active!
+2025-05-22 04:21:39,419 [INFO]  * Debugger PIN: 475-842-412
+2025-05-22 04:21:40,476 [INFO] 127.0.0.1 - - [22/May/2025 04:21:40] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-22 04:21:40,634 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-22 04:21:40,716 [INFO] 127.0.0.1 - - [22/May/2025 04:21:40] "POST /login HTTP/1.1" 200 -
+2025-05-22 04:21:44,243 [INFO] 127.0.0.1 - - [22/May/2025 04:21:44] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 04:21:44,248 [INFO] 127.0.0.1 - - [22/May/2025 04:21:44] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 04:21:44,481 [INFO] 127.0.0.1 - - [22/May/2025 04:21:44] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:21:44,542 [INFO] 127.0.0.1 - - [22/May/2025 04:21:44] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:30:42,762 [INFO] 127.0.0.1 - - [22/May/2025 04:30:42] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-22 04:30:42,781 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-22 04:30:42,781 [INFO] 127.0.0.1 - - [22/May/2025 04:30:42] "POST /login HTTP/1.1" 200 -
+2025-05-22 04:30:43,512 [INFO] 127.0.0.1 - - [22/May/2025 04:30:43] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 04:30:43,516 [INFO] 127.0.0.1 - - [22/May/2025 04:30:43] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 04:30:43,533 [INFO] 127.0.0.1 - - [22/May/2025 04:30:43] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 04:30:43,566 [INFO] 127.0.0.1 - - [22/May/2025 04:30:43] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 04:30:43,783 [INFO] 127.0.0.1 - - [22/May/2025 04:30:43] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:30:43,841 [INFO] 127.0.0.1 - - [22/May/2025 04:30:43] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:30:44,112 [INFO] 127.0.0.1 - - [22/May/2025 04:30:44] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:30:44,202 [INFO] 127.0.0.1 - - [22/May/2025 04:30:44] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:45:23,887 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 04:45:23,887 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 04:45:23,889 [INFO] Client routes initialized
+2025-05-22 04:45:23,937 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-22 04:45:23,938 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-22 04:45:23,962 [INFO]  * Restarting with stat
+2025-05-22 04:45:28,382 [INFO] Loaded 20314 client IDs from CSV
+2025-05-22 04:45:28,382 [INFO] Successfully loaded client data. Records: 20314
+2025-05-22 04:45:28,385 [INFO] Client routes initialized
+2025-05-22 04:45:28,426 [WARNING]  * Debugger is active!
+2025-05-22 04:45:28,432 [INFO]  * Debugger PIN: 475-842-412
+2025-05-22 04:45:38,920 [INFO] 127.0.0.1 - - [22/May/2025 04:45:38] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-22 04:45:39,178 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-22 04:45:39,179 [INFO] 127.0.0.1 - - [22/May/2025 04:45:39] "POST /login HTTP/1.1" 200 -
+2025-05-22 04:45:42,054 [INFO] 127.0.0.1 - - [22/May/2025 04:45:42] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 04:45:42,356 [INFO] 127.0.0.1 - - [22/May/2025 04:45:42] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:45:42,618 [INFO] 127.0.0.1 - - [22/May/2025 04:45:42] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:45:42,665 [INFO] 127.0.0.1 - - [22/May/2025 04:45:42] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:45:43,701 [INFO] 127.0.0.1 - - [22/May/2025 04:45:43] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 04:48:34,498 [INFO] 127.0.0.1 - - [22/May/2025 04:48:34] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 04:48:34,512 [INFO] 127.0.0.1 - - [22/May/2025 04:48:34] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-22 04:48:34,548 [INFO] 127.0.0.1 - - [22/May/2025 04:48:34] "GET /user/profile HTTP/1.1" 200 -
