@@ -1,7 +1,7 @@
 {
     "segmentsList": [
       {
-        "segment": "Demographic",
+        "segment": "DEM_SEG",
         "clustersList": [
           {
             "cluster": "Cluster 0",
@@ -90,7 +90,7 @@
         ]
       },
       {
-        "segment": "Transactional",
+        "segment": "TRANS_SEG",
         "clustersList": [
           {
             "cluster": "Cluster 0",
@@ -190,7 +190,7 @@
         ]
       },
       {
-        "segment": "Product",
+        "segment": "PROD_SEG",
         "clustersList": [
           {
             "cluster": "Cluster 0",
@@ -264,7 +264,7 @@
         ]
       },
       {
-        "segment": "Digital",
+        "segment": "DIG_SEG",
         "clustersList": [
           {
             "cluster": "Cluster 0",
@@ -368,7 +368,7 @@
         ]
       },
       {
-        "segment": "Financial",
+        "segment": "FIN_SEG",
         "clustersList": [
           {
             "cluster": "Cluster 0",
@@ -436,7 +436,7 @@
         ]
       },
       {
-        "segment": "Relation",
+        "segment": "REL_SEG",
         "clustersList": [
           {
             "cluster": "Cluster 0",
