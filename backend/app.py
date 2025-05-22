@@ -147,36 +147,21 @@ def get_user_profile():
 @jwt_required()
 def get_user_recommendations():
     current_user = get_jwt_identity()
+
     logging.info(f"{current_user} accessed /recommendations")
 
     # Get user data
     user_data = user_service.get_user_data(current_user)
+    print(current_user)
     
     if not user_data:
         return jsonify({"error": "User not found"}), 404
     
-    segments = [
-        "DEM_SEG",
-        "FIN_SEG",
-        "TRANS_SEG",
-        "PROD_SEG",
-        "DIG_SEG",
-        "REL_SEG"
-    ]
-
-    recommendations = set()
-
-    for segment in segments:
-        cluster_name = f"Cluster {user_data[segment]}"
-
-        seg_obj = next(s for s in mapper["segmentsList"] if s["segment"] == segment)
-        clu_obj = next(c for c in seg_obj["clustersList"] if c["cluster"] == cluster_name)
-
-        recommendations.update(clu_obj["products"])
+    recommendations = client_data_service.get_products_for_client(current_user)
         
     logging.info(f"Recommendations for {current_user}: {recommendations}")
         
-    return jsonify({"recommendations": list(recommendations)})
+    return jsonify({"recommendations": recommendations})
     
     
 
