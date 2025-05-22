@@ -143,7 +143,7 @@ def get_user_profile():
     
     return jsonify(user_data)
 
-@app.route('/recommendations', methods=['POST'])
+@app.route('/user/recommendations', methods=['GET'])
 @jwt_required()
 def get_user_recommendations():
     current_user = get_jwt_identity()

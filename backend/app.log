@@ -609,3 +609,204 @@ AttributeError: 'UserService' object has no attribute 'get_user_data'
 2025-05-22 21:34:42,231 [INFO] 127.0.0.1 - - [22/May/2025 21:34:42] "OPTIONS /user/profile HTTP/1.1" 200 -
 2025-05-22 21:34:42,241 [INFO] 127.0.0.1 - - [22/May/2025 21:34:42] "GET /user/profile HTTP/1.1" 200 -
 2025-05-22 21:34:42,242 [INFO] 127.0.0.1 - - [22/May/2025 21:34:42] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 21:41:47,906 [INFO] Loaded 20313 client IDs from CSV
+2025-05-22 21:41:47,907 [INFO] Successfully loaded client data. Records: 20313
+2025-05-22 21:41:47,911 [INFO] Client routes initialized
+2025-05-22 21:41:47,935 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-22 21:41:47,935 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-22 21:41:47,937 [INFO]  * Restarting with stat
+2025-05-22 21:41:48,942 [INFO] Loaded 20313 client IDs from CSV
+2025-05-22 21:41:48,943 [INFO] Successfully loaded client data. Records: 20313
+2025-05-22 21:41:48,945 [INFO] Client routes initialized
+2025-05-22 21:41:48,954 [WARNING]  * Debugger is active!
+2025-05-22 21:41:48,963 [INFO]  * Debugger PIN: 134-491-668
+2025-05-22 21:41:50,580 [INFO] User b066b2abdMOS01TL7YAd13I2 logged in.
+2025-05-22 21:41:50,581 [INFO] 127.0.0.1 - - [22/May/2025 21:41:50] "POST /login HTTP/1.1" 200 -
+2025-05-22 21:55:29,437 [INFO] 127.0.0.1 - - [22/May/2025 21:55:29] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-22 21:55:29,456 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-22 21:55:29,457 [INFO] 127.0.0.1 - - [22/May/2025 21:55:29] "POST /login HTTP/1.1" 200 -
+2025-05-22 21:55:37,522 [INFO] 127.0.0.1 - - [22/May/2025 21:55:37] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 21:55:37,545 [INFO] 127.0.0.1 - - [22/May/2025 21:55:37] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 21:55:37,574 [INFO] 127.0.0.1 - - [22/May/2025 21:55:37] "OPTIONS /recommendations HTTP/1.1" 200 -
+2025-05-22 21:55:37,577 [INFO] 127.0.0.1 - - [22/May/2025 21:55:37] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 21:55:37,585 [INFO] 127.0.0.1 - - [22/May/2025 21:55:37] "OPTIONS /recommendations HTTP/1.1" 200 -
+2025-05-22 21:55:37,601 [INFO] 127.0.0.1 - - [22/May/2025 21:55:37] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-22 21:55:37,609 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 624, in match
+    raise MethodNotAllowed(valid_methods=list(e.have_match_for)) from None
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+2025-05-22 21:55:37,613 [INFO] 127.0.0.1 - - [22/May/2025 21:55:37] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 21:55:37,634 [INFO] 127.0.0.1 - - [22/May/2025 21:55:37] "[35m[1mGET /recommendations HTTP/1.1[0m" 500 -
+2025-05-22 21:55:37,661 [INFO] 127.0.0.1 - - [22/May/2025 21:55:37] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-22 21:55:37,671 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 624, in match
+    raise MethodNotAllowed(valid_methods=list(e.have_match_for)) from None
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+2025-05-22 21:55:37,674 [INFO] 127.0.0.1 - - [22/May/2025 21:55:37] "[35m[1mGET /recommendations HTTP/1.1[0m" 500 -
+2025-05-22 21:55:37,686 [INFO] 127.0.0.1 - - [22/May/2025 21:55:37] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-22 21:55:37,707 [INFO] 127.0.0.1 - - [22/May/2025 21:55:37] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-22 21:59:15,637 [INFO] 127.0.0.1 - - [22/May/2025 21:59:15] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 21:59:15,638 [INFO] 127.0.0.1 - - [22/May/2025 21:59:15] "OPTIONS /recommendations HTTP/1.1" 200 -
+2025-05-22 21:59:15,653 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 624, in match
+    raise MethodNotAllowed(valid_methods=list(e.have_match_for)) from None
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+2025-05-22 21:59:15,656 [INFO] 127.0.0.1 - - [22/May/2025 21:59:15] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 21:59:15,657 [INFO] 127.0.0.1 - - [22/May/2025 21:59:15] "[35m[1mGET /recommendations HTTP/1.1[0m" 500 -
+2025-05-22 21:59:15,817 [INFO] 127.0.0.1 - - [22/May/2025 21:59:15] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-22 21:59:27,526 [INFO] 127.0.0.1 - - [22/May/2025 21:59:27] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-22 21:59:27,534 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-22 21:59:27,534 [INFO] 127.0.0.1 - - [22/May/2025 21:59:27] "POST /login HTTP/1.1" 200 -
+2025-05-22 21:59:28,992 [INFO] 127.0.0.1 - - [22/May/2025 21:59:28] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 21:59:28,995 [INFO] 127.0.0.1 - - [22/May/2025 21:59:28] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 21:59:29,004 [INFO] 127.0.0.1 - - [22/May/2025 21:59:29] "OPTIONS /recommendations HTTP/1.1" 200 -
+2025-05-22 21:59:29,007 [INFO] 127.0.0.1 - - [22/May/2025 21:59:29] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 21:59:29,015 [INFO] 127.0.0.1 - - [22/May/2025 21:59:29] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 21:59:29,023 [INFO] 127.0.0.1 - - [22/May/2025 21:59:29] "OPTIONS /recommendations HTTP/1.1" 200 -
+2025-05-22 21:59:29,044 [INFO] 127.0.0.1 - - [22/May/2025 21:59:29] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 21:59:29,092 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 624, in match
+    raise MethodNotAllowed(valid_methods=list(e.have_match_for)) from None
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+2025-05-22 21:59:29,103 [INFO] 127.0.0.1 - - [22/May/2025 21:59:29] "[35m[1mGET /recommendations HTTP/1.1[0m" 500 -
+2025-05-22 21:59:29,142 [INFO] 127.0.0.1 - - [22/May/2025 21:59:29] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 21:59:29,146 [ERROR] Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ghindea/bcr-hackathon/venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 624, in match
+    raise MethodNotAllowed(valid_methods=list(e.have_match_for)) from None
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+2025-05-22 21:59:29,150 [INFO] 127.0.0.1 - - [22/May/2025 21:59:29] "[35m[1mGET /recommendations HTTP/1.1[0m" 500 -
+2025-05-22 21:59:29,173 [INFO] 127.0.0.1 - - [22/May/2025 21:59:29] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 21:59:29,188 [INFO] 127.0.0.1 - - [22/May/2025 21:59:29] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 21:59:47,466 [INFO] 127.0.0.1 - - [22/May/2025 21:59:47] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:47,493 [INFO] 127.0.0.1 - - [22/May/2025 21:59:47] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:52,013 [INFO] 127.0.0.1 - - [22/May/2025 21:59:52] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:52,040 [INFO] 127.0.0.1 - - [22/May/2025 21:59:52] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:56,226 [INFO] 127.0.0.1 - - [22/May/2025 21:59:56] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:56,250 [INFO] 127.0.0.1 - - [22/May/2025 21:59:56] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:56,686 [INFO] 127.0.0.1 - - [22/May/2025 21:59:56] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:56,720 [INFO] 127.0.0.1 - - [22/May/2025 21:59:56] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:56,850 [INFO] 127.0.0.1 - - [22/May/2025 21:59:56] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:56,871 [INFO] 127.0.0.1 - - [22/May/2025 21:59:56] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:57,044 [INFO] 127.0.0.1 - - [22/May/2025 21:59:57] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:57,076 [INFO] 127.0.0.1 - - [22/May/2025 21:59:57] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:57,199 [INFO] 127.0.0.1 - - [22/May/2025 21:59:57] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:57,232 [INFO] 127.0.0.1 - - [22/May/2025 21:59:57] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:57,347 [INFO] 127.0.0.1 - - [22/May/2025 21:59:57] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:57,383 [INFO] 127.0.0.1 - - [22/May/2025 21:59:57] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:57,482 [INFO] 127.0.0.1 - - [22/May/2025 21:59:57] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:57,524 [INFO] 127.0.0.1 - - [22/May/2025 21:59:57] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:57,623 [INFO] 127.0.0.1 - - [22/May/2025 21:59:57] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:57,644 [INFO] 127.0.0.1 - - [22/May/2025 21:59:57] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:57,764 [INFO] 127.0.0.1 - - [22/May/2025 21:59:57] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:57,794 [INFO] 127.0.0.1 - - [22/May/2025 21:59:57] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:57,932 [INFO] 127.0.0.1 - - [22/May/2025 21:59:57] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:57,962 [INFO] 127.0.0.1 - - [22/May/2025 21:59:57] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:58,098 [INFO] 127.0.0.1 - - [22/May/2025 21:59:58] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:58,123 [INFO] 127.0.0.1 - - [22/May/2025 21:59:58] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:58,248 [INFO] 127.0.0.1 - - [22/May/2025 21:59:58] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:58,281 [INFO] 127.0.0.1 - - [22/May/2025 21:59:58] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:58,404 [INFO] 127.0.0.1 - - [22/May/2025 21:59:58] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:58,433 [INFO] 127.0.0.1 - - [22/May/2025 21:59:58] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:58,569 [INFO] 127.0.0.1 - - [22/May/2025 21:59:58] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:58,595 [INFO] 127.0.0.1 - - [22/May/2025 21:59:58] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:58,725 [INFO] 127.0.0.1 - - [22/May/2025 21:59:58] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:58,752 [INFO] 127.0.0.1 - - [22/May/2025 21:59:58] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:58,889 [INFO] 127.0.0.1 - - [22/May/2025 21:59:58] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:58,912 [INFO] 127.0.0.1 - - [22/May/2025 21:59:58] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:59,047 [INFO] 127.0.0.1 - - [22/May/2025 21:59:59] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:59,068 [INFO] 127.0.0.1 - - [22/May/2025 21:59:59] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:59,217 [INFO] 127.0.0.1 - - [22/May/2025 21:59:59] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:59,238 [INFO] 127.0.0.1 - - [22/May/2025 21:59:59] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 21:59:59,649 [INFO] 127.0.0.1 - - [22/May/2025 21:59:59] "GET / HTTP/1.1" 200 -
+2025-05-22 21:59:59,674 [INFO] 127.0.0.1 - - [22/May/2025 21:59:59] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 22:00:00,012 [INFO] 127.0.0.1 - - [22/May/2025 22:00:00] "GET / HTTP/1.1" 200 -
+2025-05-22 22:00:00,032 [INFO] 127.0.0.1 - - [22/May/2025 22:00:00] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 22:00:00,936 [INFO] 127.0.0.1 - - [22/May/2025 22:00:00] "GET / HTTP/1.1" 200 -
+2025-05-22 22:00:00,969 [INFO] 127.0.0.1 - - [22/May/2025 22:00:00] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-05-22 22:02:53,496 [INFO]  * Detected change in '/home/ghindea/bcr-hackathon/backend/app.py', reloading
+2025-05-22 22:02:53,645 [INFO]  * Restarting with stat
+2025-05-22 22:02:55,705 [INFO] Loaded 20313 client IDs from CSV
+2025-05-22 22:02:55,705 [INFO] Successfully loaded client data. Records: 20313
+2025-05-22 22:02:55,708 [INFO] Client routes initialized
+2025-05-22 22:02:55,728 [WARNING]  * Debugger is active!
+2025-05-22 22:02:55,737 [INFO]  * Debugger PIN: 134-491-668
+2025-05-22 22:03:35,162 [INFO] 127.0.0.1 - - [22/May/2025 22:03:35] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-22 22:03:35,222 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-22 22:03:35,224 [INFO] 127.0.0.1 - - [22/May/2025 22:03:35] "POST /login HTTP/1.1" 200 -
+2025-05-22 22:03:36,756 [INFO] 127.0.0.1 - - [22/May/2025 22:03:36] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 22:03:36,768 [INFO] 127.0.0.1 - - [22/May/2025 22:03:36] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 22:03:36,770 [INFO] 127.0.0.1 - - [22/May/2025 22:03:36] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-22 22:03:36,771 [INFO] 127.0.0.1 - - [22/May/2025 22:03:36] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 22:03:36,780 [INFO] 127.0.0.1 - - [22/May/2025 22:03:36] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 22:03:36,784 [INFO] 127.0.0.1 - - [22/May/2025 22:03:36] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-22 22:03:36,825 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-22 22:03:36,830 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O3', 'P7', 'O4', 'P5', 'O1', 'O29', 'O2', 'P13', 'P10', 'P4', 'P28', 'P14', 'O12', 'O19', 'P21', 'O15', 'P8', 'P11', 'P9', 'P18', 'P1', 'O6', 'O7', 'O31', 'O5', 'P32', 'P2', 'O10', 'O24', 'O32', 'P25', 'O25', 'O9', 'O8', 'O11'}
+2025-05-22 22:03:36,832 [INFO] 127.0.0.1 - - [22/May/2025 22:03:36] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-22 22:03:36,836 [INFO] 127.0.0.1 - - [22/May/2025 22:03:36] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 22:03:36,857 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-22 22:03:36,858 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O3', 'P7', 'O4', 'P5', 'O1', 'O29', 'O2', 'P13', 'P10', 'P4', 'P28', 'P14', 'O12', 'O19', 'P21', 'O15', 'P8', 'P11', 'P9', 'P18', 'P1', 'O6', 'O7', 'O31', 'O5', 'P32', 'P2', 'O10', 'O24', 'O32', 'P25', 'O25', 'O9', 'O8', 'O11'}
+2025-05-22 22:03:36,859 [INFO] 127.0.0.1 - - [22/May/2025 22:03:36] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-22 22:03:36,868 [INFO] 127.0.0.1 - - [22/May/2025 22:03:36] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 22:03:36,885 [INFO] 127.0.0.1 - - [22/May/2025 22:03:36] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 22:03:36,900 [INFO] 127.0.0.1 - - [22/May/2025 22:03:36] "GET /user/profile HTTP/1.1" 200 -
