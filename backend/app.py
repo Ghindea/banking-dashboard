@@ -6,6 +6,7 @@ import os
 import requests
 import logging
 from datetime import timedelta
+import json
 
 
 # Import the client data service and routes
@@ -50,13 +51,16 @@ USERS = {
 
 # Initialize client data service
 # Update the path to match your actual file location
-client_data_service = ClientDataService("database/data/sample_clients.csv")
+client_data_service = ClientDataService("database/data/clustered_sample_clients.csv")
 
 # Initialize user service for managing user authentication and data caching
 user_service = UserService(client_data_service)
 
 # Initialize client routes
 init_client_routes(app, client_data_service)
+
+with open("recommender/mapper.json", "r") as f:
+    mapper = json.load(f)
 
 # 🔐 Login endpoint
 # In backend/app.py, modify the login endpoint:
@@ -151,10 +155,28 @@ def get_user_recommendations():
     if not user_data:
         return jsonify({"error": "User not found"}), 404
     
-    # Get recommendations
-    # print(user_data)
+    segments = [
+        "DEM_SEG",
+        "FIN_SEG",
+        "TRANS_SEG",
+        "PROD_SEG",
+        "DIG_SEG",
+        "REL_SEG"
+    ]
 
-    return jsonify({"recommendations": "Recommendations generated successfully"})
+    recommendations = set()
+
+    for segment in segments:
+        cluster_name = f"Cluster {user_data[segment]}"
+
+        seg_obj = next(s for s in mapper["segmentsList"] if s["segment"] == segment)
+        clu_obj = next(c for c in seg_obj["clustersList"] if c["cluster"] == cluster_name)
+
+        recommendations.update(clu_obj["products"])
+        
+    logging.info(f"Recommendations for {current_user}: {recommendations}")
+        
+    return jsonify({"recommendations": list(recommendations)})
     
     
 
@@ -282,6 +304,11 @@ def debug_sample_clients():
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+@app.route('/favicon.ico')
+def favicon():
+    return "", 204
+
 
 if __name__ == '__main__':
     app.run(debug=True)
