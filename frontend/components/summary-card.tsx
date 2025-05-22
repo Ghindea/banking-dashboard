@@ -11,6 +11,7 @@ interface SummaryCardProps {
   trendValue?: string
   secondaryText?: string
   showBadge?: boolean
+  onClick?: () => void // Add this new prop
 }
 
 export default function SummaryCard({
@@ -21,9 +22,13 @@ export default function SummaryCard({
   trendValue,
   secondaryText,
   showBadge = false,
+  onClick, // Add this
 }: SummaryCardProps) {
   return (
-    <Card>
+    <Card
+      className={onClick ? "cursor-pointer hover:shadow-md transition-shadow" : ""}
+      onClick={onClick}
+    >
       <CardContent className="p-4">
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-sm font-medium text-gray-500">{title}</h3>
@@ -33,9 +38,8 @@ export default function SummaryCard({
           <div className="text-2xl font-bold">{value}</div>
           {trend && trendValue && (
             <div
-              className={`flex items-center text-xs font-medium ${
-                trend === "up" ? "text-green-600" : trend === "down" ? "text-red-600" : "text-gray-500"
-              }`}
+              className={`flex items-center text-xs font-medium ${trend === "up" ? "text-green-600" : trend === "down" ? "text-red-600" : "text-gray-500"
+                }`}
             >
               {trend === "up" ? (
                 <ArrowUp className="h-3 w-3 mr-0.5" />

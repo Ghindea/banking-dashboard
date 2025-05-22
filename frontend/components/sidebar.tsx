@@ -83,19 +83,19 @@ export default function Sidebar() {
     const fetchUserProfile = async () => {
       if (user?.type === "client") {
         try {
-          const response = await axios.get("http://localhost:5000/user/profile")
+          const response = await axios.get("http://127.0.0.1:5000/user/profile")
           if (response.data) {
             // Get user info from data
             const occupation = response.data.GPI_CLS_CODE_PT_OCCUP || "User"
             const customerTypeDesc = response.data.GPI_CUSTOMER_TYPE_DESC || ""
             const age = response.data.GPI_AGE || ""
-            
+
             // Create a display name
             let displayName = occupation;
             if (age) {
               displayName = `${occupation}, ${age}y`;
             }
-            
+
             setUserName(displayName)
             setUserInitial(occupation.charAt(0))
             setCustomerType(customerTypeDesc)
@@ -111,7 +111,7 @@ export default function Sidebar() {
         setCustomerType("Administrator")
       }
     }
-    
+
     if (user) {
       fetchUserProfile()
     }

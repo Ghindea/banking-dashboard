@@ -8,15 +8,15 @@ interface CreditCardProps {
   expiryDate?: string
 }
 
-export default function CreditCard({ 
-  balance = 0, 
+export default function CreditCard({
+  balance = 0,
   limit = 0,
   cardNumber = "7635",
   holderName = "Jasmine Asare",
   expiryDate = "09/28"
 }: CreditCardProps) {
   const utilizationPercent = limit > 0 ? (balance / limit) * 100 : 0;
-  
+
   return (
     <div className="w-full">
       {/* Card container with proper aspect ratio and corner radius */}
@@ -25,35 +25,34 @@ export default function CreditCard({
         style={{
           aspectRatio: "311/185", // Aspect ratio from SVG
           borderRadius: "20px",   // Exact corner radius from SVG
-          width: "100%",         
-          maxWidth: "360px",     
+          width: "100%",
+          maxWidth: "420px",
           background: "linear-gradient(135deg, #c6166e 0%, #8c1bab 100%)", // Original magenta gradient
           position: "relative"
         }}
       >
         {/* SVG path element for the wave effect */}
-        <svg 
+        <svg
           className="absolute bottom-0 left-0 w-full h-full"
           preserveAspectRatio="none"
           viewBox="0 0 311 185"
           style={{ zIndex: "1" }}
         >
-          <path 
+          <path
             d="M0 23.9265C2.87056 49.8774 49.5236 63.0827 129.931 75.7097C276.414 98.7132 313.25 144.921 301.465 185H20C8.95431 185 0 176.045 0 165V23.9265ZM0.610352 15.0798C0.434706 15.8381 0.291527 16.5868 0.177734 17.3259C0.279712 16.5627 0.424815 15.8132 0.610352 15.0798Z"
-            fill="rgba(255, 255, 255, 0.08)" 
+            fill="rgba(255, 255, 255, 0.08)"
           />
         </svg>
-        
+
         {/* Subtle gaussian blur overlay from SVG */}
-        <div 
+        <div
           className="absolute inset-0 bg-white opacity-5 rounded-lg"
           style={{ zIndex: "2" }}
         />
 
-        <div className="p-6 h-full flex flex-col justify-between relative z-10">
+        <div className="p-4 h-full flex flex-col justify-between relative z-10">
           {/* Card header with logo/type */}
           <div className="flex justify-between items-start">
-            <span className="text-sm font-medium">Credit</span>
             <div className="text-right">
               <svg width="48" height="16" viewBox="0 0 48 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -71,30 +70,20 @@ export default function CreditCard({
                 />
               </svg>
             </div>
+            <span className="text-sm font-medium">Credit</span>
           </div>
 
           {/* Card number */}
-          <div className="my-6">
+          <div className="my-4">
             <span className="text-sm opacity-75 block mb-1">Card Number</span>
             <span className="font-mono text-lg">**** **** **** {cardNumber}</span>
           </div>
 
-          {/* Card footer with name, balance/limit, and expiry */}
+          {/* Card footer with name and expiry */}
           <div className="flex justify-between items-end">
             <div>
               <span className="text-sm opacity-75 block mb-1">Card Holder</span>
               <span>{holderName}</span>
-            </div>
-            <div className="text-center">
-              <span className="text-sm opacity-75 block mb-1">Used / Limit</span>
-              <span className="font-semibold text-xs">
-                {formatCurrency(balance)} / {formatCurrency(limit)}
-              </span>
-              {limit > 0 && (
-                <div className="text-xs opacity-75 mt-1">
-                  {utilizationPercent.toFixed(1)}% used
-                </div>
-              )}
             </div>
             <div className="text-right">
               <span className="text-sm opacity-75 block mb-1">Expires</span>

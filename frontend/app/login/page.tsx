@@ -22,18 +22,18 @@ export default function LoginPage() {
       }
 
       // Call the backend API
-      const response = await axios.post('http://localhost:5000/login', payload)
-      
+      const response = await axios.post('http://127.0.0.1:5000/login', payload)
+
       // Store auth data
       localStorage.setItem("accessToken", response.data.access_token)
       localStorage.setItem("userType", response.data.user_type)
-      
+
       if (response.data.user_id) {
         localStorage.setItem("userId", response.data.user_id)
       }
-      
+
       localStorage.setItem("isAuthenticated", "true")
-      
+
       // Redirect to dashboard
       router.push("/dashboard")
     } catch (error) {

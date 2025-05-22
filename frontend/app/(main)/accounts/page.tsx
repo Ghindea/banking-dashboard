@@ -67,10 +67,10 @@ function getRiskColor(riskLevel: string): string {
 function addDaysToDate(days: number): string {
   const date = new Date()
   date.setDate(date.getDate() + days)
-  return date.toLocaleDateString('en-US', { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
   })
 }
 
@@ -142,7 +142,7 @@ function calculateAccountsData(userData: any): AccountsData {
   const maturities: MaturityData[] = []
   const daysLeft = parseInt(userData?.DEP_MAX_MAT_LEFT_ACT_ND || 0)
   const depBalance = parseFloat(userData?.DEP_TOTAL_BALANCE_AMT || 0)
-  
+
   if (daysLeft > 0 && depBalance > 0) {
     maturities.push({
       account: 'Term Deposit #1',
@@ -233,7 +233,7 @@ export default function AccountsPage() {
       // Check if user is authenticated
       const isAuthenticated = localStorage.getItem("isAuthenticated")
       const userType = localStorage.getItem("userType")
-      
+
       if (!isAuthenticated || userType === "admin") {
         setIsLoading(false)
         return
@@ -241,19 +241,19 @@ export default function AccountsPage() {
 
       setIsLoading(true)
       try {
-        const response = await axios.get("http://localhost:5000/user/profile", {
+        const response = await axios.get("http://127.0.0.1:5000/user/profile", {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
           },
           timeout: 5000
         })
-        
+
         console.log("User data fetched for accounts:", response.data)
-        
+
         // Calculate accounts data from user data
         const calculatedData = calculateAccountsData(response.data)
         setAccountsData(calculatedData)
-        
+
         console.log("Calculated accounts data:", calculatedData)
         setError(null)
       } catch (error) {
@@ -494,7 +494,7 @@ export default function AccountsPage() {
                         </td>
                       </tr>
                     )}
-                    
+
                     {accountsData.products.find(p => p.type === 'Loans & Overdraft' && p.totalBalance < 0) ? (
                       <tr className="border-b hover:bg-gray-50">
                         <td className="py-3 px-4">Personal Loan</td>
