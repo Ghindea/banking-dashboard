@@ -1,0 +1,525 @@
+{
+    "segmentsList": [
+      {
+        "segment": "Demographic",
+        "clustersList": [
+          {
+            "cluster": "Cluster 0",
+            "name": "Femeia loială de la sat",
+            "products": [
+              "P4",
+              "P10",
+              "P22",
+              "P26",
+              "P30",
+              "P32",
+              "P33",
+              "O3",
+              "O4",
+              "O5",
+              "O6",
+              "O7",
+              "O8",
+              "O9",
+              "O10"
+            ]
+          },
+          {
+            "cluster": "Cluster 1",
+            "name": "Soția activă din zona rurală",
+            "products": [
+              "P9",
+              "P10",
+              "P28",
+              "O1",
+              "O31"
+            ]
+          },
+          {
+            "cluster": "Cluster 2",
+            "name": "Profesionalul urban",
+            "products": [
+              "P9",
+              "P28",
+              "O31"
+            ]
+          },
+          {
+            "cluster": "Cluster 3",
+            "name": "Femeia urbană independentă",
+            "products": [
+              "P5",
+              "P7",
+              "P8",
+              "P10",
+              "O2",
+              "O4",
+              "O24", 
+              "O31"
+            ]
+          },
+          {
+            "cluster": "Cluster 4",
+            "name": "Bărbatul tânăr, căsătorit, urban",
+            "products": [
+              "P5",
+              "P6",
+              "P7",
+              "P11",
+              "P20",
+              "P21",
+              "P22",
+              "P25",
+              "P26",
+              "P27",
+              "P28",
+              "O1",
+              "O2",
+              "O4",
+              "O21",
+              "O22",
+              "O23",
+              "O26",
+              "O27",
+              "O29",
+              "O30",
+              "O31",
+              "O32"
+            ]
+          }
+        ]
+      },
+      {
+        "segment": "Transactional",
+        "clustersList": [
+          {
+            "cluster": "Cluster 0",
+            "name": "Utilizator de bază, numerar dependent",
+            "products": [
+              "P7",
+              "P9",
+              "P10",
+              "P28",
+              "P32",
+              "O1",
+              "O31"
+            ]
+          },
+          {
+            "cluster": "Cluster 1",
+            "name": "High spender, omnichannel",
+            "products": [
+              "O6",
+              "O8",
+              "O18",
+              "O29",
+              "O31"
+            ]
+          },
+          {
+            "cluster": "Cluster 2",
+            "name": "Utilizator mixt, digital activ",
+            "products": [
+              "P5",
+              "P6",
+              "P7",
+              "P11",
+              "P20",
+              "P21",
+              "P22",
+              "P25",
+              "P26",
+              "P27",
+              "P28",
+              "O1",
+              "O2",
+              "O4",
+              "O21",
+              "O22",
+              "O23",
+              "O26",
+              "O27",
+              "O29",
+              "O30",
+              "O31",
+              "O32"
+            ]
+          },
+          {
+            "cluster": "Cluster 3",
+            "name": "Utilizator complet digital",
+            "products": [
+              "P1",
+              "P2",
+              "P7",
+              "P8",
+              "P9",
+              "P10",
+              "P13",
+              "P32",
+              "O2",
+              "O3",
+              "O4",
+              "O5",
+              "O6",
+              "O7",
+              "O8",
+              "O9",
+              "O10",
+              "O11",
+              "O12",
+              "O15",
+              "O19",
+              "O24",
+              "O25",
+              "O29"
+            ]
+          },
+          {
+            "cluster": "Cluster 4",
+            "name": "Utilizator pasiv digital",
+            "products": [
+              "P7",
+              "P10",
+              "P5",
+              "O32",
+              "O31",
+              "P4"
+            ]
+          }
+        ]
+      },
+      {
+        "segment": "Product",
+        "clustersList": [
+          {
+            "cluster": "Cluster 0",
+            "name": "Utilizator echilibrat de credite și conturi",
+            "products": [
+              "P10",
+              "P4",
+              "P5",
+              "P21",
+              "P14",
+              "P18"
+            ]
+          },
+          {
+            "cluster": "Cluster 1",
+            "name": "Client protejat, asigurat și refinanțat",
+            "products": [
+              "P21",
+              "P18",
+              "P14",
+              "P10",
+              "P25",
+              "P4"
+            ]
+          },
+          {
+            "cluster": "Cluster 2",
+            "name": "Creditat și digitalizat cu carduri",
+            "products": [
+              "P7",
+              "O21",
+              "O23",
+              "O27",
+              "O29",
+              "O30",
+              "O32"
+            ]
+          },
+          {
+            "cluster": "Cluster 3",
+            "name": "Client asigurat compulsiv",
+            "products": [
+              "P1",
+              "P4",
+              "P8",
+              "P9",
+              "P12",
+              "P18",
+              "P19",
+              "P21",
+              "P28",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16"
+            ]
+          },
+          {
+            "cluster": "Cluster 4",
+            "name": "Heavy user de conturi curente",
+            "products": [
+              "P10",
+              "P7",
+              "P12",
+              "P15",
+              "P4",
+              "P26"
+            ]
+          }
+        ]
+      },
+      {
+        "segment": "Digital",
+        "clustersList": [
+          {
+            "cluster": "Cluster 0",
+            "name": "Utilizator digital moderat",
+            "products": [
+              "P1",
+              "P2",
+              "P7",
+              "P8",
+              "P9",
+              "P10",
+              "P13",
+              "P32",
+              "O2",
+              "O3",
+              "O4",
+              "O5",
+              "O6",
+              "O7",
+              "O8",
+              "O9",
+              "O10",
+              "O11",
+              "O12",
+              "O15",
+              "O19",
+              "O24",
+              "O25",
+              "O29",
+              "O32"
+            ]
+          },
+          {
+            "cluster": "Cluster 1",
+            "name": "Utilizator IB pasiv",
+            "products": [
+              "O29",
+              "O31",
+              "P10",
+              "P7",
+              "O32",
+              "P5",
+              "P26",
+              "P4"
+            ]
+          },
+          {
+            "cluster": "Cluster 2",
+            "name": "Digital absent",
+            "products": [
+              "P22",
+              "P15",
+              "P10",
+              "P14",
+              "P21",
+              "P25"
+            ]
+          },
+          {
+            "cluster": "Cluster 3",
+            "name": "Super-utilizator digital",
+            "products": [
+              "P1",
+              "P2",
+              "P7",
+              "P8",
+              "P9",
+              "P10",
+              "P13",
+              "P32",
+              "O2",
+              "O3",
+              "O4",
+              "O5",
+              "O6",
+              "O7",
+              "O8",
+              "O9",
+              "O10",
+              "O11",
+              "O12",
+              "O15",
+              "O19",
+              "O24",
+              "O25",
+              "O29",
+              "O32"
+            ]
+          },
+          {
+            "cluster": "Cluster 4",
+            "name": "Digital convertit recent",
+            "products": [
+              "O32",
+              "P10",
+              "P7",
+              "P5",
+              "P26"
+            ]
+          }
+        ]
+      },
+      {
+        "segment": "Financial",
+        "clustersList": [
+          {
+            "cluster": "Cluster 0",
+            "name": "Debitor controlat",
+            "products": [
+              "P4",
+              "P10",
+              "P14",
+              "P18",
+              "P21",
+              "P25",
+              "O2"
+            ]
+          },
+          {
+            "cluster": "Cluster 1",
+            "name": "Client reținut",
+            "products": [
+              "P10",
+              "P28",
+              "P4",
+              "P21",
+              "P14",
+              "P25"
+            ]
+          },
+          {
+            "cluster": "Cluster 2",
+            "name": "Debitor puternic",
+            "products": [
+              "P5",
+              "P8",
+              "P11",
+              "P14",
+              "P18",
+              "O31",
+              "P28"
+            ]
+          },
+          {
+            "cluster": "Cluster 3",
+            "name": "Debitor slab",
+            "products": [
+              "P5",
+              "P8",
+              "P11",
+              "P14",
+              "P18",
+              "O31",
+              "P28"
+            ]
+          },
+          {
+            "cluster": "Cluster 4",
+            "name": "Client în curs de construire",
+            "products": [
+              "P10",
+              "P22",
+              "P26",
+              "P4",
+              "P14",
+              "P21"
+            ]
+          }
+        ]
+      },
+      {
+        "segment": "Relation",
+        "clustersList": [
+          {
+            "cluster": "Cluster 0",
+            "name": "Client nou onboardat",
+            "products": [
+              "P1",
+              "P2",
+              "P35"
+            ]
+          },
+          {
+            "cluster": "Cluster 1",
+            "name": "Client clasic stabil",
+            "products": [
+              "P10",
+              "P7",
+              "P5",
+              "P4",
+              "P14",
+              "P21",
+              "P18",
+              "O2",
+              "O4",
+              "O24",
+              "O31",
+              "O32"
+            ]
+          },
+          {
+            "cluster": "Cluster 2",
+            "name": "Client vechi reactivat",
+            "products": [
+              "P7",
+              "P8",
+              "P10",
+              "P5",
+              "P9",
+              "P21",
+              "P18",
+              "O2",
+              "O4",
+              "O24",
+              "O31",
+              "O32"
+            ]
+          },
+          {
+            "cluster": "Cluster 3",
+            "name": "Veteran fidel",
+            "products": [
+              "P7",
+              "P8",
+              "P9",
+              "P10",
+              "P21",
+              "P16",
+              "P17",
+              "P4",
+              "O24",
+              "O31",
+              "O32"
+            ]
+          },
+          {
+            "cluster": "Cluster 4",
+            "name": "Client cu relație în evoluție",
+            "products": [
+              "P7",
+              "P10",
+              "P5",
+              "P9",
+              "P14",
+              "P16",
+              "P18",
+              "P21",
+              "O2",
+              "O4",
+              "O24",
+              "O31",
+              "O32"
+            ]
+          }
+        ]
+      }
+    ]
+  }

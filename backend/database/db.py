@@ -1,7 +1,7 @@
 import sqlite3
 import pandas as pd
 
-df = pd.read_csv("data/sample_clients.csv")
+df = pd.read_csv("data/clustered_sample_clients.csv")
 
 connection = sqlite3.connect("database.db")
 

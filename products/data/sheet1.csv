@@ -1,0 +1,10 @@
+Category,Product,Interest p.a. with salary/insurance,Interest p.a. without salary,DAE with salary/insurance,DAE without salary,Admin./Analysis fees,Term,Max. amount,Special notes
+Personal Loan,Credit de nevoi personale - George (credit nou),5.99 % fixa,7.19 % fixa,9.62 %,10.89 %,200 lei analiza 0 lei administrare,< 5 ani,200 000 lei,"Rate egale sau descrescatoare; 0,5 %/1 % comision rambursare anticipata; reducere 0,5 pp cu asigurare"
+Personal Loan,Credit de nevoi personale - George (refinantare),5.99 % fixa,7.19 % fixa,9.62 %,10.89 %,200 lei analiza 0 lei administrare,< 5 ani (10 ani daca imprumut > 2020),200 000 lei,"Aceleasi beneficii ca la credit nou, dar pentru refinantare externa"
+Student Loan,StudyUP,11.5 % fixa,-,17.23 %,-,"4.5 % admin./an; 0 lei analiza/acordare",< 120 luni,145 000 lei,"Gratie pana la perioada ramasa de studii + 6 luni (max 78 luni); fara codebitori obligatorii"
+Overdraft,Descoperit de cont individual,16.54 % variabila (IRCC + 10.99 pp),-,18.64 %,-,0 lei analiza initiala; 25 lei la reinnoire,24 luni (reinnoibil),< 4 salarii /70 000 lei,"Asigurare de viata optionala 3 lei/luna; dobanda doar pe suma folosita"
+Credit card,Card de credit BCR Standard (Visa),28 % fixa (sume neraplate),-,12.1 % (exemplu),-,"100 lei emitere, 200 lei anual",revolving,40 000 lei,"Pana la 12 rate 0 % > 600 lei; 55 zile gratie; Moneyback 5-40 % selectiv"
+Credit card,Card de credit BCR IKEA,15 % fixa,-,6.25 % (exemplu),-,"0 lei emitere, 30 lei anual",revolving,40 000 lei,"Pana la 60 rate 0 % la IKEA; 12 rate 0 % la alti comercianti > 600 lei"
+Current account package,George 3.0 Standard,-,-,-,-,"0 lei/luna daca > 2 000 lei intrari; altfel 12 lei",-,-,"0 lei retrageri la ATM-uri BCR; 0 lei la retrageri alte banci daca nivel ADVANCED; 2 carduri suplimentare gratis"
+Current account package,George 3.0 Gold,-,-,-,-,25 lei/luna (0 lei la nivel PRO),-,-,"Access lounge (3/an); asigurare calatorie inclusa; curs valutar preferential"
+Current account package,George 3.0 Platinum,-,-,-,-,50 lei/luna (0 lei la nivel PRO),-,-,"Priority Pass + lounge-uri globale; asigurare calatorie extinsa; cashback selectiv"
