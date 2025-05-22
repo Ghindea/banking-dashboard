@@ -810,3 +810,275 @@ werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not 
 2025-05-22 22:03:36,868 [INFO] 127.0.0.1 - - [22/May/2025 22:03:36] "GET /user/profile HTTP/1.1" 200 -
 2025-05-22 22:03:36,885 [INFO] 127.0.0.1 - - [22/May/2025 22:03:36] "GET /user/profile HTTP/1.1" 200 -
 2025-05-22 22:03:36,900 [INFO] 127.0.0.1 - - [22/May/2025 22:03:36] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 22:14:04,987 [INFO] Loaded 20313 client IDs from CSV
+2025-05-22 22:14:04,988 [INFO] Successfully loaded client data. Records: 20313
+2025-05-22 22:14:04,991 [INFO] Client routes initialized
+2025-05-22 22:14:05,021 [WARNING]  * Debugger is active!
+2025-05-22 22:14:05,037 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 22:15:07,343 [INFO] Loaded 20313 client IDs from CSV
+2025-05-22 22:15:07,343 [INFO] Successfully loaded client data. Records: 20313
+2025-05-22 22:15:07,344 [INFO] Client routes initialized
+2025-05-22 22:15:07,371 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-22 22:15:07,371 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-22 22:15:07,372 [INFO]  * Restarting with stat
+2025-05-22 22:15:07,882 [INFO] Loaded 20313 client IDs from CSV
+2025-05-22 22:15:07,882 [INFO] Successfully loaded client data. Records: 20313
+2025-05-22 22:15:07,884 [INFO] Client routes initialized
+2025-05-22 22:15:07,900 [WARNING]  * Debugger is active!
+2025-05-22 22:15:07,906 [INFO]  * Debugger PIN: 862-597-935
+2025-05-22 22:15:47,192 [INFO] 127.0.0.1 - - [22/May/2025 22:15:47] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-22 22:15:47,233 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-22 22:15:47,234 [INFO] 127.0.0.1 - - [22/May/2025 22:15:47] "POST /login HTTP/1.1" 200 -
+2025-05-22 22:15:49,867 [INFO] 127.0.0.1 - - [22/May/2025 22:15:49] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-22 22:15:49,869 [INFO] 127.0.0.1 - - [22/May/2025 22:15:49] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-22 22:15:49,870 [INFO] 127.0.0.1 - - [22/May/2025 22:15:49] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 22:15:49,874 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-22 22:15:49,874 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-22 22:15:49,874 [INFO] 127.0.0.1 - - [22/May/2025 22:15:49] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-22 22:15:49,875 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-22 22:15:49,876 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-22 22:15:49,876 [INFO] 127.0.0.1 - - [22/May/2025 22:15:49] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-22 22:15:49,876 [INFO] 127.0.0.1 - - [22/May/2025 22:15:49] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 22:15:49,879 [INFO] 127.0.0.1 - - [22/May/2025 22:15:49] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 22:15:49,884 [INFO] 127.0.0.1 - - [22/May/2025 22:15:49] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 22:15:49,885 [INFO] 127.0.0.1 - - [22/May/2025 22:15:49] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 22:15:55,184 [INFO] 127.0.0.1 - - [22/May/2025 22:15:55] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-22 22:15:55,187 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-22 22:15:55,187 [INFO] 127.0.0.1 - - [22/May/2025 22:15:55] "POST /login HTTP/1.1" 200 -
+2025-05-22 22:15:55,275 [INFO] 127.0.0.1 - - [22/May/2025 22:15:55] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 22:15:55,276 [INFO] 127.0.0.1 - - [22/May/2025 22:15:55] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-22 22:15:55,277 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-22 22:15:55,278 [INFO] 127.0.0.1 - - [22/May/2025 22:15:55] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 22:15:55,278 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-22 22:15:55,278 [INFO] 127.0.0.1 - - [22/May/2025 22:15:55] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-22 22:15:55,279 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-22 22:15:55,280 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-22 22:15:55,280 [INFO] 127.0.0.1 - - [22/May/2025 22:15:55] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 22:15:55,280 [INFO] 127.0.0.1 - - [22/May/2025 22:15:55] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:02:23,409 [INFO] 127.0.0.1 - - [22/May/2025 23:02:23] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 23:02:23,409 [INFO] 127.0.0.1 - - [22/May/2025 23:02:23] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:02:23,413 [INFO] 127.0.0.1 - - [22/May/2025 23:02:23] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-22 23:02:23,419 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-22 23:02:23,419 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-22 23:02:23,419 [INFO] 127.0.0.1 - - [22/May/2025 23:02:23] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 23:02:23,419 [INFO] 127.0.0.1 - - [22/May/2025 23:02:23] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:02:44,222 [INFO] 127.0.0.1 - - [22/May/2025 23:02:44] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 23:02:44,222 [INFO] 127.0.0.1 - - [22/May/2025 23:02:44] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:02:44,229 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-22 23:02:44,229 [INFO] 127.0.0.1 - - [22/May/2025 23:02:44] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 23:02:44,230 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-22 23:02:44,230 [INFO] 127.0.0.1 - - [22/May/2025 23:02:44] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:02:44,232 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-22 23:02:44,233 [INFO] 127.0.0.1 - - [22/May/2025 23:02:44] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 23:02:44,233 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-22 23:02:44,233 [INFO] 127.0.0.1 - - [22/May/2025 23:02:44] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:03:25,392 [INFO] 127.0.0.1 - - [22/May/2025 23:03:25] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 23:03:25,403 [INFO] 127.0.0.1 - - [22/May/2025 23:03:25] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 23:09:41,331 [INFO] 127.0.0.1 - - [22/May/2025 23:09:41] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:09:41,331 [INFO] 127.0.0.1 - - [22/May/2025 23:09:41] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 23:09:41,335 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-22 23:09:41,336 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-22 23:09:41,336 [INFO] 127.0.0.1 - - [22/May/2025 23:09:41] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:09:41,337 [INFO] 127.0.0.1 - - [22/May/2025 23:09:41] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 23:09:41,338 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-22 23:09:41,338 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-22 23:09:41,339 [INFO] 127.0.0.1 - - [22/May/2025 23:09:41] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:09:41,339 [INFO] 127.0.0.1 - - [22/May/2025 23:09:41] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 23:14:55,702 [INFO] 127.0.0.1 - - [22/May/2025 23:14:55] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 23:14:55,719 [INFO] 127.0.0.1 - - [22/May/2025 23:14:55] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 23:15:25,247 [INFO] 127.0.0.1 - - [22/May/2025 23:15:25] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 23:15:25,247 [INFO] 127.0.0.1 - - [22/May/2025 23:15:25] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:15:25,248 [INFO] 127.0.0.1 - - [22/May/2025 23:15:25] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 23:15:25,248 [INFO] 127.0.0.1 - - [22/May/2025 23:15:25] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:15:25,257 [INFO] 127.0.0.1 - - [22/May/2025 23:15:25] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 23:15:25,259 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-22 23:15:25,260 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-22 23:15:25,261 [INFO] 127.0.0.1 - - [22/May/2025 23:15:25] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:15:25,263 [INFO] 127.0.0.1 - - [22/May/2025 23:15:25] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 23:15:25,264 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-22 23:15:25,264 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-22 23:15:25,264 [INFO] 127.0.0.1 - - [22/May/2025 23:15:25] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:31:07,801 [INFO] 127.0.0.1 - - [22/May/2025 23:31:07] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:31:07,801 [INFO] 127.0.0.1 - - [22/May/2025 23:31:07] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 23:31:07,807 [INFO] 127.0.0.1 - - [22/May/2025 23:31:07] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-22 23:31:07,808 [INFO] 127.0.0.1 - - [22/May/2025 23:31:07] "[31m[1mGET /user/recommendations HTTP/1.1[0m" 401 -
+2025-05-22 23:31:07,809 [INFO] 127.0.0.1 - - [22/May/2025 23:31:07] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-22 23:31:07,810 [INFO] 127.0.0.1 - - [22/May/2025 23:31:07] "[31m[1mGET /user/recommendations HTTP/1.1[0m" 401 -
+2025-05-22 23:58:29,062 [INFO] 127.0.0.1 - - [22/May/2025 23:58:29] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 23:58:29,062 [INFO] 127.0.0.1 - - [22/May/2025 23:58:29] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 23:58:29,063 [INFO] 127.0.0.1 - - [22/May/2025 23:58:29] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:58:29,064 [INFO] 127.0.0.1 - - [22/May/2025 23:58:29] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:58:29,068 [INFO] 127.0.0.1 - - [22/May/2025 23:58:29] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-22 23:58:29,069 [INFO] 127.0.0.1 - - [22/May/2025 23:58:29] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-22 23:58:29,070 [INFO] 127.0.0.1 - - [22/May/2025 23:58:29] "[31m[1mGET /user/recommendations HTTP/1.1[0m" 401 -
+2025-05-22 23:58:29,071 [INFO] 127.0.0.1 - - [22/May/2025 23:58:29] "[31m[1mGET /user/recommendations HTTP/1.1[0m" 401 -
+2025-05-22 23:59:09,410 [INFO] 127.0.0.1 - - [22/May/2025 23:59:09] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-22 23:59:09,414 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-22 23:59:09,415 [INFO] 127.0.0.1 - - [22/May/2025 23:59:09] "POST /login HTTP/1.1" 200 -
+2025-05-22 23:59:09,536 [INFO] 127.0.0.1 - - [22/May/2025 23:59:09] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 23:59:09,537 [INFO] 127.0.0.1 - - [22/May/2025 23:59:09] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:59:09,537 [INFO] 127.0.0.1 - - [22/May/2025 23:59:09] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-22 23:59:09,538 [INFO] 127.0.0.1 - - [22/May/2025 23:59:09] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:59:09,539 [INFO] 127.0.0.1 - - [22/May/2025 23:59:09] "GET /user/profile HTTP/1.1" 200 -
+2025-05-22 23:59:09,540 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-22 23:59:09,540 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-22 23:59:09,540 [INFO] 127.0.0.1 - - [22/May/2025 23:59:09] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:59:09,541 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-22 23:59:09,541 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-22 23:59:09,542 [INFO] 127.0.0.1 - - [22/May/2025 23:59:09] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-22 23:59:09,542 [INFO] 127.0.0.1 - - [22/May/2025 23:59:09] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 00:10:36,850 [INFO] 127.0.0.1 - - [23/May/2025 00:10:36] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 00:10:36,851 [INFO] 127.0.0.1 - - [23/May/2025 00:10:36] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-23 00:10:36,857 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 00:10:36,858 [INFO] 127.0.0.1 - - [23/May/2025 00:10:36] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 00:10:36,858 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 00:10:36,859 [INFO] 127.0.0.1 - - [23/May/2025 00:10:36] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 00:10:36,861 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 00:10:36,862 [INFO] 127.0.0.1 - - [23/May/2025 00:10:36] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 00:10:36,862 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 00:10:36,862 [INFO] 127.0.0.1 - - [23/May/2025 00:10:36] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 00:18:47,281 [INFO] 127.0.0.1 - - [23/May/2025 00:18:47] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 00:18:47,281 [INFO] 127.0.0.1 - - [23/May/2025 00:18:47] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-23 00:18:47,287 [INFO] 127.0.0.1 - - [23/May/2025 00:18:47] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-23 00:18:47,290 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 00:18:47,291 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 00:18:47,292 [INFO] 127.0.0.1 - - [23/May/2025 00:18:47] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 00:18:47,293 [INFO] 127.0.0.1 - - [23/May/2025 00:18:47] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 00:19:42,273 [INFO] 127.0.0.1 - - [23/May/2025 00:19:42] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 00:19:42,274 [INFO] 127.0.0.1 - - [23/May/2025 00:19:42] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-23 00:19:42,276 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 00:19:42,277 [INFO] 127.0.0.1 - - [23/May/2025 00:19:42] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 00:19:42,277 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 00:19:42,378 [INFO] 127.0.0.1 - - [23/May/2025 00:19:42] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 00:19:42,378 [INFO] 127.0.0.1 - - [23/May/2025 00:19:42] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 00:19:42,380 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 00:19:42,381 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 00:19:42,381 [INFO] 127.0.0.1 - - [23/May/2025 00:19:42] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 00:38:59,299 [INFO] 127.0.0.1 - - [23/May/2025 00:38:59] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 00:38:59,381 [INFO] 127.0.0.1 - - [23/May/2025 00:38:59] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 00:38:59,381 [INFO] 127.0.0.1 - - [23/May/2025 00:38:59] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-23 00:38:59,389 [INFO] 127.0.0.1 - - [23/May/2025 00:38:59] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 00:38:59,391 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 00:38:59,391 [INFO] 127.0.0.1 - - [23/May/2025 00:38:59] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 00:38:59,392 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 00:38:59,392 [INFO] 127.0.0.1 - - [23/May/2025 00:38:59] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 00:38:59,396 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 00:38:59,396 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 00:38:59,396 [INFO] 127.0.0.1 - - [23/May/2025 00:38:59] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 00:52:15,372 [INFO] 127.0.0.1 - - [23/May/2025 00:52:15] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-23 00:52:15,432 [INFO] User MOST4L0Yaf85Ac46cd7285I9 logged in.
+2025-05-23 00:52:15,433 [INFO] 127.0.0.1 - - [23/May/2025 00:52:15] "POST /login HTTP/1.1" 200 -
+2025-05-23 00:52:15,545 [INFO] 127.0.0.1 - - [23/May/2025 00:52:15] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 00:52:15,545 [INFO] 127.0.0.1 - - [23/May/2025 00:52:15] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 00:52:15,547 [INFO] 127.0.0.1 - - [23/May/2025 00:52:15] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-23 00:52:15,548 [INFO] MOST4L0Yaf85Ac46cd7285I9 accessed /recommendations
+2025-05-23 00:52:15,549 [INFO] 127.0.0.1 - - [23/May/2025 00:52:15] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 00:52:15,549 [INFO] Recommendations for MOST4L0Yaf85Ac46cd7285I9: {'O9', 'O25', 'O24', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 00:52:15,549 [INFO] 127.0.0.1 - - [23/May/2025 00:52:15] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 00:52:15,550 [INFO] 127.0.0.1 - - [23/May/2025 00:52:15] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 00:52:15,551 [INFO] MOST4L0Yaf85Ac46cd7285I9 accessed /recommendations
+2025-05-23 00:52:15,551 [INFO] Recommendations for MOST4L0Yaf85Ac46cd7285I9: {'O9', 'O25', 'O24', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 00:52:15,551 [INFO] 127.0.0.1 - - [23/May/2025 00:52:15] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:00:42,855 [INFO] 127.0.0.1 - - [23/May/2025 01:00:42] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-23 01:00:42,866 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-23 01:00:42,868 [INFO] 127.0.0.1 - - [23/May/2025 01:00:42] "POST /login HTTP/1.1" 200 -
+2025-05-23 01:00:42,987 [INFO] 127.0.0.1 - - [23/May/2025 01:00:42] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 01:00:42,989 [INFO] 127.0.0.1 - - [23/May/2025 01:00:42] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:00:42,993 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 01:00:42,993 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:00:42,994 [INFO] 127.0.0.1 - - [23/May/2025 01:00:42] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:00:42,994 [INFO] 127.0.0.1 - - [23/May/2025 01:00:42] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:00:42,996 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 01:00:42,997 [INFO] 127.0.0.1 - - [23/May/2025 01:00:42] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:00:42,997 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:00:42,997 [INFO] 127.0.0.1 - - [23/May/2025 01:00:42] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:02:20,325 [INFO] 127.0.0.1 - - [23/May/2025 01:02:20] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 01:02:20,336 [INFO] 127.0.0.1 - - [23/May/2025 01:02:20] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:02:20,339 [INFO] 127.0.0.1 - - [23/May/2025 01:02:20] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:02:24,363 [INFO] 127.0.0.1 - - [23/May/2025 01:02:24] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:02:24,365 [INFO] 127.0.0.1 - - [23/May/2025 01:02:24] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:02:24,368 [INFO] 127.0.0.1 - - [23/May/2025 01:02:24] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:02:24,385 [INFO] 127.0.0.1 - - [23/May/2025 01:02:24] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:02:24,391 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 01:02:24,394 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:02:24,395 [INFO] 127.0.0.1 - - [23/May/2025 01:02:24] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:02:24,396 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 01:02:24,401 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:02:24,401 [INFO] 127.0.0.1 - - [23/May/2025 01:02:24] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:19:27,120 [INFO] 127.0.0.1 - - [23/May/2025 01:19:27] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 01:19:27,121 [INFO] 127.0.0.1 - - [23/May/2025 01:19:27] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:19:27,127 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 01:19:27,128 [INFO] 127.0.0.1 - - [23/May/2025 01:19:27] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:19:27,128 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:19:27,128 [INFO] 127.0.0.1 - - [23/May/2025 01:19:27] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:19:27,130 [INFO] 127.0.0.1 - - [23/May/2025 01:19:27] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:19:27,130 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 01:19:27,130 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:19:27,131 [INFO] 127.0.0.1 - - [23/May/2025 01:19:27] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:19:47,717 [INFO] 127.0.0.1 - - [23/May/2025 01:19:47] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-23 01:19:47,783 [INFO] User Ma7O232S0f49TL2Yab7A411I logged in.
+2025-05-23 01:19:47,783 [INFO] 127.0.0.1 - - [23/May/2025 01:19:47] "POST /login HTTP/1.1" 200 -
+2025-05-23 01:19:47,858 [INFO] 127.0.0.1 - - [23/May/2025 01:19:47] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 01:19:47,859 [INFO] 127.0.0.1 - - [23/May/2025 01:19:47] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:19:47,861 [INFO] Ma7O232S0f49TL2Yab7A411I accessed /recommendations
+2025-05-23 01:19:47,861 [INFO] 127.0.0.1 - - [23/May/2025 01:19:47] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:19:47,861 [INFO] Recommendations for Ma7O232S0f49TL2Yab7A411I: {'O9', 'O26', 'O25', 'O30', 'O22', 'O24', 'P25', 'P28', 'O23', 'P2', 'O11', 'P22', 'P32', 'P18', 'O21', 'P14', 'P27', 'P30', 'P4', 'P10', 'P21', 'O15', 'O2', 'P20', 'P1', 'O1', 'O7', 'P7', 'P9', 'O27', 'O32', 'O8', 'P6', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'P26', 'O10', 'O5', 'O19', 'P33', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:19:47,861 [INFO] 127.0.0.1 - - [23/May/2025 01:19:47] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:19:47,863 [INFO] Ma7O232S0f49TL2Yab7A411I accessed /recommendations
+2025-05-23 01:19:47,864 [INFO] 127.0.0.1 - - [23/May/2025 01:19:47] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:19:47,864 [INFO] Recommendations for Ma7O232S0f49TL2Yab7A411I: {'O9', 'O26', 'O25', 'O30', 'O22', 'O24', 'P25', 'P28', 'O23', 'P2', 'O11', 'P22', 'P32', 'P18', 'O21', 'P14', 'P27', 'P30', 'P4', 'P10', 'P21', 'O15', 'O2', 'P20', 'P1', 'O1', 'O7', 'P7', 'P9', 'O27', 'O32', 'O8', 'P6', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'P26', 'O10', 'O5', 'O19', 'P33', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:19:47,864 [INFO] 127.0.0.1 - - [23/May/2025 01:19:47] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:20:07,661 [INFO] 127.0.0.1 - - [23/May/2025 01:20:07] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-23 01:20:07,665 [INFO] User Ma7O232S0f49TL2Yab7A411I logged in.
+2025-05-23 01:20:07,665 [INFO] 127.0.0.1 - - [23/May/2025 01:20:07] "POST /login HTTP/1.1" 200 -
+2025-05-23 01:20:07,770 [INFO] 127.0.0.1 - - [23/May/2025 01:20:07] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 01:20:07,770 [INFO] 127.0.0.1 - - [23/May/2025 01:20:07] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 01:20:07,771 [INFO] 127.0.0.1 - - [23/May/2025 01:20:07] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:20:07,772 [INFO] 127.0.0.1 - - [23/May/2025 01:20:07] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:20:07,774 [INFO] 127.0.0.1 - - [23/May/2025 01:20:07] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:20:07,775 [INFO] 127.0.0.1 - - [23/May/2025 01:20:07] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:20:07,776 [INFO] Ma7O232S0f49TL2Yab7A411I accessed /recommendations
+2025-05-23 01:20:07,776 [INFO] Recommendations for Ma7O232S0f49TL2Yab7A411I: {'O9', 'O26', 'O25', 'O30', 'O22', 'O24', 'P25', 'P28', 'O23', 'P2', 'O11', 'P22', 'P32', 'P18', 'O21', 'P14', 'P27', 'P30', 'P4', 'P10', 'P21', 'O15', 'O2', 'P20', 'P1', 'O1', 'O7', 'P7', 'P9', 'O27', 'O32', 'O8', 'P6', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'P26', 'O10', 'O5', 'O19', 'P33', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:20:07,776 [INFO] 127.0.0.1 - - [23/May/2025 01:20:07] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:20:07,777 [INFO] Ma7O232S0f49TL2Yab7A411I accessed /recommendations
+2025-05-23 01:20:07,777 [INFO] Recommendations for Ma7O232S0f49TL2Yab7A411I: {'O9', 'O26', 'O25', 'O30', 'O22', 'O24', 'P25', 'P28', 'O23', 'P2', 'O11', 'P22', 'P32', 'P18', 'O21', 'P14', 'P27', 'P30', 'P4', 'P10', 'P21', 'O15', 'O2', 'P20', 'P1', 'O1', 'O7', 'P7', 'P9', 'O27', 'O32', 'O8', 'P6', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'P26', 'O10', 'O5', 'O19', 'P33', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:20:07,778 [INFO] 127.0.0.1 - - [23/May/2025 01:20:07] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:26:44,955 [INFO] 127.0.0.1 - - [23/May/2025 01:26:44] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 01:26:44,956 [INFO] 127.0.0.1 - - [23/May/2025 01:26:44] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:26:44,966 [INFO] Ma7O232S0f49TL2Yab7A411I accessed /recommendations
+2025-05-23 01:26:44,967 [INFO] Recommendations for Ma7O232S0f49TL2Yab7A411I: {'O9', 'O26', 'O25', 'O30', 'O22', 'O24', 'P25', 'P28', 'O23', 'P2', 'O11', 'P22', 'P32', 'P18', 'O21', 'P14', 'P27', 'P30', 'P4', 'P10', 'P21', 'O15', 'O2', 'P20', 'P1', 'O1', 'O7', 'P7', 'P9', 'O27', 'O32', 'O8', 'P6', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'P26', 'O10', 'O5', 'O19', 'P33', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:26:44,968 [INFO] 127.0.0.1 - - [23/May/2025 01:26:44] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:26:44,968 [INFO] 127.0.0.1 - - [23/May/2025 01:26:44] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:26:44,968 [INFO] 127.0.0.1 - - [23/May/2025 01:26:44] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:26:47,446 [INFO] Ma7O232S0f49TL2Yab7A411I accessed /recommendations
+2025-05-23 01:26:47,447 [INFO] 127.0.0.1 - - [23/May/2025 01:26:47] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:26:47,447 [INFO] Recommendations for Ma7O232S0f49TL2Yab7A411I: {'O9', 'O26', 'O25', 'O30', 'O22', 'O24', 'P25', 'P28', 'O23', 'P2', 'O11', 'P22', 'P32', 'P18', 'O21', 'P14', 'P27', 'P30', 'P4', 'P10', 'P21', 'O15', 'O2', 'P20', 'P1', 'O1', 'O7', 'P7', 'P9', 'O27', 'O32', 'O8', 'P6', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'P26', 'O10', 'O5', 'O19', 'P33', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:26:47,447 [INFO] 127.0.0.1 - - [23/May/2025 01:26:47] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:26:47,465 [INFO] 127.0.0.1 - - [23/May/2025 01:26:47] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:27:18,327 [INFO] 127.0.0.1 - - [23/May/2025 01:27:18] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-23 01:27:18,330 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-23 01:27:18,330 [INFO] 127.0.0.1 - - [23/May/2025 01:27:18] "POST /login HTTP/1.1" 200 -
+2025-05-23 01:27:18,488 [INFO] 127.0.0.1 - - [23/May/2025 01:27:18] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 01:27:18,490 [INFO] 127.0.0.1 - - [23/May/2025 01:27:18] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:27:18,493 [INFO] 127.0.0.1 - - [23/May/2025 01:27:18] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:27:18,496 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 01:27:18,497 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:27:18,499 [INFO] 127.0.0.1 - - [23/May/2025 01:27:18] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:27:18,499 [INFO] 127.0.0.1 - - [23/May/2025 01:27:18] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:27:18,502 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 01:27:18,502 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:27:18,502 [INFO] 127.0.0.1 - - [23/May/2025 01:27:18] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:56:42,931 [INFO] 127.0.0.1 - - [23/May/2025 01:56:42] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-23 01:56:42,943 [INFO] User 91M0Oe0e6ST58d0LY0A0I8af logged in.
+2025-05-23 01:56:42,944 [INFO] 127.0.0.1 - - [23/May/2025 01:56:42] "POST /login HTTP/1.1" 200 -
+2025-05-23 01:56:43,096 [INFO] 127.0.0.1 - - [23/May/2025 01:56:43] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-23 01:56:43,097 [INFO] 127.0.0.1 - - [23/May/2025 01:56:43] "OPTIONS /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:56:43,100 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 01:56:43,100 [INFO] 127.0.0.1 - - [23/May/2025 01:56:43] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:56:43,100 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:56:43,101 [INFO] 127.0.0.1 - - [23/May/2025 01:56:43] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 01:56:43,102 [INFO] 127.0.0.1 - - [23/May/2025 01:56:43] "GET /user/profile HTTP/1.1" 200 -
+2025-05-23 01:56:43,102 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
+2025-05-23 01:56:43,102 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
+2025-05-23 01:56:43,103 [INFO] 127.0.0.1 - - [23/May/2025 01:56:43] "GET /user/recommendations HTTP/1.1" 200 -

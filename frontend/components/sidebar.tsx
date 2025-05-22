@@ -13,6 +13,7 @@ import {
   LifeBuoy,
   ChevronLeft,
   LogOut,
+  CreditCard,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useSidebar } from "@/components/ui/sidebar"
@@ -38,6 +39,11 @@ const sidebarItems: SidebarItem[] = [
     icon: Tag,
   },
   {
+    title: "Products",
+    path: "/products",
+    icon: ShoppingBag,
+  },
+  {
     title: "Calendar",
     path: "/calendar",
     icon: Calendar,
@@ -45,7 +51,7 @@ const sidebarItems: SidebarItem[] = [
   {
     title: "Accounts",
     path: "/accounts",
-    icon: ShoppingBag,
+    icon: CreditCard,
   },
   {
     title: "Transactions",
@@ -53,19 +59,9 @@ const sidebarItems: SidebarItem[] = [
     icon: BarChart3,
   },
   {
-    title: "Insights",
-    path: "/insights",
-    icon: BarChart3,
-  },
-  {
     title: "Settings",
     path: "/settings",
     icon: Settings,
-  },
-  {
-    title: "Support",
-    path: "/support",
-    icon: LifeBuoy,
   },
 ]
 
@@ -160,14 +156,8 @@ export default function Sidebar() {
 
           {!isCollapsed && (
             <>
-              <div className="ml-2 flex-1 min-w-0">
-                <div className="text-xs text-gray-500">Welcome back</div>
-                <div className="font-medium truncate" title={userName}>{userName}</div>
-                {customerType && (
-                  <div className="text-xs text-gray-400 truncate" title={customerType}>
-                    {customerType}
-                  </div>
-                )}
+              <div className="ml-2 flex-1 min-w-0 flex items-center justify-center">
+                <div className="text-sm font-medium text-gray-900">Welcome back</div>
               </div>
 
               {/* Logout button - visible when sidebar is expanded */}

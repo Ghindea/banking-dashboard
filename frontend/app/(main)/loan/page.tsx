@@ -76,6 +76,11 @@ interface LoanSimulationForm {
   interestRate: number
   addPPI: boolean
   useCollateral: boolean
+  home_value: number
+  downpayment: number
+  monthly_hoa: number
+  annual_property_tax: number
+  annual_home_insurance: number
 }
 
 // Types for loan simulation results
@@ -98,11 +103,16 @@ export default function LoanApplicationPage() {
   // Form state
   const [form, setForm] = useState<LoanSimulationForm>({
     amount: 100000,
-    tenor: 60,
+    tenor: 5,
     useCase: "Home",
     interestRate: 9.5,
     addPPI: false,
     useCollateral: false,
+    home_value: 200000,
+    downpayment: 40000,
+    monthly_hoa: 250,
+    annual_property_tax: 2400,
+    annual_home_insurance: 1200,
   })
 
   // Results state
@@ -187,6 +197,26 @@ export default function LoanApplicationPage() {
     fetchClientData()
   }, [])
 
+  // Update loan amount when home value or downpayment changes
+  useEffect(() => {
+    if (form.home_value && form.downpayment >= 0) {
+      // Ensure downpayment doesn't exceed home value
+      const validDownpayment = Math.min(form.downpayment, form.home_value);
+
+      // Calculate new loan amount (home value minus downpayment)
+      const newLoanAmount = form.home_value - validDownpayment;
+
+      // Only update if it's different to avoid infinite loops
+      if (newLoanAmount !== form.amount) {
+        setForm(prev => ({
+          ...prev,
+          amount: newLoanAmount
+        }));
+        handleSimulate();
+      }
+    }
+  }, [form.home_value, form.downpayment]);
+
   // Handle form changes
   const handleFormChange = (field: keyof LoanSimulationForm, value: any) => {
     setForm((prev) => ({
@@ -200,10 +230,22 @@ export default function LoanApplicationPage() {
     try {
       setIsSimulating(true)
 
+      // Convert years to months for calculation
+      const tenorInMonths = form.tenor * 12;
+
+      // Calculate monthly expenses from annual expenses
+      const monthlyPropertyTax = form.annual_property_tax / 12;
+      const monthlyHomeInsurance = form.annual_home_insurance / 12;
+
       // Mock simulation results
-      const totalInterest = form.amount * (form.interestRate / 100) * (form.tenor / 12)
+      const totalInterest = form.amount * (form.interestRate / 100) * (tenorInMonths / 12)
       const totalCost = form.amount + totalInterest
-      const monthlyPayment = totalCost / form.tenor
+
+      // Base monthly payment (principal + interest)
+      const baseMonthlyPayment = totalCost / tenorInMonths
+
+      // Total monthly payment including HOA, property tax, and insurance
+      const monthlyPayment = baseMonthlyPayment + form.monthly_hoa + monthlyPropertyTax + monthlyHomeInsurance
 
       const mockResults: LoanSimulationResults = {
         approvedAmount: form.amount,
@@ -212,11 +254,11 @@ export default function LoanApplicationPage() {
         dae: form.interestRate + 0.7,
         totalCost: totalCost,
         totalInterest: totalInterest,
-        amortizationSchedule: Array.from({ length: form.tenor }, (_, i) => ({
+        amortizationSchedule: Array.from({ length: tenorInMonths }, (_, i) => ({
           month: i + 1,
-          principal: form.amount / form.tenor,
+          principal: form.amount / tenorInMonths,
           interest: (form.amount * (form.interestRate / 100)) / 12,
-          balance: form.amount - (form.amount / form.tenor) * (i + 1),
+          balance: form.amount - (form.amount / tenorInMonths) * (i + 1),
         })),
       }
 
@@ -242,9 +284,9 @@ export default function LoanApplicationPage() {
   // Data for the pie chart
   const pieData = results
     ? [
-        { name: "Principal", value: form.amount, color: "#06b6d4" },
-        { name: "Interest", value: results.totalInterest, color: "#f97316" },
-      ]
+      { name: "Principal", value: form.amount, color: "#06b6d4" },
+      { name: "Interest", value: results.totalInterest, color: "#f97316" },
+    ]
     : []
 
   if (isLoading) {
@@ -396,14 +438,14 @@ export default function LoanApplicationPage() {
                   }}
                   className="w-20 text-right"
                 />
-                <span className="ml-2">Months</span>
+                <span className="ml-2">Years</span>
               </div>
             </div>
             <Slider
               value={[form.tenor]}
-              min={6}
-              max={360}
-              step={6}
+              min={1}
+              max={30}
+              step={1}
               onValueChange={(value: number[]) => {
                 handleFormChange("tenor", value[0])
                 handleSimulate()
@@ -412,12 +454,206 @@ export default function LoanApplicationPage() {
             />
           </div>
 
+          {/* Home Value */}
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+              <Label htmlFor="home_value" className="text-base">
+                Home value
+              </Label>
+              <div className="flex items-center">
+                <span className="mr-2">$</span>
+                <Input
+                  id="home_value"
+                  type="number"
+                  value={form.home_value}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    handleFormChange("home_value", Number(e.target.value))
+                    handleSimulate()
+                  }}
+                  className="w-32 text-right"
+                />
+              </div>
+            </div>
+            <Slider
+              value={[form.home_value]}
+              min={50000}
+              max={1000000}
+              step={10000}
+              onValueChange={(value: number[]) => {
+                handleFormChange("home_value", value[0])
+                handleSimulate()
+              }}
+              className="py-4"
+            />
+          </div>
+
+          {/* Downpayment */}
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+              <Label htmlFor="downpayment" className="text-base">
+                Downpayment
+              </Label>
+              <div className="flex items-center">
+                <span className="mr-2">$</span>
+                <Input
+                  id="downpayment"
+                  type="number"
+                  value={form.downpayment}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    handleFormChange("downpayment", Number(e.target.value))
+                    handleSimulate()
+                  }}
+                  className="w-32 text-right"
+                />
+              </div>
+            </div>
+            <Slider
+              value={[form.downpayment]}
+              min={0}
+              max={form.home_value * 0.5}
+              step={5000}
+              onValueChange={(value: number[]) => {
+                handleFormChange("downpayment", value[0])
+                handleSimulate()
+              }}
+              className="py-4"
+            />
+          </div>
+
+          {/* Monthly HOA */}
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+              <Label htmlFor="monthly_hoa" className="text-base">
+                Monthly HOA fees
+              </Label>
+              <div className="flex items-center">
+                <span className="mr-2">$</span>
+                <Input
+                  id="monthly_hoa"
+                  type="number"
+                  value={form.monthly_hoa}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    handleFormChange("monthly_hoa", Number(e.target.value))
+                    handleSimulate()
+                  }}
+                  className="w-24 text-right"
+                />
+              </div>
+            </div>
+            <Slider
+              value={[form.monthly_hoa]}
+              min={0}
+              max={1000}
+              step={10}
+              onValueChange={(value: number[]) => {
+                handleFormChange("monthly_hoa", value[0])
+                handleSimulate()
+              }}
+              className="py-4"
+            />
+          </div>
+
+          {/* Annual Property Tax */}
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+              <Label htmlFor="annual_property_tax" className="text-base">
+                Annual property tax
+              </Label>
+              <div className="flex items-center">
+                <span className="mr-2">$</span>
+                <Input
+                  id="annual_property_tax"
+                  type="number"
+                  value={form.annual_property_tax}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    handleFormChange("annual_property_tax", Number(e.target.value))
+                    handleSimulate()
+                  }}
+                  className="w-24 text-right"
+                />
+              </div>
+            </div>
+            <Slider
+              value={[form.annual_property_tax]}
+              min={0}
+              max={10000}
+              step={100}
+              onValueChange={(value: number[]) => {
+                handleFormChange("annual_property_tax", value[0])
+                handleSimulate()
+              }}
+              className="py-4"
+            />
+          </div>
+
+          {/* Annual Home Insurance */}
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+              <Label htmlFor="annual_home_insurance" className="text-base">
+                Annual home insurance
+              </Label>
+              <div className="flex items-center">
+                <span className="mr-2">$</span>
+                <Input
+                  id="annual_home_insurance"
+                  type="number"
+                  value={form.annual_home_insurance}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    handleFormChange("annual_home_insurance", Number(e.target.value))
+                    handleSimulate()
+                  }}
+                  className="w-24 text-right"
+                />
+              </div>
+            </div>
+            <Slider
+              value={[form.annual_home_insurance]}
+              min={0}
+              max={5000}
+              step={100}
+              onValueChange={(value: number[]) => {
+                handleFormChange("annual_home_insurance", value[0])
+                handleSimulate()
+              }}
+              className="py-4"
+            />
+          </div>
+
           {/* EMI Display */}
-          <div className="flex justify-between items-center pt-4 border-t">
-            <h3 className="text-xl font-bold">EMI</h3>
-            <span className="text-xl font-bold text-cyan-500">
-              ${results ? Math.round(results.monthlyPayment).toLocaleString() : "0"}
-            </span>
+          <div className="pt-4 border-t space-y-4">
+            <div className="flex justify-between items-center">
+              <h3 className="text-xl font-bold">Total Monthly Payment</h3>
+              <span className="text-xl font-bold text-cyan-500">
+                ${results ? Math.round(results.monthlyPayment).toLocaleString() : "0"}
+              </span>
+            </div>
+
+            {/* Payment Breakdown */}
+            <div className="bg-gray-50 p-3 rounded-md space-y-2">
+              <h4 className="font-semibold text-sm text-gray-700">Payment Breakdown:</h4>
+              <div className="flex justify-between text-sm">
+                <span>Principal & Interest</span>
+                <span>${results ? Math.round(results.totalCost / (form.tenor * 12)).toLocaleString() : "0"}</span>
+              </div>
+              {form.monthly_hoa > 0 && (
+                <div className="flex justify-between text-sm">
+                  <span>Monthly HOA</span>
+                  <span>${form.monthly_hoa.toLocaleString()}</span>
+                </div>
+              )}
+              {form.annual_property_tax > 0 && (
+                <div className="flex justify-between text-sm">
+                  <span>Property Tax (monthly)</span>
+                  <span>${Math.round(form.annual_property_tax / 12).toLocaleString()}</span>
+                </div>
+              )}
+              {form.annual_home_insurance > 0 && (
+                <div className="flex justify-between text-sm">
+                  <span>Home Insurance (monthly)</span>
+                  <span>${Math.round(form.annual_home_insurance / 12).toLocaleString()}</span>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Action Buttons */}

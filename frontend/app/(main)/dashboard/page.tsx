@@ -65,6 +65,29 @@ interface DashboardMetrics {
   }
 }
 
+const ROMANIAN_MALE_NAMES = [
+  "Andrei", "Mihai", "Alexandru", "Ion", "Cristian", "Vlad", "Gabriel",
+  "Florin", "Radu", "Ștefan", "Cătălin", "Valentin", "Bogdan", "Alin",
+  "Paul", "George", "Darius", "Cosmin", "Iulian", "Marian"
+];
+
+const ROMANIAN_FEMALE_NAMES = [
+  "Maria", "Ana", "Elena", "Ioana", "Andreea", "Cristina", "Gabriela",
+  "Roxana", "Alina", "Bianca", "Alexandra", "Larisa", "Adriana",
+  "Mihaela", "Irina", "Daniela", "Nicoleta", "Loredana", "Ramona", "Simona"
+];
+
+function getRandomNameByGender(genderCode: string): string {
+  if (genderCode === 'M') {
+    return ROMANIAN_MALE_NAMES[Math.floor(Math.random() * ROMANIAN_MALE_NAMES.length)];
+  } else if (genderCode === 'F') {
+    return ROMANIAN_FEMALE_NAMES[Math.floor(Math.random() * ROMANIAN_FEMALE_NAMES.length)];
+  } else {
+    // Default fallback if gender code is not M or F
+    return "Adrian";
+  }
+}
+
 
 
 // Helper functions
@@ -366,8 +389,9 @@ export default function DashboardPage() {
         console.log("Total spending:", formatCurrency(metrics.totalSpending))
 
         // Set user name from occupation or default
-        const occupation = response.data.GPI_CLS_CODE_PT_OCCUP || "User"
-        setUserName(occupation)
+        const genderCode = response.data.GPI_GENDER_CODE || "M";
+        const randomName = getRandomNameByGender(genderCode);
+        setUserName(randomName);
 
         setError(null)
       } catch (error) {
@@ -693,7 +717,7 @@ export default function DashboardPage() {
                   {dashboardMetrics.cardInfo.hasDebitCard && (
                     <div className="flex flex-col">
                       {/* Remove the balance info section completely */}
-                      <div style={{ transform: "scale(0.85)", transformOrigin: "top left" }}>
+                      <div style={{ transform: "scale(0.85)", transformOrigin: "center" }}>
                         <DebitCard />
                       </div>
                     </div>
@@ -703,7 +727,7 @@ export default function DashboardPage() {
                   {dashboardMetrics.cardInfo.hasCreditCard && (
                     <div className="flex flex-col">
                       {/* Remove the balance info section completely */}
-                      <div style={{ transform: "scale(0.85)", transformOrigin: "top left" }}>
+                      <div style={{ transform: "scale(0.85)", transformOrigin: "center" }}>
                         <CreditCard />
                       </div>
                     </div>
@@ -723,40 +747,46 @@ export default function DashboardPage() {
 
                   {/* Show only one card message if user has space for another */}
                   {(dashboardMetrics.cardInfo.hasDebitCard && !dashboardMetrics.cardInfo.hasCreditCard) && (
-                    <div
-                      className="flex flex-col items-center justify-center text-gray-500 border-2 border-dashed border-gray-200 rounded-lg"
-                      style={{
-                        aspectRatio: "311/185", // Same aspect ratio as the credit card
-                        maxWidth: "306px",      // 85% of the original 360px
-                        transform: "scale(0.85)",
-                        transformOrigin: "top left"
-                      }}
-                    >
-                      <CreditCardIcon className="h-12 w-12 mb-3 opacity-40" />
-                      <h4 className="font-medium text-gray-700 mb-1">Get a Credit Card</h4>
-                      <p className="text-sm text-gray-500 mb-3 text-center px-4">Build credit and earn rewards</p>
-                      <Button variant="outline" size="sm">
-                        Apply Now
-                      </Button>
+                    <div className="flex flex-col">
+                      <div style={{ transform: "scale(0.85)", transformOrigin: "center" }}>
+                        <div
+                          className="flex flex-col items-center justify-center text-gray-500 border-2 border-dashed border-gray-200 rounded-lg"
+                          style={{
+                            aspectRatio: "311/185",
+                            maxWidth: "380px",
+                            borderRadius: "20px"
+                          }}
+                        >
+                          <CreditCardIcon className="h-12 w-12 mb-3 opacity-40" />
+                          <h4 className="font-medium text-gray-700 mb-1">Get a Credit Card</h4>
+                          <p className="text-sm text-gray-500 mb-3 text-center px-4">Build credit and earn rewards</p>
+                          <Button variant="outline" size="sm">
+                            Apply Now
+                          </Button>
+                        </div>
+                      </div>
                     </div>
                   )}
 
                   {(!dashboardMetrics.cardInfo.hasDebitCard && dashboardMetrics.cardInfo.hasCreditCard) && (
-                    <div
-                      className="flex flex-col items-center justify-center text-gray-500 border-2 border-dashed border-gray-200 rounded-lg"
-                      style={{
-                        aspectRatio: "311/185", // Same aspect ratio as the credit card
-                        maxWidth: "306px",      // 85% of the original 360px
-                        transform: "scale(0.85)",
-                        transformOrigin: "top left"
-                      }}
-                    >
-                      <CreditCardIcon className="h-12 w-12 mb-3 opacity-40" />
-                      <h4 className="font-medium text-gray-700 mb-1">Get a Debit Card</h4>
-                      <p className="text-sm text-gray-500 mb-3 text-center px-4">Easy access to your account</p>
-                      <Button variant="outline" size="sm">
-                        Order Card
-                      </Button>
+                    <div className="flex flex-col">
+                      <div style={{ transform: "scale(0.87)", transformOrigin: "center" }}>
+                        <div
+                          className="flex flex-col items-center justify-center text-gray-500 border-2 border-dashed border-gray-200 rounded-lg"
+                          style={{
+                            aspectRatio: "311/185",
+                            maxWidth: "420px",
+                            borderRadius: "20px"
+                          }}
+                        >
+                          <CreditCardIcon className="h-12 w-12 mb-3 opacity-40" />
+                          <h4 className="font-medium text-gray-700 mb-1">Get a Debit Card</h4>
+                          <p className="text-sm text-gray-500 mb-3 text-center px-4">Easy access to your account</p>
+                          <Button variant="outline" size="sm">
+                            Order Card
+                          </Button>
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -1096,7 +1126,7 @@ export default function DashboardPage() {
                   <div className={`w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center ${parseInt(userData?.GOOGLE_PAY_FLAG || 0) ? 'bg-green-100' : 'bg-gray-100'
                     }`}>
                     <svg className={`w-8 h-8 ${parseInt(userData?.GOOGLE_PAY_FLAG || 0) ? 'text-green-600' : 'text-gray-400'}`} viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.345-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0-.788-.085-1.39-.189-1.989H12.24z" />
+                      <path d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.345-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0 0 0 0 0 0z" />
                     </svg>
                   </div>
                   <h3 className="font-semibold text-lg mb-2">Google Pay</h3>
