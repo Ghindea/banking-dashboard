@@ -143,12 +143,12 @@ def get_user_profile():
     
     return jsonify(user_data)
 
-@app.route('/user/recommendations', methods=['GET'])
+@app.route('/user/products', methods=['GET'])
 @jwt_required()
-def get_user_recommendations():
+def get_user_products():
     current_user = get_jwt_identity()
 
-    logging.info(f"{current_user} accessed /recommendations")
+    logging.info(f"{current_user} accessed /user/products")
 
     # Get user data
     user_data = user_service.get_user_data(current_user)
@@ -156,14 +156,31 @@ def get_user_recommendations():
     
     if not user_data:
         return jsonify({"error": "User not found"}), 404
+
+    products = client_data_service.get_products_for_client(current_user)
+
+    logging.info(f"Products for {current_user}: {products}")
+
+    return jsonify({"products": products})
+
+@app.route('/user/offers', methods=['GET'])
+@jwt_required()
+def get_user_offers():
+    current_user = get_jwt_identity()
+
+    logging.info(f"{current_user} accessed /user/offers")
+
+    # Get user data
+    user_data = user_service.get_user_data(current_user)
     
-    recommendations = client_data_service.get_products_for_client(current_user)
-        
-    logging.info(f"Recommendations for {current_user}: {recommendations}")
-        
-    return jsonify({"recommendations": recommendations})
-    
-    
+    if not user_data:
+        return jsonify({"error": "User not found"}), 404
+
+    offers = client_data_service.get_offers_for_client(current_user)
+
+    logging.info(f"Offers for {current_user}: {offers}")
+
+    return jsonify({"offers": offers})
 
 # Calculate mortgage endpoint
 @app.route('/calculate-mortgage', methods=['POST'])
