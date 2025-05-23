@@ -131,7 +131,7 @@ class ClientDataService:
 
     def get_offers_for_client(self, client_id: str) -> Dict:
         query = """
-        SELECT * FROM offers
+        SELECT DISTINCT * FROM offers
         WHERE (SEG_ID = 0 AND CLUS_ID = (SELECT DEM_SEG FROM clients WHERE ID = ?))
         OR (SEG_ID = 1 AND CLUS_ID = (SELECT FIN_SEG FROM clients WHERE ID = ?))
         OR (SEG_ID = 2 AND CLUS_ID = (SELECT TRANS_SEG FROM clients WHERE ID = ?))
@@ -157,6 +157,7 @@ class ClientDataService:
             age = result[0] if result else None
 
             df = pd.read_sql_query(query, conn, params=(client_id,) * 6)
+            df = df.drop_duplicates(subset=["ID"])
 
             if age is not None and age < 18:
                 df = df[df['ELIG'].astype(str) == '0']
@@ -171,7 +172,7 @@ class ClientDataService:
 
     def get_products_for_client(self, client_id: str) -> Dict:
         query = """
-        SELECT * FROM products
+        SELECT DISTINCT * FROM products
         WHERE (SEG_ID = 0 AND CLUS_ID = (SELECT DEM_SEG FROM clients WHERE ID = ?))
         OR (SEG_ID = 1 AND CLUS_ID = (SELECT FIN_SEG FROM clients WHERE ID = ?))
         OR (SEG_ID = 2 AND CLUS_ID = (SELECT TRANS_SEG FROM clients WHERE ID = ?))
@@ -197,7 +198,8 @@ class ClientDataService:
             age = result[0] if result else None
 
             df = pd.read_sql_query(query, conn, params=(client_id,) * 6)
-
+            df = df.drop_duplicates(subset=["ID"])
+            
             if age is not None and age < 18:
                 df = df[df['ELIG'].astype(str) == '0']
 
@@ -208,4 +210,3 @@ class ClientDataService:
                 "client_id": client_id,
                 "products": df.to_dict(orient="records")
             }
-
