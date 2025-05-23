@@ -1,103 +1,152 @@
 "use client"
 
 import { useState } from "react"
+import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { ChevronLeft, ChevronRight, ExternalLink, Gift } from "lucide-react"
 
 interface Offer {
-  id: number
+  id: string
   title: string
   description: string
-  imageSrc: string
-  actionText: string
-  bgColor: string
+  category: string
+  link?: string | null
+  eligibility?: number
 }
 
-const offers: Offer[] = [
-  {
-    id: 1,
-    title: "Freshful x Georgel",
-    description: "Get 5% cashback on all grocery purchases through Freshful for 3 months.",
-    imageSrc: "/placeholder.svg?height=80&width=150",
-    actionText: "Try for free",
-    bgColor: "bg-blue-50",
-  },
-  {
-    id: 2,
-    title: "Premium Card Offer",
-    description: "Upgrade to our premium card and get airport lounge access worldwide.",
-    imageSrc: "/placeholder.svg?height=80&width=150",
-    actionText: "Upgrade now",
-    bgColor: "bg-purple-50",
-  },
-  {
-    id: 3,
-    title: "Mortgage Rate Special",
-    description: "Fixed 4.5% interest rate on new mortgages. Limited time offer.",
-    imageSrc: "/placeholder.svg?height=80&width=150",
-    actionText: "Apply today",
-    bgColor: "bg-green-50",
-  },
-]
+interface OfferBannerProps {
+  offers?: Offer[]
+}
 
-export default function OfferBanner() {
-  const [currentOfferIndex, setCurrentOfferIndex] = useState(0)
+export default function OfferBanner({ offers = [] }: OfferBannerProps) {
+  const [currentOffer, setCurrentOffer] = useState(0)
+
+  // Default offers if none provided
+  const defaultOffers = [
+    {
+      id: "1",
+      title: "Welcome to George Banking",
+      description: "Discover all the digital banking features available to you",
+      category: "WELCOME",
+      link: null,
+      eligibility: 0
+    }
+  ]
+
+  const displayOffers = offers.length > 0 ? offers : defaultOffers
+  const totalOffers = displayOffers.length
 
   const nextOffer = () => {
-    setCurrentOfferIndex((prev) => (prev + 1) % offers.length)
+    setCurrentOffer((prev) => (prev + 1) % totalOffers)
   }
 
   const prevOffer = () => {
-    setCurrentOfferIndex((prev) => (prev - 1 + offers.length) % offers.length)
+    setCurrentOffer((prev) => (prev - 1 + totalOffers) % totalOffers)
   }
 
-  const currentOffer = offers[currentOfferIndex]
+  const handleOfferClick = (offer: Offer) => {
+    if (offer.link) {
+      window.open(offer.link, '_blank', 'noopener,noreferrer')
+    }
+  }
+
+  const currentOfferData = displayOffers[currentOffer]
 
   return (
-    <Card className={`overflow-hidden ${currentOffer.bgColor}`}>
-      <div className="flex items-center p-6">
-        <Button variant="ghost" size="icon" className="mr-2" onClick={prevOffer} aria-label="Previous offer">
-          <ChevronLeft className="h-4 w-4" />
-        </Button>
-
-        <div className="flex-1 flex flex-col md:flex-row md:items-center">
-          <div className="flex-1 pr-4">
-            <h2 className="text-xl font-bold mb-2">
-              Offer<span className="text-georgel-blue"> {currentOffer.title}</span>
-            </h2>
-            <p className="text-sm text-gray-600 mb-4">{currentOffer.description}</p>
-            <Button className="bg-georgel-purple hover:bg-georgel-purple/90">{currentOffer.actionText}</Button>
-          </div>
-          <div className="mt-4 md:mt-0">
-            <div className="rounded-md overflow-hidden">
-              <img
-                src={currentOffer.imageSrc || "/placeholder.svg"}
-                alt={currentOffer.title}
-                width={150}
-                height={80}
-                className="object-cover"
-              />
+    <Card className="relative overflow-hidden bg-gradient-to-r from-georgel-purple to-georgel-blue text-white">
+      <CardContent className="p-6">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-4 flex-1">
+            <div className="bg-white/20 p-3 rounded-full">
+              <Gift className="h-6 w-6" />
             </div>
+
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-2">
+                <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+                  {currentOfferData.category}
+                </Badge>
+                {currentOfferData.eligibility && currentOfferData.eligibility >= 18 && (
+                  <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+                    {currentOfferData.eligibility}+
+                  </Badge>
+                )}
+              </div>
+
+              <h3 className="text-xl font-bold mb-2 truncate">
+                {currentOfferData.title}
+              </h3>
+
+              <p className="text-white/90 text-sm leading-relaxed line-clamp-2">
+                {currentOfferData.description}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-4 ml-6">
+            {/* Navigation for multiple offers */}
+            {totalOffers > 1 && (
+              <div className="flex items-center space-x-2">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="h-8 w-8 text-white hover:bg-white/20"
+                  onClick={prevOffer}
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+
+                <div className="flex space-x-1">
+                  {displayOffers.map((_, index) => (
+                    <button
+                      key={index}
+                      className={`h-2 w-2 rounded-full transition-colors ${index === currentOffer ? 'bg-white' : 'bg-white/40'
+                        }`}
+                      onClick={() => setCurrentOffer(index)}
+                    />
+                  ))}
+                </div>
+
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="h-8 w-8 text-white hover:bg-white/20"
+                  onClick={nextOffer}
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </div>
+            )}
+
+            {/* CTA Button */}
+            <Button
+              variant="secondary"
+              className="bg-white text-georgel-purple hover:bg-white/90 whitespace-nowrap"
+              onClick={() => handleOfferClick(currentOfferData)}
+              disabled={!currentOfferData.link}
+            >
+              {currentOfferData.link ? (
+                <>
+                  Learn More
+                  <ExternalLink className="w-4 h-4 ml-2" />
+                </>
+              ) : (
+                "View Details"
+              )}
+            </Button>
           </div>
         </div>
 
-        <Button variant="ghost" size="icon" className="ml-2" onClick={nextOffer} aria-label="Next offer">
-          <ChevronRight className="h-4 w-4" />
-        </Button>
-      </div>
-      <div className="flex justify-center pb-2">
-        {offers.map((_, index) => (
-          <button
-            key={index}
-            className={`h-1.5 w-6 mx-1 rounded-full ${
-              index === currentOfferIndex ? "bg-georgel-purple" : "bg-gray-300"
-            }`}
-            onClick={() => setCurrentOfferIndex(index)}
-            aria-label={`Go to offer ${index + 1}`}
-          />
-        ))}
-      </div>
+        {/* Offer counter */}
+        {totalOffers > 1 && (
+          <div className="absolute top-4 right-4">
+            <span className="text-xs text-white/70">
+              {currentOffer + 1} of {totalOffers}
+            </span>
+          </div>
+        )}
+      </CardContent>
     </Card>
   )
 }

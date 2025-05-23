@@ -1082,3 +1082,13 @@ werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not 
 2025-05-23 01:56:43,102 [INFO] 91M0Oe0e6ST58d0LY0A0I8af accessed /recommendations
 2025-05-23 01:56:43,102 [INFO] Recommendations for 91M0Oe0e6ST58d0LY0A0I8af: {'O9', 'O25', 'O24', 'P25', 'P28', 'P2', 'O11', 'P32', 'P18', 'P14', 'P4', 'P10', 'P21', 'O15', 'O2', 'P1', 'O1', 'P7', 'P9', 'O7', 'O32', 'O8', 'P8', 'O3', 'P13', 'P11', 'O29', 'O31', 'O10', 'O5', 'O19', 'O12', 'O4', 'O6', 'P5'}
 2025-05-23 01:56:43,103 [INFO] 127.0.0.1 - - [23/May/2025 01:56:43] "GET /user/recommendations HTTP/1.1" 200 -
+2025-05-23 02:10:31,472 [INFO] Client routes initialized
+2025-05-23 02:10:31,503 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-23 02:10:31,503 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-23 02:10:31,504 [INFO]  * Restarting with stat
+2025-05-23 02:10:31,877 [INFO] Client routes initialized
+2025-05-23 02:10:31,895 [WARNING]  * Debugger is active!
+2025-05-23 02:10:31,901 [INFO]  * Debugger PIN: 862-597-935
+2025-05-23 03:20:03,535 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/database/client_data_service.py', reloading
+2025-05-23 03:20:03,757 [INFO]  * Restarting with stat

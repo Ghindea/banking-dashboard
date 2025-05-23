@@ -65,6 +65,20 @@ interface DashboardMetrics {
   }
 }
 
+interface OffersResponse {
+  offers: {
+    client_id: string
+    offers: Array<{
+      CATEG: string
+      DESCR: string
+      ELIG: string
+      LINK: string | null
+      PROD: string
+      SEG_ID: string
+    }>
+  }
+}
+
 const ROMANIAN_MALE_NAMES = [
   "Andrei", "Mihai", "Alexandru", "Ion", "Cristian", "Vlad", "Gabriel",
   "Florin", "Radu", "Ștefan", "Cătălin", "Valentin", "Bogdan", "Alin",
@@ -76,6 +90,7 @@ const ROMANIAN_FEMALE_NAMES = [
   "Roxana", "Alina", "Bianca", "Alexandra", "Larisa", "Adriana",
   "Mihaela", "Irina", "Daniela", "Nicoleta", "Loredana", "Ramona", "Simona"
 ];
+
 
 function getRandomNameByGender(genderCode: string): string {
   if (genderCode === 'M') {
@@ -145,6 +160,14 @@ function calculateSpendingCategories(userData: any): { spendingData: SpendingCat
     }
   ]
 
+  // Debug log to see what data we're receiving
+  console.log("User data keys:", Object.keys(userData || {}));
+  console.log("Sample MCC field values:", {
+    food: userData?.MCC_FOOD_AMT,
+    shopping: userData?.MCC_MISCELLANEOUS_STORES_AMT,
+    transport: userData?.MCC_TRANSPORTATION_AMT
+  });
+
   // Calculate spending for each category
   const spendingData: SpendingCategory[] = []
   let totalSpending = 0
@@ -154,8 +177,10 @@ function calculateSpendingCategories(userData: any): { spendingData: SpendingCat
 
     // Sum all fields for this category
     category.fields.forEach(field => {
-      const amount = parseFloat(userData?.[field] || 0)
-      if (amount > 0) {
+      const rawValue = userData?.[field];
+      // Handle both string and number values
+      const amount = typeof rawValue === 'string' ? parseFloat(rawValue) : (rawValue || 0);
+      if (!isNaN(amount) && amount > 0) {
         categoryTotal += amount
       }
     })
@@ -178,6 +203,9 @@ function calculateSpendingCategories(userData: any): { spendingData: SpendingCat
 
   // Sort by value descending
   spendingData.sort((a, b) => b.value - a.value)
+
+  console.log("Calculated spending data:", spendingData);
+  console.log("Total spending:", totalSpending);
 
   // If no real spending data is available, create sample data
   if (spendingData.length === 0) {
@@ -347,6 +375,8 @@ export default function DashboardPage() {
   const [showDetailedReport, setShowDetailedReport] = useState(false)
   const [showDigitalServicesReport, setShowDigitalServicesReport] = useState(false)
   const [activeTab, setActiveTab] = useState("cards")
+  const [featuredOffers, setFeaturedOffers] = useState<any[]>([])
+
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -370,7 +400,7 @@ export default function DashboardPage() {
       // Try to fetch real user data
       setIsLoading(true)
       try {
-        const response = await axios.get("http://127.0.0.1:5000/user/profile", {
+        const response = await axios.get("http://20.185.231.218:5000/user/profile", {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
           },
@@ -404,7 +434,7 @@ export default function DashboardPage() {
     }
 
     const fetchRecommendations = async () => {
-      const response = await axios.get("http://127.0.0.1:5000/user/recommendations", {
+      const response = await axios.get("http://20.185.231.218:5000/user/recommendations", {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
         }
@@ -415,6 +445,88 @@ export default function DashboardPage() {
 
     fetchUserData()
     fetchRecommendations()
+  }, [])
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      // ... existing code for user data ...
+    }
+
+    const fetchRecommendations = async () => {
+      const response = await axios.get("http://20.185.231.218:5000/user/recommendations", {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        }
+      })
+      console.log("Recommendations fetched:", response.data)
+      console.log(response)
+    }
+
+    // Add this new function to fetch offers
+    const fetchOffers = async () => {
+      try {
+        const response = await axios.get<OffersResponse>("http://20.185.231.218:5000/user/offers", {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+          },
+          timeout: 5000
+        })
+
+        console.log("Offers fetched:", response.data)
+
+        // Extract first 3 offers and format them
+        const offers = response.data.offers.offers.slice(0, 3).map((offer, index) => ({
+          id: index.toString(),
+          title: offer.PROD,
+          description: offer.DESCR,
+          category: offer.CATEG,
+          link: offer.LINK,
+          eligibility: parseInt(offer.ELIG),
+          segmentId: offer.SEG_ID
+        }))
+
+        setFeaturedOffers(offers)
+        console.log("Featured offers set:", offers)
+      } catch (error) {
+        console.error("Error fetching offers:", error)
+        // Set default offers if API fails
+        setFeaturedOffers([
+          {
+            id: "1",
+            title: "George Pay Special",
+            description: "Get 10% cashback on your first payment with George Pay",
+            category: "DIGITAL",
+            link: null,
+            eligibility: 0
+          },
+          {
+            id: "2",
+            title: "Credit Card Offer",
+            description: "Apply for a new credit card and get bonus points",
+            category: "FINANCIAL",
+            link: null,
+            eligibility: 18
+          },
+          {
+            id: "3",
+            title: "Savings Account",
+            description: "Open a savings account with competitive interest rates",
+            category: "BANKING",
+            link: null,
+            eligibility: 0
+          }
+        ])
+      }
+    }
+
+    fetchUserData()
+    fetchRecommendations()
+
+    // Only fetch offers if user is authenticated
+    const isAuthenticated = localStorage.getItem("isAuthenticated")
+    if (isAuthenticated) {
+      fetchOffers()
+    }
   }, [])
 
   // Loading skeleton
@@ -515,7 +627,7 @@ export default function DashboardPage() {
 
       {/* Hero/Offers Banner */}
       <div className="mb-6">
-        <OfferBanner />
+        <OfferBanner offers={featuredOffers} />
       </div>
 
       {/* Summary Cards */}
