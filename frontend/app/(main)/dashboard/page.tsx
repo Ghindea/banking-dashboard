@@ -454,7 +454,7 @@ export default function DashboardPage() {
         console.log("Offers fetched:", response.data)
 
         // Extract first 3 offers and format them
-        const offers = response.data.offers.offers.slice(0, 3).map((offer, index) => ({
+        const offers = response.data.offers.offers.slice(1, 5).map((offer, index) => ({
           id: index.toString(),
           title: offer.PROD,
           description: offer.DESCR,

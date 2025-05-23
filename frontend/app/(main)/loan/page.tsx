@@ -185,7 +185,6 @@ export default function LoanApplicationPage() {
         }
 
         setClientData(mockData)
-        handleSimulate()
       } catch (err) {
         setError("Failed to load client data. Please try again.")
         console.error(err)
@@ -212,7 +211,6 @@ export default function LoanApplicationPage() {
           ...prev,
           amount: newLoanAmount
         }));
-        handleSimulate();
       }
     }
   }, [form.home_value, form.downpayment]);
@@ -223,53 +221,102 @@ export default function LoanApplicationPage() {
       ...prev,
       [field]: value,
     }))
+    setResults(null) // Reset results when form changes
   }
 
   // Handle simulation submission
+  // Update the handleSimulate function (around line 224):
   const handleSimulate = async () => {
     try {
       setIsSimulating(true)
 
-      // Convert years to months for calculation
-      const tenorInMonths = form.tenor * 12;
-
-      // Calculate monthly expenses from annual expenses
-      const monthlyPropertyTax = form.annual_property_tax / 12;
-      const monthlyHomeInsurance = form.annual_home_insurance / 12;
-
-      // Mock simulation results
-      const totalInterest = form.amount * (form.interestRate / 100) * (tenorInMonths / 12)
-      const totalCost = form.amount + totalInterest
-
-      // Base monthly payment (principal + interest)
-      const baseMonthlyPayment = totalCost / tenorInMonths
-
-      // Total monthly payment including HOA, property tax, and insurance
-      const monthlyPayment = baseMonthlyPayment + form.monthly_hoa + monthlyPropertyTax + monthlyHomeInsurance
-
-      const mockResults: LoanSimulationResults = {
-        approvedAmount: form.amount,
-        interestRate: form.interestRate,
-        monthlyPayment: monthlyPayment,
-        dae: form.interestRate + 0.7,
-        totalCost: totalCost,
-        totalInterest: totalInterest,
-        amortizationSchedule: Array.from({ length: tenorInMonths }, (_, i) => ({
-          month: i + 1,
-          principal: form.amount / tenorInMonths,
-          interest: (form.amount * (form.interestRate / 100)) / 12,
-          balance: form.amount - (form.amount / tenorInMonths) * (i + 1),
-        })),
+      // Prepare API payload
+      const payload = {
+        interest_rate: form.interestRate,
+        home_value: form.home_value,
+        downpayment: form.downpayment,
+        duration_years: form.tenor,
+        monthly_hoa: form.monthly_hoa,
+        annual_property_tax: form.annual_property_tax,
+        annual_home_insurance: form.annual_home_insurance
       }
 
-      setResults(mockResults)
+      console.log("Sending mortgage calculation request:", payload)
+
+      // Call the backend API
+      const response = await fetch("http://20.185.231.218:5000/calculate-mortgage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${localStorage.getItem("accessToken")}`
+        },
+        body: JSON.stringify(payload)
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || `HTTP error! status: ${response.status}`)
+      }
+
+      const apiResults = await response.json()
+      console.log("Mortgage calculation results:", apiResults)
+
+      // Transform API results to match your existing interface
+      const transformedResults: LoanSimulationResults = {
+        approvedAmount: form.amount, // This is the loan amount (home_value - downpayment)
+        interestRate: form.interestRate,
+        monthlyPayment: apiResults.monthly_payment.total || 0,
+        dae: form.interestRate + 0.7, // You can adjust this calculation
+        totalCost: (apiResults.monthly_payment.total || 0) * (form.tenor * 12),
+        totalInterest: apiResults.total_interest_paid || 0,
+        amortizationSchedule: generateAmortizationSchedule(
+          form.amount,
+          form.interestRate,
+          form.tenor * 12,
+          apiResults.monthly_payment.mortgage || 0
+        )
+      }
+
+      setResults(transformedResults)
+      setError(null) // Clear any previous errors
+
     } catch (err) {
-      setError("Failed to simulate loan. Please try again.")
-      console.error(err)
+      console.error("Mortgage calculation error:", err)
+      setError(`Failed to calculate mortgage: ${err instanceof Error ? err.message : 'Unknown error'}`)
+
+      setResults(null) // Clear results on error
     } finally {
       setIsSimulating(false)
     }
   }
+
+  // Add helper function for amortization schedule generation
+  const generateAmortizationSchedule = (
+    principal: number,
+    annualRate: number,
+    months: number,
+    monthlyMortgagePayment: number
+  ) => {
+    const monthlyRate = annualRate / 100 / 12
+    let remainingBalance = principal
+    const schedule = []
+
+    for (let month = 1; month <= months; month++) {
+      const interestPayment = remainingBalance * monthlyRate
+      const principalPayment = monthlyMortgagePayment - interestPayment
+      remainingBalance = Math.max(0, remainingBalance - principalPayment)
+
+      schedule.push({
+        month,
+        principal: principalPayment,
+        interest: interestPayment,
+        balance: remainingBalance
+      })
+    }
+
+    return schedule
+  }
+
 
   // Generate amortization chart data
   const amortizationChartData = results?.amortizationSchedule
@@ -369,7 +416,6 @@ export default function LoanApplicationPage() {
                   value={form.amount}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     handleFormChange("amount", Number(e.target.value))
-                    handleSimulate()
                   }}
                   className="w-32 text-right"
                 />
@@ -382,7 +428,6 @@ export default function LoanApplicationPage() {
               step={1000}
               onValueChange={(value: number[]) => {
                 handleFormChange("amount", value[0])
-                handleSimulate()
               }}
               className="py-4"
             />
@@ -401,7 +446,6 @@ export default function LoanApplicationPage() {
                   value={form.interestRate}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     handleFormChange("interestRate", Number(e.target.value))
-                    handleSimulate()
                   }}
                   className="w-20 text-right"
                 />
@@ -415,7 +459,6 @@ export default function LoanApplicationPage() {
               step={0.1}
               onValueChange={(value: number[]) => {
                 handleFormChange("interestRate", value[0])
-                handleSimulate()
               }}
               className="py-4"
             />
@@ -434,7 +477,6 @@ export default function LoanApplicationPage() {
                   value={form.tenor}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     handleFormChange("tenor", Number(e.target.value))
-                    handleSimulate()
                   }}
                   className="w-20 text-right"
                 />
@@ -448,7 +490,6 @@ export default function LoanApplicationPage() {
               step={1}
               onValueChange={(value: number[]) => {
                 handleFormChange("tenor", value[0])
-                handleSimulate()
               }}
               className="py-4"
             />
@@ -468,7 +509,6 @@ export default function LoanApplicationPage() {
                   value={form.home_value}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     handleFormChange("home_value", Number(e.target.value))
-                    handleSimulate()
                   }}
                   className="w-32 text-right"
                 />
@@ -481,7 +521,6 @@ export default function LoanApplicationPage() {
               step={10000}
               onValueChange={(value: number[]) => {
                 handleFormChange("home_value", value[0])
-                handleSimulate()
               }}
               className="py-4"
             />
@@ -501,7 +540,6 @@ export default function LoanApplicationPage() {
                   value={form.downpayment}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     handleFormChange("downpayment", Number(e.target.value))
-                    handleSimulate()
                   }}
                   className="w-32 text-right"
                 />
@@ -514,7 +552,6 @@ export default function LoanApplicationPage() {
               step={5000}
               onValueChange={(value: number[]) => {
                 handleFormChange("downpayment", value[0])
-                handleSimulate()
               }}
               className="py-4"
             />
@@ -534,7 +571,6 @@ export default function LoanApplicationPage() {
                   value={form.monthly_hoa}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     handleFormChange("monthly_hoa", Number(e.target.value))
-                    handleSimulate()
                   }}
                   className="w-24 text-right"
                 />
@@ -547,7 +583,6 @@ export default function LoanApplicationPage() {
               step={10}
               onValueChange={(value: number[]) => {
                 handleFormChange("monthly_hoa", value[0])
-                handleSimulate()
               }}
               className="py-4"
             />
@@ -567,7 +602,6 @@ export default function LoanApplicationPage() {
                   value={form.annual_property_tax}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     handleFormChange("annual_property_tax", Number(e.target.value))
-                    handleSimulate()
                   }}
                   className="w-24 text-right"
                 />
@@ -580,7 +614,6 @@ export default function LoanApplicationPage() {
               step={100}
               onValueChange={(value: number[]) => {
                 handleFormChange("annual_property_tax", value[0])
-                handleSimulate()
               }}
               className="py-4"
             />
@@ -600,7 +633,6 @@ export default function LoanApplicationPage() {
                   value={form.annual_home_insurance}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     handleFormChange("annual_home_insurance", Number(e.target.value))
-                    handleSimulate()
                   }}
                   className="w-24 text-right"
                 />
@@ -613,86 +645,123 @@ export default function LoanApplicationPage() {
               step={100}
               onValueChange={(value: number[]) => {
                 handleFormChange("annual_home_insurance", value[0])
-                handleSimulate()
               }}
               className="py-4"
             />
           </div>
 
-          {/* EMI Display */}
-          <div className="pt-4 border-t space-y-4">
-            <div className="flex justify-between items-center">
-              <h3 className="text-xl font-bold">Total Monthly Payment</h3>
-              <span className="text-xl font-bold text-cyan-500">
-                ${results ? Math.round(results.monthlyPayment).toLocaleString() : "0"}
-              </span>
-            </div>
 
-            {/* Payment Breakdown */}
-            <div className="bg-gray-50 p-3 rounded-md space-y-2">
-              <h4 className="font-semibold text-sm text-gray-700">Payment Breakdown:</h4>
-              <div className="flex justify-between text-sm">
-                <span>Principal & Interest</span>
-                <span>${results ? Math.round(results.totalCost / (form.tenor * 12)).toLocaleString() : "0"}</span>
-              </div>
-              {form.monthly_hoa > 0 && (
-                <div className="flex justify-between text-sm">
-                  <span>Monthly HOA</span>
-                  <span>${form.monthly_hoa.toLocaleString()}</span>
-                </div>
+          {/* Calculate Button */}
+          <div className="pt-6">
+            <Button
+              onClick={handleSimulate}
+              disabled={isSimulating}
+              className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-lg font-semibold"
+            >
+              {isSimulating ? (
+                <>
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                  Calculating...
+                </>
+              ) : (
+                "Calculate Mortgage"
               )}
-              {form.annual_property_tax > 0 && (
-                <div className="flex justify-between text-sm">
-                  <span>Property Tax (monthly)</span>
-                  <span>${Math.round(form.annual_property_tax / 12).toLocaleString()}</span>
-                </div>
-              )}
-              {form.annual_home_insurance > 0 && (
-                <div className="flex justify-between text-sm">
-                  <span>Home Insurance (monthly)</span>
-                  <span>${Math.round(form.annual_home_insurance / 12).toLocaleString()}</span>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex gap-4">
-            <Button className="flex-1 bg-blue-600 hover:bg-blue-700">Save result</Button>
-            <Button variant="outline" className="flex-1">
-              View report
             </Button>
           </div>
+
+          {/* Results Display - only show after calculation */}
+          {results && (
+            <>
+              {/* EMI Display */}
+              <div className="pt-4 border-t space-y-4">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-xl font-bold">Total Monthly Payment</h3>
+                  <span className="text-xl font-bold text-cyan-500">
+                    ${Math.round(results.monthlyPayment).toLocaleString()}
+                  </span>
+                </div>
+
+                {/* Payment Breakdown - using API response data */}
+                <div className="bg-gray-50 p-3 rounded-md space-y-2">
+                  <h4 className="font-semibold text-sm text-gray-700">Payment Breakdown:</h4>
+                  <div className="flex justify-between text-sm">
+                    <span>Principal & Interest</span>
+                    <span>${Math.round(results.monthlyPayment - form.monthly_hoa - (form.annual_property_tax / 12) - (form.annual_home_insurance / 12)).toLocaleString()}</span>
+                  </div>
+                  {form.monthly_hoa > 0 && (
+                    <div className="flex justify-between text-sm">
+                      <span>Monthly HOA</span>
+                      <span>${form.monthly_hoa.toLocaleString()}</span>
+                    </div>
+                  )}
+                  {form.annual_property_tax > 0 && (
+                    <div className="flex justify-between text-sm">
+                      <span>Property Tax (monthly)</span>
+                      <span>${Math.round(form.annual_property_tax / 12).toLocaleString()}</span>
+                    </div>
+                  )}
+                  {form.annual_home_insurance > 0 && (
+                    <div className="flex justify-between text-sm">
+                      <span>Home Insurance (monthly)</span>
+                      <span>${Math.round(form.annual_home_insurance / 12).toLocaleString()}</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Total Interest Display */}
+                <div className="bg-blue-50 p-3 rounded-md">
+                  <div className="flex justify-between text-sm">
+                    <span className="font-medium">Total Interest Over Life of Loan</span>
+                    <span className="font-bold text-blue-600">${Math.round(results.totalInterest).toLocaleString()}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex gap-4">
+                <Button className="flex-1 bg-blue-600 hover:bg-blue-700">Save result</Button>
+                <Button variant="outline" className="flex-1">View report</Button>
+              </div>
+            </>
+          )}          {/* Right Column - Results Visualization */}
+
         </div>
 
         {/* Right Column - Results Visualization */}
         <div className="space-y-8">
-          {/* Pie Chart */}
+          {/* Always show chart but with N/A when no results */}
           <Card className="overflow-hidden">
             <CardContent className="p-6">
               <div className="h-[300px] flex flex-col items-center justify-center">
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie
-                      data={pieData}
-                      cx="50%"
-                      cy="50%"
-                      innerRadius={60}
-                      outerRadius={100}
-                      dataKey="value"
-                      startAngle={90}
-                      endAngle={-270}
-                    >
-                      {pieData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.color} />
-                      ))}
-                    </Pie>
-                  </PieChart>
-                </ResponsiveContainer>
+                {results ? (
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={pieData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={100}
+                        dataKey="value"
+                        startAngle={90}
+                        endAngle={-270}
+                      >
+                        {pieData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                    </PieChart>
+                  </ResponsiveContainer>
+                ) : (
+                  <div className="text-center text-gray-400">
+                    <div className="w-32 h-32 rounded-full border-4 border-gray-200 mx-auto mb-4"></div>
+                    <p className="text-sm">Calculate to see breakdown</p>
+                  </div>
+                )}
                 <div className="text-center mt-4">
                   <p className="text-sm text-gray-500">Total amount:</p>
                   <p className="text-2xl font-bold">
-                    ${results ? Math.round(results.totalCost).toLocaleString() : "0"}
+                    {results ? `$${Math.round(results.totalCost).toLocaleString()}` : "N/A"}
                   </p>
                 </div>
               </div>
@@ -702,14 +771,18 @@ export default function LoanApplicationPage() {
                   <div className="w-3 h-3 rounded-full bg-cyan-500"></div>
                   <div>
                     <p className="text-sm">Principal amount</p>
-                    <p className="font-bold">${form.amount.toLocaleString()}</p>
+                    <p className="font-bold">
+                      {results ? `$${form.amount.toLocaleString()}` : "N/A"}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-orange-500"></div>
                   <div>
                     <p className="text-sm">Total interest</p>
-                    <p className="font-bold">${results ? Math.round(results.totalInterest).toLocaleString() : "0"}</p>
+                    <p className="font-bold">
+                      {results ? `$${Math.round(results.totalInterest).toLocaleString()}` : "N/A"}
+                    </p>
                   </div>
                 </div>
               </div>
