@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import axios from "axios" // You'll need to install axios
+import Image from "next/image"
 
 export default function LoginPage() {
   const [userId, setUserId] = useState("")
@@ -50,10 +51,14 @@ export default function LoginPage() {
       <div className="flex flex-1 items-center justify-center bg-white">
         <div className="w-full max-w-md space-y-4">
           <div className="flex items-center">
-            <div className="h-10 w-10 bg-georgel-purple rounded-full flex items-center justify-center">
-              <span className="text-white font-bold">G</span>
-            </div>
-            <span className="ml-2 text-2xl font-bold">Georgel</span>
+            <Image
+              src="/your-logo.svg"
+              alt="Bank Logo"
+              width={32}
+              height={32}
+              className="h-8 w-8"
+            />
+            <span className="ml-2 font-bold text-xl">Georgel</span>
           </div>
           <h1 className="text-3xl font-bold">Log in</h1>
           <p className="text-gray-600">Welcome back! Please enter your details.</p>
@@ -76,9 +81,6 @@ export default function LoginPage() {
                 className="w-full h-12 px-3 py-2 border border-gray-300 rounded-md"
                 required
               />
-              <div className="text-sm text-gray-500 italic">
-                Enter "admin" or a valid client ID like "10001"
-              </div>
             </div>
             <button
               type="submit"

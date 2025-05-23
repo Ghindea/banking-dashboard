@@ -433,33 +433,12 @@ export default function DashboardPage() {
       }
     }
 
-    const fetchRecommendations = async () => {
-      const response = await axios.get("http://20.185.231.218:5000/user/recommendations", {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
-        }
-      })
-      console.log("Recommendations fetched:", response.data)
-      console.log(response)
-    }
-
     fetchUserData()
-    fetchRecommendations()
   }, [])
 
   useEffect(() => {
     const fetchUserData = async () => {
       // ... existing code for user data ...
-    }
-
-    const fetchRecommendations = async () => {
-      const response = await axios.get("http://20.185.231.218:5000/user/recommendations", {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
-        }
-      })
-      console.log("Recommendations fetched:", response.data)
-      console.log(response)
     }
 
     // Add this new function to fetch offers
@@ -520,7 +499,6 @@ export default function DashboardPage() {
     }
 
     fetchUserData()
-    fetchRecommendations()
 
     // Only fetch offers if user is authenticated
     const isAuthenticated = localStorage.getItem("isAuthenticated")
@@ -700,14 +678,8 @@ export default function DashboardPage() {
               <div className="bg-green-100 p-2 rounded-full">
                 <CreditCardIcon className="h-5 w-5 text-green-600" />
               </div>
-              <div className="flex-1">
+              <div className="flex-1 text-center">
                 <h3 className="font-medium">Apply for Loan</h3>
-                <p className="text-sm text-gray-500">
-                  {dashboardMetrics.loanInfo.preApproved
-                    ? `Pre-approved: ${formatCurrency(dashboardMetrics.loanInfo.preApprovedAmount)}`
-                    : `${dashboardMetrics.loanInfo.totalRequests} previous requests`
-                  }
-                </p>
               </div>
               <Button variant="ghost" size="icon">
                 <ArrowRight className="h-4 w-4" />

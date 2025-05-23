@@ -48,7 +48,10 @@ export function OfferCard({ offer }: OfferCardProps) {
       </CardContent>
       <CardFooter className="p-4 pt-0">
         <Button
-          className="w-full bg-georgel-purple hover:bg-georgel-purple/90"
+          className={`w-full ${offer.link
+              ? "bg-georgel-purple hover:bg-georgel-purple/90"
+              : "bg-gray-200 text-gray-500 cursor-not-allowed hover:bg-gray-200"
+            }`}
           onClick={handleCTAClick}
           disabled={!offer.link}
         >

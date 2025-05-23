@@ -20,6 +20,7 @@ import { useSidebar } from "@/components/ui/sidebar"
 import { useAuth } from "@/context/auth-context"
 import { useState, useEffect } from "react"
 import axios from "axios"
+import Image from "next/image"
 
 interface SidebarItem {
   title: string
@@ -117,13 +118,17 @@ export default function Sidebar() {
     <div className={cn("relative", isCollapsed ? "w-16" : "w-60")}>
       <aside className={cn("bg-georgel-lightPurple h-screen flex flex-col transition-all duration-300", isCollapsed ? "w-16" : "w-60")}>
         <div className={cn("p-4 flex items-center", isCollapsed && "justify-center")}>
-          <div className="h-8 w-8 bg-georgel-purple rounded-full flex items-center justify-center">
-            <span className="text-white font-bold">G</span>
-          </div>
+          <Image
+            src="/your-logo.svg"
+            alt="Bank Logo"
+            width={32}
+            height={32}
+            className="h-8 w-8"
+          />
           {!isCollapsed && <span className="ml-2 font-bold text-lg">Georgel</span>}
         </div>
 
-        <nav className="flex-1 mt-8">
+        <nav className="flex-1 mt-1">
           <ul className="space-y-2 px-2">
             {sidebarItems.map((item) => {
               const isActive = pathname === item.path
