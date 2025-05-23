@@ -96,7 +96,7 @@ export function OffersTabs({ categories, activeCategory, onCategoryChange }: Off
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
           WebkitOverflowScrolling: 'touch',
-          '::-webkit-scrollbar': { display: 'none' }
+          '::WebkitScrollbar': { display: 'none' }
         } as React.CSSProperties}
       >
         {categories.map((category) => (
