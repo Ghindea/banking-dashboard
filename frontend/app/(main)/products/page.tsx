@@ -42,7 +42,7 @@ export default function ProductsPage() {
 		const fetchProducts = async () => {
 			try {
 				setIsLoading(true)
-				const response = await axios.get('http://20.185.231.218:5000/user/products', {
+				const response = await axios.get('http://127.0.0.1:5000/user/products', {
 					headers: {
 						'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
 					},

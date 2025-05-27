@@ -80,7 +80,7 @@ export default function Sidebar() {
     const fetchUserProfile = async () => {
       if (user?.type === "client") {
         try {
-          const response = await axios.get("http://20.185.231.218:5000/user/profile")
+          const response = await axios.get("http://127.0.0.1:5000/user/profile")
           if (response.data) {
             // Get user info from data
             const occupation = response.data.GPI_CLS_CODE_PT_OCCUP || "User"

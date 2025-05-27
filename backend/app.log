@@ -1092,3 +1092,56 @@ werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not 
 2025-05-23 02:10:31,901 [INFO]  * Debugger PIN: 862-597-935
 2025-05-23 03:20:03,535 [INFO]  * Detected change in '/Users/tiberiuuuf/Desktop/banking-dashboard/backend/database/client_data_service.py', reloading
 2025-05-23 03:20:03,757 [INFO]  * Restarting with stat
+2025-05-27 14:29:46,430 [INFO] Client routes initialized
+2025-05-27 14:29:46,464 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-27 14:29:46,464 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-27 14:29:46,465 [INFO]  * Restarting with stat
+2025-05-27 14:29:46,826 [INFO] Client routes initialized
+2025-05-27 14:29:46,852 [WARNING]  * Debugger is active!
+2025-05-27 14:29:46,860 [INFO]  * Debugger PIN: 862-597-935
+2025-05-27 14:30:17,821 [INFO] 127.0.0.1 - - [27/May/2025 14:30:17] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-27 14:30:17,844 [INFO] Admin logged in.
+2025-05-27 14:30:17,845 [INFO] 127.0.0.1 - - [27/May/2025 14:30:17] "POST /login HTTP/1.1" 200 -
+2025-05-27 14:30:19,855 [INFO] 127.0.0.1 - - [27/May/2025 14:30:19] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-27 14:30:19,857 [INFO] 127.0.0.1 - - [27/May/2025 14:30:19] "OPTIONS /user/offers HTTP/1.1" 200 -
+2025-05-27 14:30:19,863 [INFO] 127.0.0.1 - - [27/May/2025 14:30:19] "OPTIONS /user/profile HTTP/1.1" 200 -
+2025-05-27 14:30:19,883 [INFO] 127.0.0.1 - - [27/May/2025 14:30:19] "OPTIONS /user/offers HTTP/1.1" 200 -
+2025-05-27 14:30:19,888 [INFO] 127.0.0.1 - - [27/May/2025 14:30:19] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-27 14:30:19,890 [INFO] 127.0.0.1 - - [27/May/2025 14:30:19] "[31m[1mGET /user/offers HTTP/1.1[0m" 401 -
+2025-05-27 14:30:19,893 [INFO] 127.0.0.1 - - [27/May/2025 14:30:19] "[31m[1mGET /user/profile HTTP/1.1[0m" 401 -
+2025-05-27 14:30:19,895 [INFO] 127.0.0.1 - - [27/May/2025 14:30:19] "[31m[1mGET /user/offers HTTP/1.1[0m" 401 -
+2025-05-27 14:30:42,215 [INFO] 127.0.0.1 - - [27/May/2025 14:30:42] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-27 14:30:42,222 [ERROR] Authentication error: no such table: clients
+2025-05-27 14:30:42,222 [WARNING] Login failed for user ID: 91M0Oe0e6ST58d0LY0A0I8af
+2025-05-27 14:30:42,222 [INFO] 127.0.0.1 - - [27/May/2025 14:30:42] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-27 14:30:43,479 [ERROR] Authentication error: no such table: clients
+2025-05-27 14:30:43,479 [WARNING] Login failed for user ID: 91M0Oe0e6ST58d0LY0A0I8af
+2025-05-27 14:30:43,479 [INFO] 127.0.0.1 - - [27/May/2025 14:30:43] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-27 14:30:43,948 [ERROR] Authentication error: no such table: clients
+2025-05-27 14:30:43,948 [WARNING] Login failed for user ID: 91M0Oe0e6ST58d0LY0A0I8af
+2025-05-27 14:30:43,948 [INFO] 127.0.0.1 - - [27/May/2025 14:30:43] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-27 14:30:44,345 [ERROR] Authentication error: no such table: clients
+2025-05-27 14:30:44,345 [WARNING] Login failed for user ID: 91M0Oe0e6ST58d0LY0A0I8af
+2025-05-27 14:30:44,345 [INFO] 127.0.0.1 - - [27/May/2025 14:30:44] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-27 14:30:44,541 [ERROR] Authentication error: no such table: clients
+2025-05-27 14:30:44,541 [WARNING] Login failed for user ID: 91M0Oe0e6ST58d0LY0A0I8af
+2025-05-27 14:30:44,541 [INFO] 127.0.0.1 - - [27/May/2025 14:30:44] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-27 14:30:44,745 [ERROR] Authentication error: no such table: clients
+2025-05-27 14:30:44,745 [WARNING] Login failed for user ID: 91M0Oe0e6ST58d0LY0A0I8af
+2025-05-27 14:30:44,746 [INFO] 127.0.0.1 - - [27/May/2025 14:30:44] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-27 14:32:59,784 [INFO] Client routes initialized
+2025-05-27 14:32:59,817 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-27 14:32:59,817 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-27 14:32:59,818 [INFO]  * Restarting with stat
+2025-05-27 14:33:00,169 [INFO] Client routes initialized
+2025-05-27 14:33:00,189 [WARNING]  * Debugger is active!
+2025-05-27 14:33:00,198 [INFO]  * Debugger PIN: 862-597-935
+2025-05-27 14:33:44,626 [INFO] 127.0.0.1 - - [27/May/2025 14:33:44] "OPTIONS /login HTTP/1.1" 200 -
+2025-05-27 14:33:44,635 [ERROR] Authentication error: no such table: clients
+2025-05-27 14:33:44,635 [WARNING] Login failed for user ID: 91M0Oe0e6ST58d0LY0A0I8af
+2025-05-27 14:33:44,635 [INFO] 127.0.0.1 - - [27/May/2025 14:33:44] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-05-27 14:33:45,536 [ERROR] Authentication error: no such table: clients
+2025-05-27 14:33:45,536 [WARNING] Login failed for user ID: 91M0Oe0e6ST58d0LY0A0I8af
+2025-05-27 14:33:45,536 [INFO] 127.0.0.1 - - [27/May/2025 14:33:45] "[31m[1mPOST /login HTTP/1.1[0m" 401 -

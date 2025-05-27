@@ -71,7 +71,7 @@ export default function OffersPage() {
     const fetchOffers = async () => {
       try {
         setIsLoading(true)
-        const response = await axios.get<OffersResponse>('http://20.185.231.218:5000/user/offers', {
+        const response = await axios.get<OffersResponse>('http://127.0.0.1:5000/user/offers', {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
           },

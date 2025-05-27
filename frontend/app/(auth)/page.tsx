@@ -27,7 +27,7 @@ export default function LoginPage() {
       }
 
       // Use axios to call your backend API
-      const response = await axios.post('http://20.185.231.218:5000/login', payload)
+      const response = await axios.post('http://127.0.0.1:5000/login', payload)
 
       // Store the token and user info
       localStorage.setItem("accessToken", response.data.access_token)

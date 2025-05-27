@@ -400,7 +400,7 @@ export default function DashboardPage() {
       // Try to fetch real user data
       setIsLoading(true)
       try {
-        const response = await axios.get("http://20.185.231.218:5000/user/profile", {
+        const response = await axios.get("http://127.0.0.1:5000/user/profile", {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
           },
@@ -444,7 +444,7 @@ export default function DashboardPage() {
     // Add this new function to fetch offers
     const fetchOffers = async () => {
       try {
-        const response = await axios.get<OffersResponse>("http://20.185.231.218:5000/user/offers", {
+        const response = await axios.get<OffersResponse>("http://127.0.0.1:5000/user/offers", {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
           },

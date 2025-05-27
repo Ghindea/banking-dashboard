@@ -244,7 +244,7 @@ export default function LoanApplicationPage() {
       console.log("Sending mortgage calculation request:", payload)
 
       // Call the backend API
-      const response = await fetch("http://20.185.231.218:5000/calculate-mortgage", {
+      const response = await fetch("http://127.0.0.1:5000/calculate-mortgage", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -241,7 +241,7 @@ export default function AccountsPage() {
 
       setIsLoading(true)
       try {
-        const response = await axios.get("http://20.185.231.218:5000/user/profile", {
+        const response = await axios.get("http://127.0.0.1:5000/user/profile", {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
           },
